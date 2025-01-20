@@ -1,0 +1,43 @@
+.canva {
+  border: 1px solid #383838;
+}
+
+.section {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-self: start;
+  padding:  50px;
+  gap: 50px;
+}
+
+.stack {
+  width: 25%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 30px;
+  list-style: none;
+}
+
+.droppable {
+  width: 60%;
+  padding: 60px;
+  border: #383838 1px solid;
+}
+
+.components {
+  background-color: #FFFFFF;
+  padding: 50px 25px;
+  gap: 12px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

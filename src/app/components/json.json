@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "canvasConfig":{
+      "name": "File Name",
+      "date": "2025-01-18 09:23:28",
+      "autor": "Carlos Solis CM"
+  },
+  "masterContainer":{
+      "isMarkupLCode": true,
+      "headerId": "header-01",
+      "bodyId": "body-01",
+      "footerId": "footer-01",
+      "boxAzulId": "box-azul-01" 
+  },
+  "header":{
+      "esProps":{},
+      "enProps":{},
+      "ptProps":{},
+      "frProps":{}
+  },
+  "boxAzul":{
+      "components": [
+                  {   
+                      "componentId": "component-00",
+                      "component": "Alert",
+                      "esProps":{},
+                      "enProps":{},
+                      "ptProps":{},
+                      "frProps":{}
+                  }
+              ]
+  },
+  "body":{
+      "sectionComponents":[
+          {
+              "sectionComponentsId": "section-01",
+              "components": [
+                  {   
+                      "componentId": "component-00",
+                      "component": "Alert",
+                      "esProps":{},
+                      "enProps":{},
+                      "ptProps":{},
+                      "frProps":{}
+                  }
+              ]
+          }
+      ]
+  },
+  "footer":{
+      "esProps":{},
+      "enProps":{},
+      "ptProps":{},
+      "frProps":{}
+  }
+}
