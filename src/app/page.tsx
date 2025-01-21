@@ -35,6 +35,15 @@ export default function Home() {
     "Footer",
   ];
 
+
+const handleDeviceClick = (device: string) => {
+  console.log(device);
+}
+
+const handleLanguageClick = (language: string) => {
+  console.log(language);
+}
+
   return (
     <Box
       sx={{
@@ -45,7 +54,7 @@ export default function Home() {
         backgroundColor: "#f5f5f5",
       }}
     >
-      <Box sx={{backgroundColor: "#0032a0", width:"100%", display:"flex", gap: "10px", justifyContent: "space-between", paddingX:"50px", paddingY:"30px"}}>
+      <Box component="header" sx={{backgroundColor: "#0032a0", width:"100%", display:"flex", gap: "10px", justifyContent: "space-between", paddingX:"50px", paddingY:"30px"}}>
         <Image src="https://www.copaair.com/webassets/images/copa-logo-white.png" alt="Copa Logo" width={200} height={40} />
         <Typography variant="h4" color="white" sx={{textAlign:"center", flex: 1}}>
           Welcome to Notification Template Builder!!
@@ -76,6 +85,7 @@ export default function Home() {
         </Box>
         <Box sx={{ width: "75%" }}>
           <Box
+            component="nav"
             sx={{
               display: "flex",
               justifyContent: "space-between",
@@ -84,8 +94,8 @@ export default function Home() {
           >
             <Typography variant="h6">Droppable Area</Typography>
             <Box sx={{ display: "flex", gap: "60px" }}>
-              <MultiButton buttons={["ES", "EN", "PT", "FR"]} />
-              <MultiButton buttons={["Desktop", "Mobile"]} />
+              <MultiButton buttons={["ES", "EN", "PT", "FR"]} onClick={handleLanguageClick}/>
+              <MultiButton buttons={["Desktop", "Mobile"]} onClick={handleDeviceClick}/>
             </Box>
             <Button variant="contained" color="success">
               Generate HTML
