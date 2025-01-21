@@ -1,6 +1,6 @@
 interface MultiButtonProps {
   buttons: string[],
-  onClick?: (value: string) => void;
+  // onClick: (value: string) => void;
 }
 
 export default MultiButtonProps;

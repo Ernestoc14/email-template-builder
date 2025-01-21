@@ -35,15 +35,6 @@ export default function Home() {
     "Footer",
   ];
 
-
-const handleDeviceClick = (device: string) => {
-  console.log(device);
-}
-
-const handleLanguageClick = (language: string) => {
-  console.log(language);
-}
-
   return (
     <Box
       sx={{
@@ -94,8 +85,8 @@ const handleLanguageClick = (language: string) => {
           >
             <Typography variant="h6">Droppable Area</Typography>
             <Box sx={{ display: "flex", gap: "60px" }}>
-              <MultiButton buttons={["ES", "EN", "PT", "FR"]} onClick={handleLanguageClick}/>
-              <MultiButton buttons={["Desktop", "Mobile"]} onClick={handleDeviceClick}/>
+              <MultiButton buttons={["ES", "EN", "PT", "FR"]} />
+              <MultiButton buttons={["Desktop", "Mobile"]} />
             </Box>
             <Button variant="contained" color="success">
               Generate HTML
