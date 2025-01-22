@@ -6,7 +6,7 @@ export const MultiButton = (props: MultiButtonProps) => {
     <Box display="flex" flexWrap="wrap" gap={1}>
       {props.buttons.map((button, index) => (
         <Button
-          onClick={() => console.log(`Button ${button} clicked`)}
+          onClick={() => props.onClick(button)}
           key={index}
           variant="contained"
           sx={{

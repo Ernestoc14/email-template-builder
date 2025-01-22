@@ -6,6 +6,7 @@ import { Box, Button, List, Typography } from "@mui/material";
 import { ListItemComponent } from "./components/ListItemComponent/ListItemComponent";
 import { MultiButton } from "./components/MultiButton/MultiButton";
 import Image from "next/image";
+import { WelcomeModal } from "./components/WelcomeModal/WelcomeModal";
 
 export default function Home() {
   // Call Components File to render
@@ -35,6 +36,24 @@ export default function Home() {
     "Footer",
   ];
 
+  // MultiButton Functions
+  const handleLanguageClick = (value: string) => {
+    console.log("Language Clicked: ", value);
+  }
+
+  const handleDeviceClick = (value: string) => {
+    console.log("Device Clicked: ", value);
+  }
+
+  // Welcome Modal Functions
+  const handleCreateTemplateClick = (value: string) => {
+    console.log(value, "Clicked");
+  }
+
+  const handleHistoryClick = (value: string) => {
+    console.log(value, "Clicked");
+  }
+
   return (
     <Box
       sx={{
@@ -62,7 +81,7 @@ export default function Home() {
         }}
         component="section"
       >
-        <Box sx={{ width: "20%" }}>
+        <Box sx={{ width: "20%" }} component="aside">
           <Typography variant="h6" sx={{ paddingBottom: "20px" }}>
             Lista de Componentes
           </Typography>
@@ -85,8 +104,8 @@ export default function Home() {
           >
             <Typography variant="h6">Droppable Area</Typography>
             <Box sx={{ display: "flex", gap: "60px" }}>
-              <MultiButton buttons={["ES", "EN", "PT", "FR"]} />
-              <MultiButton buttons={["Desktop", "Mobile"]} />
+              <MultiButton buttons={["ES", "EN", "PT", "FR"]} onClick={handleLanguageClick} />
+              <MultiButton buttons={["Desktop", "Mobile"]} onClick={handleDeviceClick}/>
             </Box>
             <Button variant="contained" color="success">
               Generate HTML
@@ -98,6 +117,7 @@ export default function Home() {
           </Box>
         </Box>
       </Box>
+      <WelcomeModal open={true} />
     </Box>
   );
 }
