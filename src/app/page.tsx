@@ -37,6 +37,8 @@ export default function Home() {
 
   // WelcomeModal Functions
   const handleWelcomeModalClose = () => setIsWelcomeModalOpen(false)
+  const handleCreateTemplateModalClose = () => setIsCreateNewTemplateModalOpen(false)
+  const handleHistoryTemplateModalClose = () => setIsHistoryTemplateModalOpen(false)
   const handleWelcomeModalClick = (value: string) => {
     if(value === "Create a New Template") {
       setIsCreateNewTemplateModalOpen(true)
@@ -44,8 +46,11 @@ export default function Home() {
       setIsHistoryTemplateModalOpen(true)
     }
   }
-  const handleCreateTemplateModalClose = () => setIsCreateNewTemplateModalOpen(false)
-  const handleHistoryTemplateModalClose = () => setIsHistoryTemplateModalOpen(false)
+  const handleReopenWelcomeModal = () => {
+    setIsCreateNewTemplateModalOpen(false)
+    setIsHistoryTemplateModalOpen(false)
+    setIsWelcomeModalOpen(true)
+  }
   return (
     <Box
       sx={{
@@ -110,8 +115,8 @@ export default function Home() {
         </Box>
       </Box>
       <WelcomeModal open={isWelcomeModalOpen} onClose={handleWelcomeModalClose} onOptionClick={handleWelcomeModalClick}/>
-      <CreateNewTemplateModal open={isCreateNewTemplateModalOpen} onClose={handleCreateTemplateModalClose} />
-      <HistoryTemplateModal open={isHistoryTemplateModalOpen} onClose={handleHistoryTemplateModalClose} />
+      <CreateNewTemplateModal open={isCreateNewTemplateModalOpen} onClose={handleCreateTemplateModalClose} goBack={handleReopenWelcomeModal}/>
+      <HistoryTemplateModal open={isHistoryTemplateModalOpen} onClose={handleHistoryTemplateModalClose} goBack={handleReopenWelcomeModal}/>
     </Box>
   );
 }
