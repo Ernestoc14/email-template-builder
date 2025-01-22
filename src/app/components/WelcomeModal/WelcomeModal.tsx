@@ -1,12 +1,14 @@
 import WelcomeModalProps from "./types";
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import { MultiButton } from "../MultiButton/MultiButton";
 
-const handleModalClick = (value: string) => {
-  console.log(value, "Clicked");
-};
-
 export const WelcomeModal = (props: WelcomeModalProps) => {
+  const handleModalClick = (value: string) => {
+    props.onClose();
+    props.onOptionClick(value);
+    console.log("Welcome Modal Clicked: ", value);
+  };
+
   return (
     <Modal open={props.open}>
       <Box

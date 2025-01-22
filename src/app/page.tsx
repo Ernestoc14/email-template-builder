@@ -1,28 +1,18 @@
 "use client";
 import styles from "./page.module.css";
-import PaxCards from "./htmlComponents/pax-card/PaxCards";
-import TitleBoxs from "./htmlComponents/title-box/TItleBoxs";
+import { useState } from "react";
+import Image from "next/image";
 import { Box, Button, List, Typography } from "@mui/material";
 import { ListItemComponent } from "./components/ListItemComponent/ListItemComponent";
 import { MultiButton } from "./components/MultiButton/MultiButton";
-import Image from "next/image";
 import { WelcomeModal } from "./components/WelcomeModal/WelcomeModal";
+import { CreateNewTemplateModal } from "./components/CreateNewTemplateModal/CreateNewTemplateModal";
+import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryTemplateModal";
 
 export default function Home() {
-  // Call Components File to render
-  const PaxCard =
-    PaxCards({
-      variant: "simple",
-    }) || "<div>NO VARIANT</div>";
-
-  // Variants: "simple" | "wci"
-
-  const TitleBox = TitleBoxs({
-    variant: "titleBox",
-    title: "Disfruta nuestra con COPA",
-    subtitle: "Conoce la comida y mejor aerolínea de América Latina",
-  });
-
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
+  const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] = useState(false);
+  const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] = useState(false);
   const Components = [
     "Headers",
     "Title Box",
@@ -45,15 +35,17 @@ export default function Home() {
     console.log("Device Clicked: ", value);
   }
 
-  // Welcome Modal Functions
-  const handleCreateTemplateClick = (value: string) => {
-    console.log(value, "Clicked");
+  // WelcomeModal Functions
+  const handleWelcomeModalClose = () => setIsWelcomeModalOpen(false)
+  const handleWelcomeModalClick = (value: string) => {
+    if(value === "Create a New Template") {
+      setIsCreateNewTemplateModalOpen(true)
+    } else if(value === "History Template") {
+      setIsHistoryTemplateModalOpen(true)
+    }
   }
-
-  const handleHistoryClick = (value: string) => {
-    console.log(value, "Clicked");
-  }
-
+  const handleCreateTemplateModalClose = () => setIsCreateNewTemplateModalOpen(false)
+  const handleHistoryTemplateModalClose = () => setIsHistoryTemplateModalOpen(false)
   return (
     <Box
       sx={{
@@ -117,7 +109,9 @@ export default function Home() {
           </Box>
         </Box>
       </Box>
-      <WelcomeModal open={true} />
+      <WelcomeModal open={isWelcomeModalOpen} onClose={handleWelcomeModalClose} onOptionClick={handleWelcomeModalClick}/>
+      <CreateNewTemplateModal open={isCreateNewTemplateModalOpen} onClose={handleCreateTemplateModalClose} />
+      <HistoryTemplateModal open={isHistoryTemplateModalOpen} onClose={handleHistoryTemplateModalClose} />
     </Box>
   );
 }

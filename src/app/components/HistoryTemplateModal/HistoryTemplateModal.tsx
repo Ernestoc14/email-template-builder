@@ -1,12 +1,7 @@
-import { Box, Input, Modal, Typography } from "@mui/material";
-import { CreateNewTemplateModalProps } from "./types";
+import { Box, Modal, Typography } from "@mui/material";
+import { HistoryTemplateModalProps } from "./types";
 
-export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Template Name Submitted");
-  };
+export const HistoryTemplateModal = (props: HistoryTemplateModalProps) => {
 
   return (
     <Modal open={props.open}>
@@ -32,14 +27,8 @@ export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
           }}
         >
           <Typography variant="h4" sx={{ textAlign: "center", padding: "20px" }}>
-            Create New Template
+            History Template
           </Typography>
-          <form onSubmit={handleSubmit}>
-            <Input
-              placeholder="Template Name"
-              sx={{ width: "100%", margin: "10px 0" }}
-            />
-          </form>
         </Box>
       </Box>
     </Modal>
