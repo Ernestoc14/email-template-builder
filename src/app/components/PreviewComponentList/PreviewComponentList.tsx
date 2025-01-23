@@ -1,49 +1,65 @@
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Popover, Typography } from "@mui/material";
 import { PreviewComponentProps } from "./types";
 import ComponentVariants from "@/app/types/Components";
 
-const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, component }) => {
-  const variants = ComponentVariants[component];
+const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, component, anchorEl }) => {
+  const variants = ComponentVariants[component] || [];
   return (
-    <Modal 
-    open={open} onClose={onClose}
+    <Popover
+      open={open}
+      onClose={onClose}
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "left",
+      }}
+      sx= {{
+          padding: 2, 
+          borderRadius: 2,
+        }}
     >
       <Box
         sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
           bgcolor: "background.paper",
           borderRadius: 1,
           boxShadow: 24,
           padding: 2,
-          width: 500,
+          width: "100%",
+          height: "100%",
         }}
       >
         <Typography variant="h6" component="h1">
           Variantes del Componente: {component}
         </Typography>
         <Box sx={{ maxHeight: "400px", overflowY: "auto" }}>
-          {variants.map((variant, index) => (
-            <Box key={index} sx={{ padding: "10px" }}>
-              {variant}
-            </Box>
-          ))}
+          {variants.length > 0 ? (
+            variants.map((variant, index) => (
+              <Box
+                key={index}
+                sx={{
+                  padding: 1,
+                  width: "450px",
+                  "&:last-child": { borderBottom: "none" },
+                  cursor: "pointer",
+                  "&:hover": { backgroundColor: "#f5f5f5" },
+                }}
+              >
+                {variant}
+              </Box>
+            ))
+          ) : (
+            <Typography variant="body2" color="textSecondary">
+              No hay variantes disponibles.
+            </Typography>
+          )}
         </Box>
       </Box>
-    </Modal>
+    </Popover>
   );
 };
-
-// Hacer un .map del componente deseado a Preview para mostrarlo en el modal 
-// Utililzar variables fijas que contengan las variantes del componente
-
-
-// Ejp: Headers -> variant: "copaBothLogo"
-// Ejp: Headers -> variant: "reservationCode"
-//{Headers.map((cmp, index) => (
-//  <PreviewComponent key={index} variant={cmp.variant} />
-//))} 
 
 export default PreviewComponent;

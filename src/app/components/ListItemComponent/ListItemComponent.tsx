@@ -1,15 +1,22 @@
 import { Box, IconButton, ListItem, ListItemText } from "@mui/material";
 import { ListItemComponentProps } from "./types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PreviewComponent from "../PreviewComponentList/PreviewComponentList";
 import ComponentVariants from "@/app/types/Components";
 
 export const ListItemComponent = (props: ListItemComponentProps) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false)
-  const [selectedVariants, setSelectedVariants] = useState<keyof typeof ComponentVariants>("Headers")
-  const handleOpenPreview = () => {
+  const [selectedVariants, setSelectedVariants] = useState<keyof typeof ComponentVariants>("")
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if(ComponentVariants.hasOwnProperty(props.primary)) {
+      setSelectedVariants(props.primary as keyof typeof ComponentVariants)
+    }
+  }, [props.primary])
+  const handleOpenPreview = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
     console.log(props.primary)  
-    setSelectedVariants(props.primary as keyof typeof ComponentVariants)
     setIsPreviewOpen(true);
   }
 
@@ -24,7 +31,7 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
       >
         <ListItemText primary={props.primary} />
         <IconButton
-          onClick={handleOpenPreview}
+          onClick={(event) => handleOpenPreview(event)}
           sx={{
             color: "#0032a0",
             "&:hover": { backgroundColor: "#e0e7ff", color: "#00227b" },
@@ -61,12 +68,13 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
             />
           </svg>
         </IconButton>
-      </ListItem>
+        </ListItem>
       <PreviewComponent
         open={isPreviewOpen}
+        anchorEl={anchorEl}
         component={selectedVariants}
         onClose={() => setIsPreviewOpen(false)}
-      />
+        />
     </Box>
   );
 };

@@ -1,9 +1,9 @@
 import { HeadersProps } from "./types";
 
 const Headers = (props: HeadersProps) => {
-    let htmlHeader = ""
-    if(props.variant === "copaBothLogo") {
-      htmlHeader = `<table align="center" cellpadding="0" cellspacing="0" border="0"
+  let htmlHeader = "";
+  if (props.variant === "copaBothLogo") {
+    htmlHeader = `<table align="center" cellpadding="0" cellspacing="0" border="0"
     style="margin: 0;width: 100%; background-color: #0032A0;border-collapse: collapse;border-top-left-radius: 8px;border-top-right-radius: 8px; ">
     <tr>
       <td style=" font-size: 14px; padding: 32px 32px 0 32px" class="header-logo-padding">
@@ -34,13 +34,19 @@ const Headers = (props: HeadersProps) => {
         <!-- End Header Cmp -->
       </td>
     </tr>
-  </table>`
-    } else if(props.variant === "reservationCode") {
-      htmlHeader = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
+  </table>`;
+  } else if (props.variant === "reservationCode") {
+    htmlHeader = `<table align="center" cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%; background-color: #0032A0;border-collapse: collapse;border-top-left-radius: 8px;border-top-right-radius: 8px; ">
+    <tr>
+      <td style=" font-size: 14px; padding: 32px 32px 0 32px" class="logo-header-padding">
+        <!-- Start Header Cmp -->
+        <!-- Copy this code into Master Container -->
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
           <tbody>
             <tr>
               <td style="width: 50%; height: 40px;">
-                <img height="auto" src="${props.copaLogoURL}"
+                <img height="auto" src="https://www.copaair.com/webassets/images/copa-logo-white.png"
                   style="border: 0;display: block;outline: none;text-decoration: none;width: 176px;height: auto;line-height: 100%;"
                   alt="Copa Logo" class="copa-logo-width" width="176">
               </td>
@@ -55,7 +61,7 @@ const Headers = (props: HeadersProps) => {
                   <tr>
                     <td align="right"
                       style="font-size: 16px; line-height: 20px; font-style: normal; font-weight: 600; font-family: Gilroy, Arial, Helvetica, sans-serif; ">
-                      ${props.reservationCode}
+                      EBXGHT
                     </td>
                   </tr>
                 </table>
@@ -68,13 +74,23 @@ const Headers = (props: HeadersProps) => {
               </td>
             </tr>
           </tbody>
-        </table>`
-    } else if(props.variant === "copaSingleLogo") {
-      htmlHeader = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
+        </table>
+        <!-- End Header Cmp -->
+      </td>
+    </tr>
+  </table>`;
+  } else if (props.variant === "copaSingleLogo") {
+    htmlHeader = `<table align="center" cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%; background-color: #0032A0;border-collapse: collapse;border-top-left-radius: 8px;border-top-right-radius: 8px; ">
+    <tr>
+      <td style=" font-size: 14px; padding: 32px 32px 0 32px" class="header-logo-padding">
+        <!-- Start Header Cmp -->
+        <!-- Copy this code into Master Container -->
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
           <tbody>
             <tr>
               <td style="width: 100%; height:40px;">
-                <img height="auto" src="${props.copaLogoURL}"
+                <img height="auto" src="https://www.copaair.com/webassets/images/copa-logo-white.png"
                   style="border: 0;display: block;outline: none;text-decoration: none;width: 176px;height: auto;line-height: 100%;"
                   alt="Copa Logo" class="copa-logo-width" width="176">
               </td>
@@ -86,9 +102,13 @@ const Headers = (props: HeadersProps) => {
               </td>
             </tr>
           </tbody>
-        </table>`
-    }
-  return <div dangerouslySetInnerHTML={{ __html: htmlHeader }} />
-}
+        </table>
+        <!-- End Header Cmp -->
+      </td>
+    </tr>
+  </table>`;
+  }
+  return <div dangerouslySetInnerHTML={{ __html: htmlHeader }} />;
+};
 
 export default Headers;

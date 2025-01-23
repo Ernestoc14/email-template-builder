@@ -29,6 +29,7 @@ const ComponentVariants = {
     Footers({ variant: "social" }),
     Footers({ variant: "traditional"}),
   ],
+  "":[],
 } as const;
 
 // components.ts (o el archivo donde tienes ComponentVariants)
