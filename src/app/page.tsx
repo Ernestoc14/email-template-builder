@@ -8,23 +8,12 @@ import { MultiButton } from "./components/MultiButton/MultiButton";
 import { WelcomeModal } from "./components/WelcomeModal/WelcomeModal";
 import { CreateNewTemplateModal } from "./components/CreateNewTemplateModal/CreateNewTemplateModal";
 import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryTemplateModal";
+import { ComponentsList } from "./types/Components";
 
 export default function Home() {
-  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] = useState(false);
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] = useState(false);
-  const Components = [
-    "Headers",
-    "Title Box",
-    "Section Container",
-    "Buttons",
-    "Infobar",
-    "Alerts",
-    "Banners",
-    "Itinerary Cards",
-    "Pax Cards",
-    "Footer",
-  ];
 
   // MultiButton Functions
   const handleLanguageClick = (value: string) => {
@@ -83,9 +72,9 @@ export default function Home() {
             Lista de Componentes
           </Typography>
           <Box className={styles.canva}>
-            <List component="menu">
-              {Components.map((component, index) => (
-                <ListItemComponent key={index} primary={component} />
+            <List component="menu" sx={{padding: "0", margin: "0",}}>
+              {ComponentsList.map((component, index) => (
+                <ListItemComponent key={index} primary={component} isLast={index === ComponentsList.length - 1}/>
               ))}
             </List>
           </Box>

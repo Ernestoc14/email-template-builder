@@ -1,20 +1,24 @@
 import { HeadersProps } from "./types";
 
 const Headers = (props: HeadersProps) => {
-  const HeaderCmp = (props: HeadersProps) => {
-    let bothLogoHeaderCmp, reservationCodeHeaderCmp, singleLogoHeaderCmp = ""
-
+    let htmlHeader = ""
     if(props.variant === "copaBothLogo") {
-      bothLogoHeaderCmp = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
+      htmlHeader = `<table align="center" cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%; background-color: #0032A0;border-collapse: collapse;border-top-left-radius: 8px;border-top-right-radius: 8px; ">
+    <tr>
+      <td style=" font-size: 14px; padding: 32px 32px 0 32px" class="header-logo-padding">
+        <!-- Start Header Cmp -->
+        <!-- Copy this code into Master Container -->
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
           <tbody>
             <tr>
               <td style="width: 50%; height:40px;">
-                <img height="auto" src="${props.copaLogoURL}"
+                <img height="auto" src="https://www.copaair.com/webassets/images/copa-logo-white.png"
                   style="border: 0;display: block;outline: none;text-decoration: none;width: 176px;height: auto;line-height: 100%;"
                   alt="Copa Logo" class="copa-logo-width" width="176">
               </td>
               <td style="width: 50%;" align="right">
-                <img height="auto" src="${props.aditionalLogoURL}"
+                <img height="auto" src="https://www.copaair.com/assets/connectMilesLogo.png"
                   style="border: 0;display: block;outline: none;text-decoration: none;width: 159px;height: auto;line-height: 100%; padding-bottom: 8px;"
                   alt="ConnectMiles Logo" class="connectmiles-logo-width" width="159">
               </td>
@@ -26,10 +30,13 @@ const Headers = (props: HeadersProps) => {
               </td>
             </tr>
           </tbody>
-        </table>`
-      return bothLogoHeaderCmp
+        </table>
+        <!-- End Header Cmp -->
+      </td>
+    </tr>
+  </table>`
     } else if(props.variant === "reservationCode") {
-      reservationCodeHeaderCmp = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
+      htmlHeader = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
           <tbody>
             <tr>
               <td style="width: 50%; height: 40px;">
@@ -62,9 +69,8 @@ const Headers = (props: HeadersProps) => {
             </tr>
           </tbody>
         </table>`
-      return reservationCodeHeaderCmp
     } else if(props.variant === "copaSingleLogo") {
-      singleLogoHeaderCmp = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
+      htmlHeader = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
           <tbody>
             <tr>
               <td style="width: 100%; height:40px;">
@@ -81,10 +87,8 @@ const Headers = (props: HeadersProps) => {
             </tr>
           </tbody>
         </table>`
-      return singleLogoHeaderCmp
     }
-  }
-  return HeaderCmp(props)
+  return <div dangerouslySetInnerHTML={{ __html: htmlHeader }} />
 }
 
 export default Headers;
