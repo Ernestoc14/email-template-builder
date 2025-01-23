@@ -42,7 +42,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, comp
                 key={index}
                 sx={{
                   padding: 1,
-                  width: "450px",
+                  width: "650px",
                   "&:last-child": { borderBottom: "none" },
                   cursor: "pointer",
                   "&:hover": { backgroundColor: "#a5a5a5" },

@@ -67,7 +67,7 @@ export default function Home() {
         }}
         component="section"
       >
-        <Box sx={{ width: "20%" }} component="aside">
+        <Box sx={{ width: "15%" }} component="aside">
           <Typography variant="h6" sx={{ paddingBottom: "20px" }}>
             Lista de Componentes
           </Typography>
@@ -79,7 +79,7 @@ export default function Home() {
             </List>
           </Box>
         </Box>
-        <Box sx={{ width: "75%" }}>
+        <Box sx={{ width: "80%" }}>
           <Box
             component="nav"
             sx={{
