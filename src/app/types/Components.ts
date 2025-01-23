@@ -22,8 +22,17 @@ const ComponentVariants = {
     Headers({ variant: "copaBothLogo", copaLogoURL: "url/to/logo3.png", aditionalLogoURL: "url/to/logo4.png" }),
   ],
   Alerts: [
-    Alerts({ variants: "inline", type: "error", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
     Alerts({ variants: "content", type: "error", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variants: "content", type: "info", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variants: "content", type: "invert", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variants: "content", type: "warning", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variants: "inline", type: "changes", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variants: "inline", type: "error", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variants: "inline", type: "inverted", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variants: "inline", type: "main", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variants: "inline", type: "success", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variants: "inline", type: "transparent", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variants: "inline", type: "warning", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
   ],
   Footers: [
     Footers({ variant: "social" }),

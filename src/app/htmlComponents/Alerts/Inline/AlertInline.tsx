@@ -1,11 +1,9 @@
 import { AlertsProps } from "../types";
 
-const AlertInline = (props: AlertsProps) => {
-  const AlertInlineCpm = (props: AlertsProps) => {
-    let changesAlertCmp, errorAlertCmp, invertedAlertCmp, mainAlertCmp, successAlertCmp, transparentAlertCmp, warningAlertCmp = "";
-    switch (props.type) {
-      case "changes":
-        changesAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
+const AlertsInline = (props: AlertsProps) => {
+  let htmlAlert = "";
+  if (props.type === "changes") {
+    htmlAlert = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
           <tr>
             <td class="remove-styles-mso" style="mso-border-alt: none; padding: 8px 16px; background-color:#B15C37; border-radius: 4px">
               <!--[if mso]>
@@ -46,11 +44,9 @@ const AlertInline = (props: AlertsProps) => {
               <![endif]-->
             </td>
           </tr>
-        </table>`
-        return changesAlertCmp;
-
-      case "error":
-        errorAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
+        </table>`;
+  } else if (props.type === "error") {
+    htmlAlert = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
           <tr>
             <td class="remove-styles-mso" style="mso-border-alt: none; padding: 8px 16px; background-color: #D52525; border-radius: 4px">
               <!--[if mso]>
@@ -91,11 +87,9 @@ const AlertInline = (props: AlertsProps) => {
               <![endif]-->
             </td>
           </tr>
-        </table>`
-        return errorAlertCmp;
-
-      case "inverted":
-        invertedAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
+        </table>`;
+  } else if (props.type === "inverted") {
+    htmlAlert = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
           <tr>
             <td class="remove-styles-mso" style="mso-border-alt: none; padding: 8px 16px; background-color: #0E68FF; border-radius: 4px">
               <!--[if mso]>
@@ -136,11 +130,9 @@ const AlertInline = (props: AlertsProps) => {
               <![endif]-->
             </td>
           </tr>
-        </table>`
-        return invertedAlertCmp;
-
-      case "main":
-        mainAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
+        </table>`;
+  } else if (props.type === "main") {
+    htmlAlert = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
           <tr>
             <td class="remove-styles-mso" style="mso-border-alt: none; padding: 8px 16px; background-color: #001A66; border-radius: 4px">
               <!--[if mso]>
@@ -181,11 +173,9 @@ const AlertInline = (props: AlertsProps) => {
               <![endif]-->
             </td>
           </tr>
-        </table>`
-        return mainAlertCmp;
-
-      case "success":
-        successAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
+        </table>`;
+  } else if (props.type === "success") {
+    htmlAlert = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
           <tr>
             <td class="remove-styles-mso" style="mso-border-alt: none; padding: 8px 16px; background-color: #0C7E3E; border-radius: 4px">
               <!--[if mso]>
@@ -226,11 +216,9 @@ const AlertInline = (props: AlertsProps) => {
               <![endif]-->
             </td>
           </tr>
-        </table>`
-        return successAlertCmp;
-
-      case "transparent":
-        transparentAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%;">
+        </table>`;
+  } else if (props.type === "transparent") {
+    htmlAlert = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%;">
           <tr>
             <td style="padding: 8px 16px 8px 0; background-color: transparent; border-radius: 4px">
               <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
@@ -247,11 +235,9 @@ const AlertInline = (props: AlertsProps) => {
               </table>
             </td>
           </tr>
-        </table>`
-        return transparentAlertCmp;
-
-      case "warning":
-        warningAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
+        </table>`;
+  } else if (props.type === "warning") {
+    htmlAlert = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
           <tr>
             <td class="remove-styles-mso" style="mso-border-alt: none; padding: 8px 16px; background-color: #FFC82C; border-radius: 4px">
               <!--[if mso]>
@@ -292,58 +278,9 @@ const AlertInline = (props: AlertsProps) => {
               <![endif]-->
             </td>
           </tr>
-        </table>`
-        return warningAlertCmp;
-
-      // same as info
-      default:
-        mainAlertCmp = `<table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
-          <tr>
-            <td class="remove-styles-mso" style="mso-border-alt: none; padding: 8px 16px; background-color: #001A66; border-radius: 4px">
-              <!--[if mso]>
-              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" 
-                  xmlns:w="urn:schemas-microsoft-com:office:word" style="width:792px;height:40px;v-text-anchor:middle;" 
-                  arcsize="10%" stroked="false" fillcolor="#001A66">
-                <w:anchorlock/>
-                <v:textbox inset="0,0,0,0" style="v-text-anchor:middle;">
-                <center style="mso-line-height-rule:exactly;v-text-anchor:middle;">
-              <![endif]-->
-                <table align="center" border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
-                  <tr>
-                    <!--[if mso]>
-                    <td style="padding: 8px 16px;">
-                      <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
-                        <tr>
-                    <![endif]-->
-                          <td style="padding-right: 8px;vertical-align:top;width:20px;max-width:20px" class="mso-padding">
-                            <img src="https://www.copaair.com/assets/info-circle-white.png"
-                              style="width: 20px; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; vertical-align: top;"
-                              width="20" alt="information">
-                          </td>
-                          <td
-                            style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
-                          </td>
-                        <!--[if mso]>
-                        </tr>
-                      </table>
-                    </td>
-                    <![endif]-->
-                  </tr>
-                </table>
-              <!--[if mso]>
-                </center>
-                :textbox>
-                </v:roundrect>              
-              <![endif]-->
-            </td>
-          </tr>
-        </table>`
-        return mainAlertCmp;
-    }
-  };
-
-  return AlertInlineCpm(props);
+        </table>`;
+  }
+  return <div dangerouslySetInnerHTML={{ __html: htmlAlert }} />;
 };
 
-export default AlertInline;
+export default AlertsInline;
