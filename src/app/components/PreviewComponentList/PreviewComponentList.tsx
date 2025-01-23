@@ -45,7 +45,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, comp
                   width: "450px",
                   "&:last-child": { borderBottom: "none" },
                   cursor: "pointer",
-                  "&:hover": { backgroundColor: "#f5f5f5" },
+                  "&:hover": { backgroundColor: "#a5a5a5" },
                 }}
               >
                 {variant}

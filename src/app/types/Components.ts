@@ -12,7 +12,7 @@ export const ComponentsList = [
   "Banners",
   "Itinerary Cards",
   "Pax Cards",
-  "Footer",
+  "Footers",
 ];
 
 const ComponentVariants = {
@@ -40,22 +40,5 @@ const ComponentVariants = {
   ],
   "":[],
 } as const;
-
-// components.ts (o el archivo donde tienes ComponentVariants)
-// const ComponentVariants = {
-//   Headers: [
-//     { variant: "copaSingleLogo", copaLogoURL: "url/to/logo1.png" },
-//     { variant: "reservationCode", copaLogoURL: "url/to/logo2.png", reservationCode: "ABC123" },
-//     { variant: "copaBothLogo", copaLogoURL: "url/to/logo3.png", aditionalLogoURL: "url/to/logo4.png" },
-//   ],
-//   Alerts: [
-//     { variant: "inline", type: "error", iconURL: "url/to/icon.png", alertText: "Error Alert" },
-//     { variant: "content", type: "error", iconURL: "url/to/icon.png", alertText: "Error Alert" },
-//   ],
-//   Footers: [
-//     { variant: "social" },
-//     { variant: "traditional" },
-//   ],
-// } as const;
 
 export default ComponentVariants;

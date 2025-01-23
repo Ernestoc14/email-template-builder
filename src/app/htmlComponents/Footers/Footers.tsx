@@ -1,10 +1,9 @@
 import { FootersProps } from "./types";
 
 const Footers = (props: FootersProps) => {
-  const FooterCmp = (props: FootersProps) => {
-    let socialFooterCmp, traditionalFooterCmp = "";
+    let htmlFooter = "";
     if(props.variant === "social"){
-      socialFooterCmp = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+      htmlFooter = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
           <tr>
             <!-- Start Footer Cmp -->
             <!--  Copy this code into Master Container-->
@@ -75,7 +74,7 @@ const Footers = (props: FootersProps) => {
           </tr>
         </table>`
     } else if(props.variant === "traditional") {
-      traditionalFooterCmp = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+      htmlFooter = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
           <tr>
             <!-- Start Footer Cmp -->
             <!--  Copy this code into Master Container-->
@@ -114,9 +113,7 @@ const Footers = (props: FootersProps) => {
           </tr>
         </table>`
     }
-    return socialFooterCmp || traditionalFooterCmp;
-  }
-  return FooterCmp(props)
+  return <div dangerouslySetInnerHTML={{ __html: htmlFooter }} />;
 }
 
 export default Footers
