@@ -1,12 +1,12 @@
 export interface AlertContentProps {
-  variants: "content"
+  variant: "content"
   type: "error" | "info" | "invert" | "warning"
   iconURL: string
   alertText: string
 }
 
 export interface AlertInlineProps {
-  variants: "inline"
+  variant: "inline"
   type: "changes" | "error" | "inverted" | "main" | "success" | "transparent" | "warning"
   iconURL: string
   alertText: string

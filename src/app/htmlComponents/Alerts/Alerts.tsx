@@ -5,10 +5,10 @@ import { AlertsProps } from "./types";
 
 const Alerts = (props: AlertsProps): ReactElement => {
   let alertVariant: ReactElement = <></>
-  if (props.variants === "content") {
+  if (props.variant === "content") {
     alertVariant  = <AlertContent {...props} />
   } else {
-    if( props.variants === "inline") {
+    if( props.variant === "inline") {
       alertVariant = <AlertInline {...props} />
     }
   }

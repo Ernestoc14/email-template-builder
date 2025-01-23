@@ -2,6 +2,7 @@ import Headers from "../htmlComponents/Headers/Headers";
 import Alerts from "../htmlComponents/Alerts/Alerts";
 import Footers from "../htmlComponents/Footers/Footers";
 import Banners from "../htmlComponents/Banners/Banners";
+import Buttons from "../htmlComponents/Buttons/Buttons";
 
 export const ComponentsList = [
   "Headers",
@@ -18,20 +19,23 @@ export const ComponentsList = [
 
 const ComponentVariants = {
   Alerts: [
-    Alerts({ variants: "content", type: "error", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
-    Alerts({ variants: "content", type: "info", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
-    Alerts({ variants: "content", type: "invert", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
-    Alerts({ variants: "content", type: "warning", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
-    Alerts({ variants: "inline", type: "changes", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
-    Alerts({ variants: "inline", type: "error", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
-    Alerts({ variants: "inline", type: "inverted", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
-    Alerts({ variants: "inline", type: "main", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
-    Alerts({ variants: "inline", type: "success", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
-    Alerts({ variants: "inline", type: "transparent", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
-    Alerts({ variants: "inline", type: "warning", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variant: "content", type: "error", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variant: "content", type: "info", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variant: "content", type: "invert", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variant: "content", type: "warning", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variant: "inline", type: "changes", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variant: "inline", type: "error", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variant: "inline", type: "inverted", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variant: "inline", type: "main", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variant: "inline", type: "success", iconURL: "url/to/icon.png", alertText: "Error Alert" }),
+    Alerts({ variant: "inline", type: "transparent", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
+    Alerts({ variant: "inline", type: "warning", iconURL: "url/to/icon.png", alertText: "Warning Alert" }),
   ],
   Banners: [
     Banners({ variant: "image"}),
+  ],
+  Buttons: [
+    Buttons({ variant: "light"})
   ],
   Headers: [
     Headers({ variant: "copaSingleLogo", copaLogoURL: "url/to/logo1.png" }),
