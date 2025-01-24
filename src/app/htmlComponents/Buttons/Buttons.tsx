@@ -1,11 +1,9 @@
 import { ButtonsProps } from "./types";
 
 const Buttons = (props: ButtonsProps) => {
-  const ButtonCmp = (props: ButtonsProps) => {
-    let lightButtonCmp, linkButtonCmp, mainButtonCmp, outlineButtonCmp = "";
-    switch (props.variant) {
-      case "light":
-        lightButtonCmp = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #FFFFFF;">
+    let htmlButton = "";
+    if (props.variant === "light") {
+        htmlButton = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #FFFFFF;">
           <tr>
             <td>
                 <!--[if mso]>
@@ -24,10 +22,8 @@ const Buttons = (props: ButtonsProps) => {
             </td>
           </tr>
         </table>`
-        return lightButtonCmp;
-
-      case "link":
-        linkButtonCmp = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; color: #ffffff;">
+    } else if(props.variant === "link") {
+        htmlButton = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; color: #ffffff;">
             <tr>
               <td align="right" style="width: 50%;">
                 <!-- <p style="text-align: left; margin: 0; color: #0032a0; font-size: 12px; display: table;"> -->
@@ -44,10 +40,8 @@ const Buttons = (props: ButtonsProps) => {
               </td>
             </tr>
           </table>`
-        return linkButtonCmp;
-
-      case "main":
-        mainButtonCmp = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #FFFFFF;">
+    } else if(props.variant === "main") {
+        htmlButton = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #FFFFFF;">
           <tr>
             <td>
                 <!--[if mso]>
@@ -66,10 +60,8 @@ const Buttons = (props: ButtonsProps) => {
             </td>
           </tr>
         </table>`
-        return mainButtonCmp;
-
-      case "outline":
-        outlineButtonCmp = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #ffffff;">
+    } else if(props.variant === "outline") {
+        htmlButton = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #ffffff;">
           <tr>
             <td>
                 <!--[if mso]>
@@ -88,14 +80,8 @@ const Buttons = (props: ButtonsProps) => {
             </td>
           </tr>
         </table>`
-        return outlineButtonCmp;
-
-      default:
-        return "No variant selected";
-
     }
-  };
-  return ButtonCmp(props);
+  return <div dangerouslySetInnerHTML={{ __html: htmlButton }} />;
 };
 
 export default Buttons;

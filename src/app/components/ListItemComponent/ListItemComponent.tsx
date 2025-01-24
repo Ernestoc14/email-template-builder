@@ -8,15 +8,16 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false)
   const [selectedVariants, setSelectedVariants] = useState<keyof typeof ComponentVariants>("")
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const componentName = props.primary.replace(/\s/g, '');
 
   useEffect(() => {
-    if(ComponentVariants.hasOwnProperty(props.primary)) {
-      setSelectedVariants(props.primary as keyof typeof ComponentVariants)
+    if(ComponentVariants.hasOwnProperty(componentName)) {
+      setSelectedVariants(componentName as keyof typeof ComponentVariants)
     }
-  }, [props.primary])
+  }, [componentName])
   const handleOpenPreview = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
-    console.log(props.primary)  
+    console.log(props.primary, componentName)  
     setIsPreviewOpen(true);
   }
 

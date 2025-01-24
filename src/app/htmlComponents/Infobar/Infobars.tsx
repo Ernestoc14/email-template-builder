@@ -1,10 +1,13 @@
 import { InfobarsProps } from "./types"
 
 const Infobars = (props: InfobarsProps) => {
-  const InfobarCmp = (props: InfobarsProps) => {
-    let singleInfobarCmp = ""
+    let htmlInfobar = ""
     if(props.variant === "single") {
-      singleInfobarCmp = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+      htmlInfobar = `<table cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%;background-color: #0032A0; border-collapse: collapse;">
+    <tr>
+      <td style="font-size: 14px; padding: 32px 48px">
+      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
           <tr>
             <td class="reorder-mid">
               <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
@@ -86,12 +89,14 @@ const Infobars = (props: InfobarsProps) => {
               </table>
             </td>
           </tr>
-        </table>`
+        </table>
+        </td>
+    </tr>
+  </table>
+        `
         // retunr variant1 || variant2 || variant3
       }
-      return singleInfobarCmp
-    }
-    return InfobarCmp(props)
+    return <div dangerouslySetInnerHTML={{ __html: htmlInfobar }} />;
 }
 
 export default Infobars;

@@ -1,10 +1,9 @@
 import { ItineraryCardsProps } from "./types";
 
 const ItineraryCards = (props: ItineraryCardsProps) => {
-  const ItineraryCardCmp = (props: ItineraryCardsProps) => {
-    let adelantadoItineraryCard, aTiempoItineraryCard, cambiosItineraryCard, cancelItineraryCard, demoradoItineraryCard = "";
+    let htmlItineraryCard = "";
     if(props.variant === "adelantado") {
-      adelantadoItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
+      htmlItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                 <tr>
                   <td>
                     <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border: 1px solid #DBDAD8; border-radius: 12px;border-collapse:separate;">
@@ -139,9 +138,8 @@ const ItineraryCards = (props: ItineraryCardsProps) => {
                   </td>
                 </tr>
               </table>`;
-      return adelantadoItineraryCard;
     } else if(props.variant === "atiempo") {
-      aTiempoItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
+      htmlItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                 <tr>
                   <td>
                     <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border: 1px solid #DBDAD8; border-radius: 12px;border-collapse:separate;">
@@ -256,9 +254,8 @@ const ItineraryCards = (props: ItineraryCardsProps) => {
                   </td>
                 </tr>
               </table>`;
-      return aTiempoItineraryCard;
     } else if(props.variant === "cambios") {
-      cambiosItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
+      htmlItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                 <tr>
                   <td>
                     <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border: 1px solid #DBDAD8; border-radius: 12px;border-collapse:separate;">
@@ -373,10 +370,9 @@ const ItineraryCards = (props: ItineraryCardsProps) => {
                   </td>
                 </tr>
               </table>`;
-      return cambiosItineraryCard;
     }
     else if(props.variant === "cancel") {
-      cancelItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
+      htmlItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                 <tr>
                   <td>
                     <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border: 1px solid #DBDAD8; border-radius: 12px;border-collapse:separate;">
@@ -491,10 +487,9 @@ const ItineraryCards = (props: ItineraryCardsProps) => {
                   </td>
                 </tr>
               </table>`;
-      return cancelItineraryCard;
     }
     else if(props.variant === "demorado") {
-      demoradoItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
+      htmlItineraryCard = `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                 <tr>
                   <td>
                     <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border: 1px solid #DBDAD8; border-radius: 12px;border-collapse:separate;">
@@ -629,10 +624,8 @@ const ItineraryCards = (props: ItineraryCardsProps) => {
                   </td>
                 </tr>
               </table>`;
-      return demoradoItineraryCard;
     }
-  }
-  return ItineraryCardCmp(props);
+  return <div dangerouslySetInnerHTML={{__html: htmlItineraryCard}} />;
 }
 
 export default ItineraryCards;
