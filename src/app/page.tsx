@@ -11,7 +11,7 @@ import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryT
 import { ComponentsList } from "./types/Components";
 
 export default function Home() {
-  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] = useState(false);
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] = useState(false);
 
@@ -53,7 +53,7 @@ export default function Home() {
       <Box component="header" sx={{backgroundColor: "#0032a0", width:"100%", display:"flex", gap: "10px", justifyContent: "space-between", paddingX:"50px", paddingY:"30px"}}>
         <Image src="https://www.copaair.com/webassets/images/copa-logo-white.png" alt="Copa Logo" width={200} height={40} />
         <Typography variant="h4" color="white" sx={{textAlign:"center", flex: 1}}>
-          Welcome to Notification Template Builder!!
+          Notification Template Builder
         </Typography>
       </Box>
       <Box
