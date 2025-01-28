@@ -9,18 +9,29 @@ import TitleBoxs from "../htmlComponents/Title-box/TItleBoxs";
 import PaxCards from "../htmlComponents/Pax-card/PaxCards";
 import SectionContainers from "../htmlComponents/Section-container/SectionContainers";
 
-export const ComponentsList = [
-  "Headers",
-  "Title Boxs",
-  "Section Containers",
-  "Buttons",
-  "Infobars",
-  "Alerts",
-  "Banners",
-  "Itinerary Cards",
-  "Pax Cards",
-  "Footers",
-];
+const variantsHeaders = ["Copa y ConnectMiles", "copaSingleLogo", "Codigo de Reserva"];
+const variantsTitleBoxs = ["Title Box"];
+const variantsButtons = ["Light Button", "Link Button", "Main Button", "Outline Button"];
+const variantsSectionContainers = ["Center Section", "Center Title Section", "Content Section", "Left Section", "Left Title Section", "Section"];
+const variantsInfobars = ["Single Infobar"];
+const variantsAlerts = ["Content Error", "Content Info", "Content Invert", "Content Warning", "Inline Changes", "Inline Error", "Inline Inverted", "Inline Main", "Inline Success", "Inline Transparent", "Inline Warning"];
+const variantsBanners = ["Image Banner"];
+const variantsItineraryCards = ["Adelantado", "A Tiempo", "Cambios", "Cancelado", "Demorado"];
+const variantsPaxCards = ["Simple", "Web Check In"];
+const variantsFooters = ["Social Footer", "Traditional Footer"];
+
+export const ComponentsList: Record<string, string[]> = {
+  Headers: variantsHeaders,
+  "Title Boxs": variantsTitleBoxs,
+  "Section Containers": variantsSectionContainers,
+  Buttons: variantsButtons,
+  Infobars: variantsInfobars,
+  Alerts: variantsAlerts,
+  Banners: variantsBanners,
+  "Itinerary Cards": variantsItineraryCards,
+  "Pax Cards": variantsPaxCards,
+  Footers: variantsFooters,
+};
 
 const ComponentVariants = {
   Alerts: [

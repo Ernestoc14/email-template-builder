@@ -9,11 +9,16 @@ import { WelcomeModal } from "./components/WelcomeModal/WelcomeModal";
 import { CreateNewTemplateModal } from "./components/CreateNewTemplateModal/CreateNewTemplateModal";
 import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryTemplateModal";
 import { ComponentsList } from "./types/Components";
+import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
 
 export default function Home() {
-  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] = useState(false);
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] = useState(false);
+
+  const handleDrop = (htmlContent: string, targetId: string) => {
+    console.log(`Dropped Component ${htmlContent} inside ${targetId}`)
+  }
 
   // MultiButton Functions
   const handleLanguageClick = (value: string) => {
@@ -23,6 +28,12 @@ export default function Home() {
   const handleDeviceClick = (value: string) => {
     console.log("Device Clicked: ", value);
   }
+
+  const Header = `<div style="background-color: blue; width: 200px; height: 40px">
+                <img height="auto" src="https://www.copaair.com/webassets/images/copa-logo-white.png"
+                  style="border: 0;display: block;outline: none;text-decoration: none;width: 176px;height: auto;line-height: 100%;"
+                  alt="Copa Logo" class="copa-logo-width" width="176">
+            </div>`
 
   // WelcomeModal Functions
   const handleWelcomeModalClose = () => setIsWelcomeModalOpen(false)
@@ -73,9 +84,12 @@ export default function Home() {
           </Typography>
           <Box className={styles.canva}>
             <List component="menu" sx={{padding: "0", margin: "0",}}>
-              {ComponentsList.map((component, index) => (
-                <ListItemComponent key={index} primary={component} isLast={index === ComponentsList.length - 1}/>
+              {Object.keys(ComponentsList).map((component,index)=>(
+                <ListItemComponent key={index} primary={component} isLast={index === Object.keys(ComponentsList).length - 1} variants={ComponentsList[component]}/>
               ))}
+              {/* {ComponentsList.map((component, index) => (
+                <ListItemComponent key={index} primary={component} isLast={index === ComponentsList.length - 1}/>
+              ))} */}
             </List>
           </Box>
         </Box>
@@ -98,8 +112,17 @@ export default function Home() {
             </Button>
           </Box>
           <Box className={styles.canva} sx={{}}>
-            <Box className={styles.components}>Master Comtainer Area</Box>
-            <Box className={styles.components}>Drop a Component Here!</Box>
+            <Box className={styles.components}>Drop a Component inside Master Container!</Box>
+            <Box component="div" draggable onDragStart={(e) => {
+              e.dataTransfer.setData("component", Header);
+              // console.log("component", e.dataTransfer.getData("component"));
+            }}
+            >
+              <div dangerouslySetInnerHTML={{ __html: Header }} />
+              Header Const
+            </Box>
+            <MasterContainer
+            onDrop={handleDrop} />
           </Box>
         </Box>
       </Box>

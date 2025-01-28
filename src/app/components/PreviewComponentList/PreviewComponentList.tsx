@@ -1,14 +1,15 @@
 import { Box, Popover, Typography } from "@mui/material";
 import { PreviewComponentProps } from "./types";
-import ComponentVariants from "@/app/types/Components";
+// import ComponentVariants from "@/app/types/Components";
+// import { ReactElement } from "react";
 
-const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, component, anchorEl }) => {
-  const variants = ComponentVariants[component] || [];
+const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, component, typeVariant }) => {
+  // const variants = ComponentVariants[component] || [];
+  // const selectedVariant = variants.find((variantObj: ReactElement) => variantObj === variant);
   return (
     <Popover
       open={open}
       onClose={onClose}
-      anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
         horizontal: "left",
@@ -33,13 +34,9 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, comp
         }}
       >
         <Typography variant="h6" component="h1">
-          Variantes del Componente: {component}
+          Variante {typeVariant} del Componente {component} 
         </Typography>
-        <Box sx={{ maxHeight: "400px", overflowY: "auto" }}>
-          {variants.length > 0 ? (
-            variants.map((variant, index) => (
               <Box
-                key={index}
                 sx={{
                   padding: 1,
                   width: "650px",
@@ -48,15 +45,8 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, comp
                   "&:hover": { backgroundColor: "#a5a5a5" },
                 }}
               >
-                {variant}
+                {component}
               </Box>
-            ))
-          ) : (
-            <Typography variant="body2" color="textSecondary">
-              No hay variantes disponibles.
-            </Typography>
-          )}
-        </Box>
       </Box>
     </Popover>
   );
