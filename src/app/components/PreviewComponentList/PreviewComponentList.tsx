@@ -1,15 +1,20 @@
 import { Box, Popover, Typography } from "@mui/material";
 import { PreviewComponentProps } from "./types";
-// import ComponentVariants from "@/app/types/Components";
-// import { ReactElement } from "react";
 
-const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, component, typeVariant }) => {
-  // const variants = ComponentVariants[component] || [];
-  // const selectedVariant = variants.find((variantObj: ReactElement) => variantObj === variant);
+const PreviewComponent: React.FC<PreviewComponentProps> = ({
+  open,
+  onClose,
+  component,
+  variant,
+  anchorEl,
+  // renderHTML,
+  previewHTML,
+}) => {
   return (
     <Popover
       open={open}
       onClose={onClose}
+      anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
         horizontal: "left",
@@ -21,6 +26,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, comp
       sx= {{
           padding: 2, 
           borderRadius: 2,
+          width: "100%",
         }}
     >
       <Box
@@ -34,19 +40,18 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({ open, onClose, comp
         }}
       >
         <Typography variant="h6" component="h1">
-          Variante {typeVariant} del Componente {component} 
+          Variante {variant} de {component}
         </Typography>
-              <Box
-                sx={{
-                  padding: 1,
-                  width: "650px",
-                  "&:last-child": { borderBottom: "none" },
-                  cursor: "pointer",
-                  "&:hover": { backgroundColor: "#a5a5a5" },
-                }}
-              >
-                {component}
-              </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <div style={{width: "500px"}} dangerouslySetInnerHTML={{ __html: previewHTML }} />
+        </Box>
       </Box>
     </Popover>
   );

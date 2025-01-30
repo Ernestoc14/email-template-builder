@@ -1,9 +1,10 @@
-import ComponentVariants from "@/app/types/Components";
 
 export interface PreviewComponentProps {
   open: boolean;
-  component: string
-  typeVariant: string;
-  variant: keyof typeof ComponentVariants;
+  component: string;
+  variant: string
   onClose: () => void;
+  // renderHTML: string;
+  previewHTML: string;
+  anchorEl: HTMLElement | null;
 }

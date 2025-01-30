@@ -1,32 +1,28 @@
 import { Box, IconButton, List, ListItem, ListItemText } from "@mui/material";
 import { ListItemComponentProps } from "./types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { ObjectComponents } from "@/app/types/Components";
+import CallComponent from "../CallComponent/CallComponent";
 import PreviewComponentList from "../PreviewComponentList/PreviewComponentList";
-import ComponentVariants from "@/app/types/Components";
 
 export const ListItemComponent = (props: ListItemComponentProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [selectedVariant, setSelectedVariant] = useState<keyof typeof ComponentVariants>("");
-  const [typeVariant, setTypeVariant] = useState("");
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState("")
 
-  // const handleOpenPreview = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // setAnchorEl(event.currentTarget);
-  useEffect(()=>{
-    if(ComponentVariants.hasOwnProperty(props.primary)){
-      setSelectedVariant(props.primary as keyof typeof ComponentVariants);
-    }
-  }, [props.primary]);
-
-    const handleOpenPreview = (variant:string) => {
-    setTypeVariant(variant);
-    setIsPreviewOpen(true);
-    console.log("Componente seleccionado: ", variant);
-  }
-  const handleClick = () => {
+  const handleDropDownClick = () => {
     setIsOpen((prev) => !prev);
+    console.log("Componente: ", props.primary);
   };
+
+  const handlePreviewClick = (event: React.MouseEvent<HTMLElement>, component: string, variant: string) => {
+    CallComponent(component, variant);
+    setAnchorEl(event.currentTarget);
+    setSelectedVariant(variant)
+    setIsPreviewOpen(true);
+    console.log("Variante de ", component, " seleccionado: ", variant)
+  }
 
   return (
     <Box>
@@ -37,9 +33,10 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
           position: "relative",
         }}
       >
-        <ListItemText  primary={props.primary} />
+        <ListItemText primary={props.primary} />
         <IconButton
-          onClick={handleClick}
+          // Dropdown Button
+          onClick={handleDropDownClick}
           sx={{
             color: "#0032a0",
             "&:hover": { backgroundColor: "#e0e7ff", color: "#00227b" },
@@ -72,15 +69,16 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
           </svg>
         </IconButton>
       </ListItem>
+      {/* Lista de Variantes, se activa al dar click al Down Arrow */}
       <List
         component="div"
         sx={{ padding: "0", margin: "0", display: isOpen ? "block" : "none" }}
       >
-        {props.variants.map((variant, index) => (
+        {ObjectComponents.Components[props.primary as keyof typeof ObjectComponents.Components].variants.map((variant: string, index: number) => (
           <ListItem draggable key={index}>
             <ListItemText primary={variant} />
             <IconButton
-              onClick={() => handleOpenPreview(variant)}
+              onClick={(event)=>handlePreviewClick(event, props.primary, variant)}
               sx={{
                 color: "#0032a0",
                 "&:hover": { backgroundColor: "#e0e7ff", color: "#00227b" },
@@ -117,10 +115,20 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
                 />
               </svg>
             </IconButton>
-            <PreviewComponentList open={isPreviewOpen} onClose={()=>setIsPreviewOpen(false)} component={props.primary} typeVariant={typeVariant} variant={selectedVariant} />
+            <PreviewComponentList
+              open={isPreviewOpen}
+              onClose={() => setIsPreviewOpen(false)}
+              component={props.primary}
+              variant={selectedVariant}
+              anchorEl={anchorEl}
+              // renderHTML={ObjectComponents.Components.Headers.renderHTML}
+              previewHTML={ObjectComponents.Components.Headers.previewHTML}
+            />
           </ListItem>
         ))}
       </List>
     </Box>
   );
 };
+
+export default ListItemComponent;
