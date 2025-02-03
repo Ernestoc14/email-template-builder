@@ -4,7 +4,6 @@ export interface PreviewComponentProps {
   component: string;
   variant: string
   onClose: () => void;
-  // renderHTML: string;
   previewHTML: string;
   anchorEl: HTMLElement | null;
 }

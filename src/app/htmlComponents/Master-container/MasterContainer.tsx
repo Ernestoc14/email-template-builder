@@ -1,4 +1,3 @@
-// MasterContainer.tsx
 import React, { useEffect } from 'react';
 
 interface MasterContainerProps {
@@ -18,13 +17,9 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
       dropZone.style.border = '2px dashed yellow';
       dropZone.style.backgroundColor = 'rgba(0, 0, 255, 0.1)';
       console.log("dragging somtn OVER " + (dropZone as HTMLElement)?.id);
-
-      // const componentType = dragEvent.dataTransfer?.getData('component');
-      // console.log("componentType Desde MASTER:", componentType);
     };
 
     const handleDragEnter = (e: Event) => {
-      // onDragEnter?.();
       const dragEvent = e as DragEvent;
       dragEvent.preventDefault();
       const dropZone = dragEvent.currentTarget as HTMLElement;
@@ -59,7 +54,6 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
 
       if ( componentType ) {
         try {
-          // const htmlContent = JSON.parse(componentType)
           dropZone.innerHTML = componentType;
           onDrop?.(componentType, dropZone.id);
           console.log("DROPPED " + componentType + " INTO " + dropZone.id);
@@ -67,12 +61,6 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
           console.error("Error parsing componentType", error)
         }
       }
-      // console.log("DROPPED " + componentType + " INTO " + dropZone.id);
-      // if (componentType && onDrop) {
-      //   dropZone.innerHTML = componentType;
-      //   onDrop(componentType, dropZone.id);
-      // }
-      
       // Restaurar estilos
       dropZone.style.border = '1px solid red';
       dropZone.style.backgroundColor = 'transparent';

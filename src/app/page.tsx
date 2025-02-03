@@ -30,12 +30,6 @@ export default function Home() {
     console.log("Device Clicked: ", value);
   }
 
-  // const Header = `<div style="background-color: blue; width: 200px; height: 40px">
-  //               <img height="auto" src="https://www.copaair.com/webassets/images/copa-logo-white.png"
-  //                 style="border: 0;display: block;outline: none;text-decoration: none;width: 176px;height: auto;line-height: 100%;"
-  //                 alt="Copa Logo" class="copa-logo-width" width="176">
-  //           </div>`
-
   // WelcomeModal Functions
   const handleWelcomeModalClose = () => setIsWelcomeModalOpen(false)
   const handleCreateTemplateModalClose = () => setIsCreateNewTemplateModalOpen(false)
@@ -112,20 +106,16 @@ export default function Home() {
               Generate HTML
             </Button>
           </Box>
-          <Box className={styles.canva} sx={{}}>
+          <Box className={styles.canva}>
             <Box className={styles.components}>Drop a Component inside Master Container!</Box>
-            <Box component="div" draggable onDragStart={() => {
-              // e.dataTransfer.setData("component", Header);
-              // console.log("component", e.dataTransfer.getData("component"));
-            }}
-            >
-              {/* <div dangerouslySetInnerHTML={{ __html: Header }} /> */}
-              
-              {/* {ComponentsList["Headers"][1]} */}
-              {ObjectComponents.Components.Headers.variants[1]}
-            </Box>
+            <Box sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}>
             <MasterContainer
             onDrop={handleDrop} />
+            </Box>
           </Box>
         </Box>
       </Box>

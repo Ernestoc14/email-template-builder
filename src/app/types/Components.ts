@@ -20,6 +20,49 @@ type ObjectComponentsType = {
       infoLeft: string;
       infoRight: string;
     }>;
+    Buttons: Component<{
+      label: string;
+      urlLink: string;
+    }>;
+    Infobars: Component<{
+      imageURL: string;
+      destination: string;
+      date: string;
+      reservationCode: string;
+    }>;
+    Alerts: Component<{
+      type: string;
+      iconURL: string;
+      alertText: string;
+    }>;
+    Banners: Component<{
+      imageURL: string;
+    }>;
+    ItineraryCards: Component<{
+      date: string;
+      aircraft: string;
+      pillsFlightStatus: string;
+      departureCrossedOutTime: string;
+      departureTime: string;
+      flightDuration: string;
+      arrivalTime: string;
+      arrivalCrossedOutTime: string;
+      origin: string;
+      destination: string;
+      originTerminal: string;
+      originGate: string;
+      destinationTerminal: string;
+      destinationGate: string;
+    }>;
+    PaxCards: Component<{
+      paxName: string;
+      lealtad: string;
+      seats: string;
+      status: string;
+    }>;
+    Footers: Component<{
+      type: string;
+    }>;
     }
   }
 
@@ -36,7 +79,7 @@ export const ObjectComponents: ObjectComponentsType = {
       },
     },
     TitleBoxs: {
-      variants: ["Solo TitleBox", "Segundo TitleBox"],
+      variants: ["Single Title Box"],
       renderHTML: "",
       previewHTML: "",
       props: {
@@ -53,7 +96,86 @@ export const ObjectComponents: ObjectComponentsType = {
         infoLeft: "Cabina Economica",
         infoRight: "Boeing 737-800",
     },
-  }
+  },
+  Buttons: {
+    variants: ["Light", "Link", "Main", "Outline"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      label: "",
+      urlLink: "",
+    }
+  },
+  Infobars: {
+    variants: ["Single"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      imageURL: "https://www.copaair.com/webassets/images/destinos/circulados/JFK.png",
+      destination: "",
+      date: "",
+      reservationCode: "",
+    }
+  },
+  Alerts: {
+    variants: ["Content Error", "Content Info", "Content Invert", "Content Warning", "Inline Changes", "Inline Error", "Inline Inverted", "Inline Main", "Inline Success", "Inline Transparent", "Inline Warning"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      type: "",
+      iconURL: "",
+      alertText: "",
+    }
+  },
+  Banners: {
+    variants: ["Image"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      imageURL: "",
+    }
+  },
+  ItineraryCards: {
+    variants: ["Adelantado", "Atiempo", "Cambios", "Cancel", "Demorado"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      date: "",
+      aircraft: "",
+      pillsFlightStatus: "",
+      departureCrossedOutTime: "",
+      departureTime: "",
+      flightDuration: "",
+      arrivalTime: "",
+      arrivalCrossedOutTime: "",
+      origin: "",
+      destination: "",
+      originTerminal: "",
+      originGate: "",
+      destinationTerminal: "",
+      destinationGate: "",
+    }
+  },
+  PaxCards: {
+    variants: ["Simple", "WCI"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      paxName: "",
+      lealtad: "",
+      seats: "",
+      status: "",
+    }
+  },
+  Footers: {
+    variants: ["Social", "Traditional"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      type: "",
+    },
+  },
+
 }}
 
 // const ComponentVariants = {

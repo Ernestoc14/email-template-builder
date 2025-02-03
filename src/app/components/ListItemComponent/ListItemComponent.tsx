@@ -3,17 +3,17 @@ import { ListItemComponentProps } from "./types";
 import { useState } from "react";
 import { ObjectComponents } from "@/app/types/Components";
 import CallComponent from "../CallComponent/CallComponent";
-import PreviewComponentList from "../PreviewComponentList/PreviewComponentList";
+import PreviewComponentList from "../PreviewComponent/PreviewComponent";
 
 export const ListItemComponent = (props: ListItemComponentProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState("")
+  const [renderHTML, setRenderHTML] = useState("");
 
   const handleDropDownClick = () => {
-    setIsOpen((prev) => !prev);
-    console.log("Componente: ", props.primary);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const handlePreviewClick = (event: React.MouseEvent<HTMLElement>, component: string, variant: string) => {
@@ -21,7 +21,7 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
     setAnchorEl(event.currentTarget);
     setSelectedVariant(variant)
     setIsPreviewOpen(true);
-    console.log("Variante de ", component, " seleccionado: ", variant)
+    setRenderHTML(ObjectComponents.Components[component as keyof typeof ObjectComponents.Components]?.renderHTML)
   }
 
   return (
@@ -72,10 +72,39 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
       {/* Lista de Variantes, se activa al dar click al Down Arrow */}
       <List
         component="div"
-        sx={{ padding: "0", margin: "0", display: isOpen ? "block" : "none" }}
+        sx={{ padding: "0", margin: "0", display: isDropdownOpen ? "block" : "none" }}
       >
         {ObjectComponents.Components[props.primary as keyof typeof ObjectComponents.Components].variants.map((variant: string, index: number) => (
-          <ListItem draggable key={index}>
+          <ListItem draggable key={index} onDragStart={(e) => {e.dataTransfer.setData("component",renderHTML); console.log("component", e.dataTransfer.getData("component"))}} >
+            <IconButton
+              // onClick={}
+              sx={{
+                color: "#0032a0",
+                "&:hover": { backgroundColor: "#e0e7ff", color: "#00227b", cursor: "grab" },
+                "&:active": { backgroundColor: "#e0e7ff", color: "#00227b", cursor: "grabbing" },
+              }}
+            >
+              <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              strokeWidth={1.5} 
+              stroke="currentColor" 
+              style={{
+                width: "16px",
+                height: "16px",
+                transition: "transform 0.2s ease-in-out",
+              }}
+              className="size-6"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+              }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </IconButton>
             <ListItemText primary={variant} />
             <IconButton
               onClick={(event)=>handlePreviewClick(event, props.primary, variant)}
@@ -121,8 +150,7 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
               component={props.primary}
               variant={selectedVariant}
               anchorEl={anchorEl}
-              // renderHTML={ObjectComponents.Components.Headers.renderHTML}
-              previewHTML={ObjectComponents.Components.Headers.previewHTML}
+              previewHTML={ObjectComponents.Components[props.primary as keyof typeof ObjectComponents.Components]?.previewHTML}
             />
           </ListItem>
         ))}

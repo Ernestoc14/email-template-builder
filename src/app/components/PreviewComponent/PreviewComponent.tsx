@@ -7,7 +7,6 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
   component,
   variant,
   anchorEl,
-  // renderHTML,
   previewHTML,
 }) => {
   return (
@@ -27,6 +26,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
           padding: 2, 
           borderRadius: 2,
           width: "100%",
+          height: "100%",
         }}
     >
       <Box
@@ -44,10 +44,9 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
         </Typography>
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
+            cursor: "pointer",
+            padding: 1, 
+            "&:hover": { backgroundColor: "#a5a5a5"}
           }}
         >
           <div style={{width: "500px"}} dangerouslySetInnerHTML={{ __html: previewHTML }} />
