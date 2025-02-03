@@ -56,17 +56,16 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
         try {
           dropZone.innerHTML = componentType;
           onDrop?.(componentType, dropZone.id);
-          console.log("DROPPED " + componentType + " INTO " + dropZone.id);
+          // console.log("DROPPED " + componentType + " INTO " + dropZone.id);
         } catch (error) {
-          console.error("Error parsing componentType", error)
+          console.error("Error parsing component", error)
         }
       }
-      // Restaurar estilos
       dropZone.style.border = '1px solid red';
       dropZone.style.backgroundColor = 'transparent';
     };
 
-    // Agregamos los event listeners con los tipos correctos
+    // Agregamos los event con los tipos correctos
     dropZones.forEach(zone => {
       zone.addEventListener('dragover', handleDragOver as EventListener);
       zone.addEventListener('dragenter', handleDragEnter as EventListener);
@@ -85,7 +84,7 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
         zone.removeEventListener('dragend', handleDragEnd as EventListener);
       });
     };
-  }, [onDrop]); // Agregamos onDrop al array de dependencias
+  }, [onDrop]); 
 
   const htmlMasterContainer = `
     <div>&nbsp;</div>
@@ -98,7 +97,7 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
                 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
                   <tr>
                     <td class="header-logo-padding" style="padding: 32px 32px 0;">
-                      <div 
+                      <div draggable="true"
                         id="header-logo"
                         style="border: 1px solid red; min-height: 100px; color: white;"
                       >

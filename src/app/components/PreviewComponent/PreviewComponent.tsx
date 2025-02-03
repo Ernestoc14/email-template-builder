@@ -35,6 +35,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
           borderRadius: 1,
           boxShadow: 24,
           padding: 2,
+          // Width del preview component
           width: "100%",
           height: "100%",
         }}

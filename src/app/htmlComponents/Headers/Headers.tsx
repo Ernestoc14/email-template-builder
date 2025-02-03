@@ -2,8 +2,7 @@
 const Headers = (variant: string) => {
   let renderHTML, previewHTML = "";
   if (variant === "Copa y ConnectMiles") {
-    renderHTML = `
-    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
+    renderHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
           <tbody>
             <tr>
               <td style="width: 50%; height:40px;">
@@ -26,7 +25,6 @@ const Headers = (variant: string) => {
           </tbody>
         </table>
     `;
-
     previewHTML = `<table align="center" cellpadding="0" cellspacing="0" border="0"
     style="margin: 0;width: 100%; background-color: #0032A0;border-collapse: collapse;border-top-left-radius: 8px;border-top-right-radius: 8px; ">
     <tr>
@@ -154,7 +152,6 @@ const Headers = (variant: string) => {
             </tr>
           </tbody>
         </table>`
-
     previewHTML = `<table align="center" cellpadding="0" cellspacing="0" border="0"
     style="margin: 0;width: 100%; background-color: #0032A0;border-collapse: collapse;border-top-left-radius: 8px;border-top-right-radius: 8px; ">
     <tr>
