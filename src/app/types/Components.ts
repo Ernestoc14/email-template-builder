@@ -70,7 +70,7 @@ export const ObjectComponents: ObjectComponentsType = {
       renderHTML: "",
       previewHTML: "",
       props: {
-        reservationCode: "ABC123",
+        reservationCode: "",
       },
     },
     TitleBoxs: {

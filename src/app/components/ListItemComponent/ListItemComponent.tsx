@@ -75,7 +75,16 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
         sx={{ padding: "0", margin: "0", display: isDropdownOpen ? "block" : "none" }}
       >
         {ObjectComponents.Components[props.primary as keyof typeof ObjectComponents.Components].variants.map((variant: string, index: number) => (
-          <ListItem draggable key={index} onDragStart={(e) => {e.dataTransfer.setData("component",renderHTML); console.log("component", e.dataTransfer.getData("component"))}} >
+          <ListItem 
+            draggable 
+            key={index} 
+            onDragStart={(e) => {
+              //Cuando empieza el onDrag de un Componente se pasara
+              // HTML para mostrarlo en MC y el Componente y la variante
+              e.dataTransfer.setData("HTML",renderHTML); 
+              e.dataTransfer.setData("Component", props.primary);
+              e.dataTransfer.setData("Variant", variant);
+            }} >
             <IconButton
               // onClick={}
               sx={{
