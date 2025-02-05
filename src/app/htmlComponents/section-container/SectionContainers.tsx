@@ -1,3 +1,4 @@
+import { ObjectComponents } from "@/app/types/Components"
 
 const SectionContainers = (variant: string) => {
   // Left section Cmp is DONE
@@ -14,7 +15,7 @@ const SectionContainers = (variant: string) => {
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
-                <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
@@ -23,14 +24,14 @@ const SectionContainers = (variant: string) => {
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
-                        Section Title
+                        ${ObjectComponents.Components.SectionContainers.props.title}
                     </td>
                     <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                       class="title-info-reorder">
                       <span class="remove-span-info">·</span>
-                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                       <span>·</span>
-                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                     </td>
                   </tr>
                 </table>
@@ -81,7 +82,7 @@ const SectionContainers = (variant: string) => {
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
-                <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
@@ -90,14 +91,14 @@ const SectionContainers = (variant: string) => {
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
-                        Section Title
+                        ${ObjectComponents.Components.SectionContainers.props.title}
                     </td>
                     <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                       class="title-info-reorder">
                       <span class="remove-span-info">·</span>
-                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                       <span>·</span>
-                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                     </td>
                   </tr>
                 </table>
@@ -148,7 +149,7 @@ const SectionContainers = (variant: string) => {
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
-                <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
@@ -157,14 +158,14 @@ const SectionContainers = (variant: string) => {
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
-                      Section Title
+                      ${ObjectComponents.Components.SectionContainers.props.title}
                     </td>
                     <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                       class="title-info-reorder">
                       <span class="remove-span-info">·</span>
-                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                       <span>·</span>
-                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                     </td>
                   </tr>
                 </table>
@@ -192,7 +193,7 @@ const SectionContainers = (variant: string) => {
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
-                <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
@@ -201,14 +202,14 @@ const SectionContainers = (variant: string) => {
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
-                      Section Title
+                      ${ObjectComponents.Components.SectionContainers.props.title}
                     </td>
                     <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                       class="title-info-reorder">
                       <span class="remove-span-info">·</span>
-                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                       <span>·</span>
-                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                     </td>
                   </tr>
                 </table>
@@ -261,7 +262,7 @@ const SectionContainers = (variant: string) => {
                 <tbody>
                   <tr style="height: 100%" class="title-info-reorder">
                     <td>
-                      <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                      <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                         style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                         class="card-logo" alt="card logo" width="48" />
                     </td>
@@ -271,16 +272,16 @@ const SectionContainers = (variant: string) => {
                           <td
                             style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                             class="title-info-reorder title-mobile-padding">
-                            Section Title
+                            ${ObjectComponents.Components.SectionContainers.props.title}
                           </td>
                           <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                             class="title-info-reorder">
                             <span class="remove-span-info">·</span>
                             <span
-                              style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                              style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                             <span>·</span>
                             <span
-                              style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                              style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                           </td>
                         </tr>
                       </table>
@@ -333,7 +334,7 @@ const SectionContainers = (variant: string) => {
                 <tbody>
                   <tr style="height: 100%" class="title-info-reorder">
                     <td>
-                      <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                      <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                         style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                         class="card-logo" alt="card logo" width="48" />
                     </td>
@@ -343,16 +344,16 @@ const SectionContainers = (variant: string) => {
                           <td
                             style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                             class="title-info-reorder title-mobile-padding">
-                            Section Title
+                            ${ObjectComponents.Components.SectionContainers.props.title}
                           </td>
                           <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                             class="title-info-reorder">
                             <span class="remove-span-info">·</span>
                             <span
-                              style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                              style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                             <span>·</span>
                             <span
-                              style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                              style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                           </td>
                         </tr>
                       </table>
@@ -400,7 +401,7 @@ const SectionContainers = (variant: string) => {
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
-                <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo" alt="card logo" width="48"/>
               </td>
@@ -410,14 +411,14 @@ const SectionContainers = (variant: string) => {
                     <td
                       style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
-                      Section Title
+                      ${ObjectComponents.Components.SectionContainers.props.title}
                     </td>
                     <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                       class="title-info-reorder">
                       <span class="remove-span-info">·</span>
-                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                       <span>·</span>
-                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                     </td>
                   </tr>
                 </table>
@@ -434,7 +435,7 @@ const SectionContainers = (variant: string) => {
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
-                <img src="https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png"
+                <img src="${ObjectComponents.Components.SectionContainers.props.imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo" alt="card logo" width="48"/>
               </td>
@@ -444,14 +445,14 @@ const SectionContainers = (variant: string) => {
                     <td
                       style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
-                      Section Title
+                      ${ObjectComponents.Components.SectionContainers.props.title}
                     </td>
                     <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
                       class="title-info-reorder">
                       <span class="remove-span-info">·</span>
-                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoLeft}</span>
                       <span>·</span>
-                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">Information</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props.infoRight}</span>
                     </td>
                   </tr>
                 </table>

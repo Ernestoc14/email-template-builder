@@ -14,7 +14,7 @@ type ObjectComponentsType = {
       description: string
     }>;
     SectionContainers: Component<{
-      iconURL?: string;
+      imageURL?: string;
       title: string;
       infoLeft?: string;
       infoRight?: string;
@@ -83,13 +83,13 @@ export const ObjectComponents: ObjectComponentsType = {
       },
     },
     SectionContainers: {
-      variants: ["Center Section", "Center Title Section", "Content Section", "Left Section", "Left Title Section", "Section"],
+      variants: ["Center Section", "Center Title Section", "Content Section", "Left Section", "Left Title Section"],
       renderHTML: "",
       previewHTML: "",
       props: {
-        iconURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
-        title: "Hacia Panama (PTY)",
-        infoLeft: "Cabina Economica",
+        imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
+        title: "Panama City (PTY)",
+        infoLeft: "Business Class",
         infoRight: "Boeing 737-800",
     },
   },
