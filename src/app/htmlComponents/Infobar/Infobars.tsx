@@ -1,3 +1,5 @@
+import { ObjectComponents } from "@/app/types/Components";
+
 const Infobars = (variant: string) => {
   let renderHTML, previewHTML = "";
   if (variant === "Single Infobar") {
@@ -21,7 +23,7 @@ const Infobars = (variant: string) => {
                           <div class="no-border"
                             style="border: 1px solid #ffffff;width: 52px;height: 52px;border-radius: 50%;padding: 1px;margin: 0 auto;">
                             <!--Change the "JFK" below with the IAT Code of the destination in uppercase-->
-                            <img src="https://www.copaair.com/webassets/images/destinos/circulados/JFK.png"
+                            <img src="${ObjectComponents.Components.Infobars.props.imageURL}"
                               width="52" height="52" border="0" alt="City IMG" style="border:0;">
                           </div>
                           <!--[if mso]>
@@ -34,7 +36,7 @@ const Infobars = (variant: string) => {
                             Destination:</p>
                           <p
                             style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 20px;font-style: normal;font-weight: 700;line-height: 32px;color: #ffffff;">
-                            New York</p>
+                            ${ObjectComponents.Components.Infobars.props.destination}</p>
                         </td>
                       </tr>
                     </table>
@@ -60,7 +62,7 @@ const Infobars = (variant: string) => {
                       Date:</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;white-space:nowrap">
-                      Mar&nbsp;&#8203;,18&nbsp;&#8203;Sep</p>
+                      ${ObjectComponents.Components.Infobars.props.date}</p>
                   </td>
                   <td style="padding: 0 32px; width: 1px;" class="infobar-divider-remove">
                     <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
@@ -77,7 +79,7 @@ const Infobars = (variant: string) => {
                       Reservation code:</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;">
-                      EBXGHT</p>
+                      ${ObjectComponents.Components.Infobars.props.reservationCode}</p>
                   </td>
                 </tr>
               </table>
@@ -110,7 +112,7 @@ const Infobars = (variant: string) => {
                           <div class="no-border"
                             style="border: 1px solid #ffffff;width: 52px;height: 52px;border-radius: 50%;padding: 1px;margin: 0 auto;">
                             <!--Change the "JFK" below with the IAT Code of the destination in uppercase-->
-                            <img src="https://www.copaair.com/webassets/images/destinos/circulados/JFK.png"
+                            <img src="${ObjectComponents.Components.Infobars.props.imageURL}"
                               width="52" height="52" border="0" alt="City IMG" style="border:0;">
                           </div>
                           <!--[if mso]>
@@ -123,7 +125,7 @@ const Infobars = (variant: string) => {
                             Destination:</p>
                           <p
                             style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 20px;font-style: normal;font-weight: 700;line-height: 32px;color: #ffffff;">
-                            New York</p>
+                            ${ObjectComponents.Components.Infobars.props.destination}</p>
                         </td>
                       </tr>
                     </table>
@@ -149,7 +151,7 @@ const Infobars = (variant: string) => {
                       Date:</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;white-space:nowrap">
-                      Mar&nbsp;&#8203;,18&nbsp;&#8203;Sep</p>
+                      ${ObjectComponents.Components.Infobars.props.date}</p>
                   </td>
                   <td style="padding: 0 32px; width: 1px;" class="infobar-divider-remove">
                     <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
@@ -166,7 +168,7 @@ const Infobars = (variant: string) => {
                       Reservation code:</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;">
-                      EBXGHT</p>
+                      ${ObjectComponents.Components.Infobars.props.reservationCode}</p>
                   </td>
                 </tr>
               </table>
