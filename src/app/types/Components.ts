@@ -70,7 +70,7 @@ export const ObjectComponents: ObjectComponentsType = {
       renderHTML: "",
       previewHTML: "",
       props: {
-        reservationCode: "",
+        reservationCode: "EBXGHT",
       },
     },
     TitleBoxs: {
@@ -78,8 +78,8 @@ export const ObjectComponents: ObjectComponentsType = {
       renderHTML: "",
       previewHTML: "",
       props: {
-        title: "Disfruta nuestra experiencia abordo Kath",
-        description: "La Descripcion"
+        title: "Disfruta de tu viaje con Copa Airlines",
+        description: "Conoce los detalles de tu vuelo y preparate para tu proxima aventura",
       },
     },
     SectionContainers: {
@@ -98,8 +98,8 @@ export const ObjectComponents: ObjectComponentsType = {
     renderHTML: "",
     previewHTML: "",
     props: {
-      label: "",
-      urlLink: "",
+      label: "Ver detalles",
+      urlLink: "www.copaair.com",
     }
   },
   Infobars: {
@@ -108,9 +108,9 @@ export const ObjectComponents: ObjectComponentsType = {
     previewHTML: "",
     props: {
       imageURL: "https://www.copaair.com/webassets/images/destinos/circulados/JFK.png",
-      destination: "",
-      date: "",
-      reservationCode: "",
+      destination: "Ciudad de Panama (PTY)",
+      date: "Mar, 3, 2025",
+      reservationCode: "EJX932",
     }
   },
   Alerts: {
@@ -118,7 +118,7 @@ export const ObjectComponents: ObjectComponentsType = {
     renderHTML: "",
     previewHTML: "",
     props: {
-      alertText: "",
+      alertText: "Su vuelo ha sido suspendido por mal tiempo",
     }
   },
   Banners: {
@@ -134,20 +134,20 @@ export const ObjectComponents: ObjectComponentsType = {
     renderHTML: "",
     previewHTML: "",
     props: {
-      date: "",
-      aircraft: "",
-      pillsFlightStatus: "",
-      departureCrossedOutTime: "",
-      departureTime: "",
-      flightDuration: "",
-      arrivalTime: "",
-      arrivalCrossedOutTime: "",
-      origin: "",
-      destination: "",
-      originTerminal: "",
-      originGate: "",
-      destinationTerminal: "",
-      destinationGate: "",
+      date: "Jue, Feb 6",
+      aircraft: "CM 900",
+      pillsFlightStatus: "Variante",
+      departureCrossedOutTime: "3:13pm",
+      departureTime: "10:30am",
+      flightDuration: "6h 52m",
+      arrivalTime: "2:00pm",
+      arrivalCrossedOutTime: "3:13pm",
+      origin: "Cuidad de Panama (PTY)",
+      destination: "Ciudad de Panama (PTY)",
+      originTerminal: "1",
+      originGate: "100",
+      destinationTerminal: "2",
+      destinationGate: "200",
     }
   },
   PaxCards: {
@@ -155,10 +155,10 @@ export const ObjectComponents: ObjectComponentsType = {
     renderHTML: "",
     previewHTML: "",
     props: {
-      paxName: "",
-      lealtad: "",
-      seats: "",
-      status: "",
+      paxName: "Ernesto Cassino",
+      lealtad: "Presidential",
+      seats: "A4, E9",
+      status: "Check-in Done",
     }
   },
   Footers: {

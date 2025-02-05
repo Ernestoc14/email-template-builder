@@ -1,3 +1,4 @@
+import { ObjectComponents } from "@/app/types/Components";
 
 const Headers = (variant: string) => {
   let renderHTML, previewHTML = "";
@@ -77,7 +78,7 @@ const Headers = (variant: string) => {
                   <tr>
                     <td align="right"
                       style="font-size: 16px; line-height: 20px; font-style: normal; font-weight: 600; font-family: Gilroy, Arial, Helvetica, sans-serif; ">
-                      EBXGHT
+                      ${ObjectComponents.Components.Headers.props.reservationCode}
                     </td>
                   </tr>
                 </table>
@@ -116,7 +117,7 @@ const Headers = (variant: string) => {
                   <tr>
                     <td align="right"
                       style="font-size: 16px; line-height: 20px; font-style: normal; font-weight: 600; font-family: Gilroy, Arial, Helvetica, sans-serif; ">
-                      EBXGHT
+                      ${ObjectComponents.Components.Headers.props.reservationCode}
                     </td>
                   </tr>
                 </table>
