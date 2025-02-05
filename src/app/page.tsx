@@ -10,22 +10,12 @@ import { CreateNewTemplateModal } from "./components/CreateNewTemplateModal/Crea
 import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryTemplateModal";
 import { ObjectComponents } from "./types/Components";
 import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
-// import PropsModal from "./components/PropsModal/PropsModal";
 
 export default function Home() {
 
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] = useState(false);
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] = useState(false);
-  // const [modalData, setModalData] = useState({
-  //   isOpen: false,
-  //   componentType: "",
-  //   props: {},
-  // });
-
-  const handleDrop = (component: string, targetId: string) => {
-    console.log(`Dropped ${component} into ${targetId}`);
-  }
 
   // MultiButton Functions
   const handleLanguageClick = (value: string) => {
@@ -119,9 +109,7 @@ export default function Home() {
               display: "flex",
               justifyContent: "center",
             }}>
-            <MasterContainer
-              onDrop={handleDrop}
-            />
+            <MasterContainer />
             </Box>
           </Box>
         </Box>

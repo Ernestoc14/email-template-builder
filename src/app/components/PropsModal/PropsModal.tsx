@@ -1,5 +1,6 @@
 import { Modal, Box, Typography, TextField, Button } from "@mui/material";
 import { PropsModalProps } from "./types";
+import { ObjectComponents } from "@/app/types/Components";
 
 const PropsModal = ({
   isOpen,
@@ -7,7 +8,7 @@ const PropsModal = ({
   componentName,
   componentVariant,
 }: PropsModalProps) => (
-  <Modal open={isOpen} onClose={() => onClose}>
+  <Modal open={isOpen} onClose={onClose}>
     <Box
       sx={{
         top: "50%",
@@ -26,41 +27,70 @@ const PropsModal = ({
       <Typography variant="h6" component="h2">
         Entrada de Props para {componentVariant} de {componentName}
       </Typography>
-        {/* {Object.keys(props).map((prop, index) => (
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: () => {
+            const propsLength = Object.keys(
+              ObjectComponents.Components?.[
+                componentName as keyof typeof ObjectComponents.Components
+              ]?.props
+            ).length;
+            return propsLength <= 4 ? "repeat(1, 1fr)" : "repeat(2, 1fr)";
+          },
+          gap: 2,
+        }}
+      >
+        {Object.entries(
+          ObjectComponents.Components[
+            componentName as keyof typeof ObjectComponents.Components
+          ].props
+        ).map(([propKey, propValue], index) => (
           <TextField
             key={index}
-            id={prop}
-            label={prop}
-            value={props[prop]}
-            onChange={(e) => onChange(e, prop)}
+            id={propKey}
+            label={propKey}
+            defaultValue={propValue}
+            size="small"
+            fullWidth
+            variant="outlined"
+            sx={{
+              mt: 2,
+              mb: 1,
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
+                backgroundColor: "#f9fafb",
+                transition: "all 0.3s ease",
+                "& fieldset": {
+                  borderColor: "#d1d5db",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#6366f1",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#4f46e5",
+                  boxShadow: "0 0 5px rgba(99, 102, 241, 0.5)",
+                },
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#4f46e5",
+                fontWeight: 500,
+                fontSize: "20px",
+                backgroundColor: "#f9fafb",
+                transition: "all 0.3s ease",
+              },
+              "& .MuiInputLabel-shrink": {
+                color: "black",
+              },
+            }}
           />
-        ))} */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            width: "100%",
-          }}
-        >
-        <TextField
-          id="outlined-basic"
-          label="Outlined"
-          variant="outlined"
-          sx={{ mt: 2 }}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Outlined"
-          variant="outlined"
-          sx={{ mt: 2 }}
-        />
-        </Box>
+        ))}
+      </Box>
       <Button
         variant="contained"
         color="primary"
         sx={{ mt: 2, alignSelf: "flex-end" }}
-        onClick={() => onClose}
+        onClick={onClose}
       >
         Cerrar
       </Button>

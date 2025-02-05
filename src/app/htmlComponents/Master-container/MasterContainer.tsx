@@ -1,125 +1,12 @@
-import PropsModal from '@/app/components/PropsModal/PropsModal';
-import { Box } from '@mui/material';
-import React, { useEffect } from 'react';
+import PropsModal from "@/app/components/PropsModal/PropsModal";
+import { Box } from "@mui/material";
+import React, { useState, useEffect } from "react";
 
-
-interface MasterContainerProps {
-  onDrop?: (component: string, targetId: string) => void;
-  htmlContent?: string;
-  // onDragEnter?: () => void;
-}
-
-const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
-  // const [componentName, setComponentName] = useState("");
-  // const [componentVariant, setComponentVariant] = useState("");
-  // const [propsModalOpen, setPropsModalOpen] = useState(false);
-
-
-  // const openPropsModal = () => {
-  //   setPropsModalOpen(true);
-  // }
-
-  // const changeComponent = (componentName: string | undefined, componentVariant: string | undefined) => {
-  //   setComponentName(componentName || "");
-  //   setComponentVariant(componentVariant || "");
-  // }
-  let propsModalOpen = false;
-
-  const changeStatusPropsModal = () => {
-    console.log(propsModalOpen)
-    propsModalOpen = !propsModalOpen;
-    console.log(propsModalOpen)
-  }
-  useEffect(() => {
-    const dropZones = document.querySelectorAll<HTMLElement>('#header-logo, #header-section-bluebg, #body-section, #footer-section');
-    
-    const handleDragOver = (e: Event) => {
-      const dragEvent = e as DragEvent;
-      dragEvent.preventDefault();
-      const dropZone = dragEvent.currentTarget as HTMLElement;
-      dropZone.style.border = '2px dashed yellow';
-      dropZone.style.backgroundColor = 'rgba(0, 0, 255, 0.1)';
-     // console.log("dragging somtn OVER " + (dropZone as HTMLElement)?.id);
-    };
-
-    const handleDragEnter = (e: Event) => {
-      const dragEvent = e as DragEvent;
-      dragEvent.preventDefault();
-      const dropZone = dragEvent.currentTarget as HTMLElement;
-      dropZone.style.border = '2px dashed blue';
-      dropZone.style.backgroundColor = 'rgba(0, 0, 255, 0.1)';
-      console.log("dragging somtn ENTER " + (dropZone as HTMLElement)?.id);
-    }
-
-    const handleDragEnd = (e: Event) => {
-      const dragEvent = e as DragEvent;
-      dragEvent.preventDefault();
-      const dropZone = dragEvent.currentTarget as HTMLElement;
-      dropZone.style.border = '1px solid red';
-      dropZone.style.backgroundColor = 'transparent';
-      console.log("Drag has ENDED in " + (dropZone as HTMLElement)?.id);
-    }
-
-    const handleDragLeave = (e: Event) => {
-      const dragEvent = e as DragEvent;
-      dragEvent.preventDefault();
-      const dropZone = dragEvent.currentTarget as HTMLElement;
-      dropZone.style.border = '1px solid red';
-      dropZone.style.backgroundColor = 'transparent';
-      console.log("LEAVING " + (dropZone as HTMLElement)?.id);
-    };
-
-    const handleDrop = (e: Event) => {
-      const dragEvent = e as DragEvent;
-      dragEvent.preventDefault();
-      const dropZone = dragEvent.currentTarget as HTMLElement;
-      const componentHTML = dragEvent.dataTransfer?.getData('HTML');
-      const componentName = dragEvent.dataTransfer?.getData('Component');
-      const componentVariant = dragEvent.dataTransfer?.getData('Variant');
-      // changeComponent(componentName, componentVariant)
-      // setComponentName(componentName || "");
-      // setComponentVariant(componentVariant || "");
-      console.log("Html: ", componentHTML);
-      if ( componentHTML ) {
-        try {
-          // setPropsModalOpen(true);
-          changeStatusPropsModal();
-          dropZone.innerHTML = componentHTML;
-          onDrop?.(componentHTML, dropZone.id);
-          console.log("DROPPED " + componentName +"Variant:"+componentVariant+ " INTO " + dropZone.id);
-        } catch (error) {
-          console.error("Error parsing component", error)
-        }
-      } 
-      // else {
-      //   alert("Necesita previsualizar el componente antes de soltarlo en Master Container");
-      // }
-      dropZone.style.border = '1px solid red';
-      dropZone.style.backgroundColor = 'transparent';
-    };
-
-    // Agregamos los event con los tipos correctos
-    dropZones.forEach(zone => {
-      zone.addEventListener('dragover', handleDragOver as EventListener);
-      zone.addEventListener('dragenter', handleDragEnter as EventListener);
-      zone.addEventListener('dragleave', handleDragLeave as EventListener);
-      zone.addEventListener('drop', handleDrop as EventListener);
-      zone.addEventListener('dragend', handleDragEnd as EventListener);
-    });
-
-    // Limpieza con los tipos correctos
-    return () => {
-      dropZones.forEach(zone => {
-        zone.removeEventListener('dragover', handleDragOver as EventListener);
-        zone.removeEventListener('dragenter', handleDragEnter as EventListener);
-        zone.removeEventListener('dragleave', handleDragLeave as EventListener);
-        zone.removeEventListener('drop', handleDrop as EventListener);
-        zone.removeEventListener('dragend', handleDragEnd as EventListener);
-      });
-    };
-  }, [onDrop, changeStatusPropsModal]); 
-
-  const htmlMasterContainer = `
+const MasterContainer = () => {
+  const [componentName, setComponentName] = useState("Headers");
+  const [componentVariant, setComponentVariant] = useState("");
+  const [propsModalOpen, setPropsModalOpen] = useState(false);
+  const [renderMCHTML, setRenderMCHTML] = useState(`
     <div>&nbsp;</div>
     <table class="email-wrapper" align="center" border="0" cellpadding="0" cellspacing="0" style="padding: 5px 0 0 0;max-width: 800px;">
       <tr>
@@ -184,17 +71,119 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
         </td>
       </tr>
     </table>
-  `;
+  `);
+
+  useEffect(() => {
+    const dropZones = document.querySelectorAll<HTMLElement>(
+      "#header-logo, #header-section-bluebg, #body-section, #footer-section"
+    );
+
+    const handleDragOver = (e: Event) => {
+      const dragEvent = e as DragEvent;
+      dragEvent.preventDefault();
+      const dropZone = dragEvent.currentTarget as HTMLElement;
+      dropZone.style.border = "2px dashed yellow";
+      dropZone.style.backgroundColor = "rgba(0, 0, 255, 0.1)";
+      // console.log("dragging somtn OVER " + (dropZone as HTMLElement)?.id);
+    };
+
+    const handleDragEnter = (e: Event) => {
+      const dragEvent = e as DragEvent;
+      dragEvent.preventDefault();
+      const dropZone = dragEvent.currentTarget as HTMLElement;
+      dropZone.style.border = "2px dashed blue";
+      dropZone.style.backgroundColor = "rgba(0, 0, 255, 0.1)";
+      console.log("dragging somtn ENTER " + (dropZone as HTMLElement)?.id);
+    };
+
+    const handleDragEnd = (e: Event) => {
+      const dragEvent = e as DragEvent;
+      dragEvent.preventDefault();
+      const dropZone = dragEvent.currentTarget as HTMLElement;
+      dropZone.style.border = "1px solid red";
+      dropZone.style.backgroundColor = "transparent";
+      console.log("Drag has ENDED in " + (dropZone as HTMLElement)?.id);
+    };
+
+    const handleDragLeave = (e: Event) => {
+      const dragEvent = e as DragEvent;
+      dragEvent.preventDefault();
+      const dropZone = dragEvent.currentTarget as HTMLElement;
+      dropZone.style.border = "1px solid red";
+      dropZone.style.backgroundColor = "transparent";
+      console.log("LEAVING " + (dropZone as HTMLElement)?.id);
+    };
+
+    const handleDrop = (e: Event) => {
+      const dragEvent = e as DragEvent;
+      dragEvent.preventDefault();
+      const dropZone = dragEvent.currentTarget as HTMLElement;
+      const componentHTML = dragEvent.dataTransfer?.getData("HTML");
+      const componentName = dragEvent.dataTransfer?.getData("Component");
+      const componentVariant = dragEvent.dataTransfer?.getData("Variant");
+
+      setComponentName(componentName || "");
+      setComponentVariant(componentVariant || "");
+      if (componentHTML !== null && componentHTML !== undefined) {
+        try {
+          const escapeRegex = (text: string) =>
+            text.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+          const escapedId = escapeRegex(dropZone.id);
+          const regex = new RegExp(
+            `(<div[^>]*id=["']${escapedId}["'][^>]*>)([\\s\\S]*?)(</div>)`,
+            "i"
+          );
+          const match = renderMCHTML.match(regex);
+          console.log("Regex Match: ", match);
+          if (match) {
+            const updatedHTML = renderMCHTML.replace(
+              regex,
+              (match, p1, p2, p3) => {
+                return `${p1}${componentHTML}${p3}`;
+              }
+            );
+            console.log("Updated HTML: ", updatedHTML);
+            setRenderMCHTML(updatedHTML);
+            setPropsModalOpen(true);
+          }
+        } catch (error) {
+          console.error("Error parsing component", error);
+        }
+      }
+      dropZone.style.border = "1px solid red";
+      dropZone.style.backgroundColor = "transparent";
+    };
+
+    // Agregamos los event con los tipos correctos
+    dropZones.forEach((zone) => {
+      zone.addEventListener("dragover", handleDragOver as EventListener);
+      zone.addEventListener("dragenter", handleDragEnter as EventListener);
+      zone.addEventListener("dragleave", handleDragLeave as EventListener);
+      zone.addEventListener("drop", handleDrop as EventListener);
+      zone.addEventListener("dragend", handleDragEnd as EventListener);
+    });
+
+    // Limpieza con los tipos correctos
+    return () => {
+      dropZones.forEach((zone) => {
+        zone.removeEventListener("dragover", handleDragOver as EventListener);
+        zone.removeEventListener("dragenter", handleDragEnter as EventListener);
+        zone.removeEventListener("dragleave", handleDragLeave as EventListener);
+        zone.removeEventListener("drop", handleDrop as EventListener);
+        zone.removeEventListener("dragend", handleDragEnd as EventListener);
+      });
+    };
+  }, [renderMCHTML]);
 
   return (
     <Box>
-      <PropsModal 
+      <PropsModal
         isOpen={propsModalOpen}
-        onClose={ changeStatusPropsModal}
-        componentName={"componentName"}
-        componentVariant={"componentVariant"}
+        onClose={() => setPropsModalOpen(false)}
+        componentName={componentName}
+        componentVariant={componentVariant}
       />
-      <div dangerouslySetInnerHTML={{ __html: htmlMasterContainer }} />
+      <div dangerouslySetInnerHTML={{ __html: renderMCHTML }} />
     </Box>
   );
 };
