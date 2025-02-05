@@ -117,7 +117,7 @@ const MasterContainer: React.FC<MasterContainerProps> = ({ onDrop }) => {
         zone.removeEventListener('dragend', handleDragEnd as EventListener);
       });
     };
-  }, [onDrop]); 
+  }, [onDrop, changeStatusPropsModal]); 
 
   const htmlMasterContainer = `
     <div>&nbsp;</div>
