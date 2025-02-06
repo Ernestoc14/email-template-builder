@@ -108,7 +108,7 @@ export const ObjectComponents: ObjectComponentsType = {
     previewHTML: "",
     props: {
       imageURL: "https://www.copaair.com/webassets/images/destinos/circulados/JFK.png",
-      destination: "Ciudad de Panama (PTY)",
+      destination: "Panama",
       date: "Mar, 3, 2025",
       reservationCode: "EJX932",
     }

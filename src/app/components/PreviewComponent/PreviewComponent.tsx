@@ -25,7 +25,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
       sx= {{
           padding: 2, 
           borderRadius: 2,
-          width: "100%",
+          width: "50%",
           height: "100%",
         }}
     >
@@ -50,7 +50,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
             "&:hover": { backgroundColor: "#a5a5a5"}
           }}
         >
-          <div style={{width: "500px"}} dangerouslySetInnerHTML={{ __html: previewHTML }} />
+          <div style={{width: "600px"}} dangerouslySetInnerHTML={{ __html: previewHTML }} />
         </Box>
       </Box>
     </Popover>
