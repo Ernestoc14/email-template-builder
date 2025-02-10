@@ -7,6 +7,7 @@ type Component<Props = object> = {
 type ObjectComponentsType = {
   Components: {
     Headers: Component<{
+      label: string;
       reservationCode: string;
     }>;
     TitleBoxs: Component<{
@@ -75,7 +76,8 @@ export const ObjectComponents: ObjectComponentsType = {
       renderHTML: "",
       previewHTML: "",
       props: {
-        reservationCode: "EBXGHT",
+        label: "Código de reserva",
+        reservationCode: "{PNR}",
       },
     },
     TitleBoxs: {
