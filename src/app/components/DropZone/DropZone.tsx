@@ -50,7 +50,7 @@ const DropZone: React.FC<DropZoneProps> = ({ id, initialContent, onDrop, setComp
 
     if (componentHTML) {
       // Este placeholder controla el Texto que esta dentro del DropZone que va a ser reemplazado por el componente
-      const placeholderRegex = /Arrastra aquí/;
+      const placeholderRegex = /Arrastrar /;
       const currentContent = placeholderRegex.test(content) ? "" : content;
       const newContent = currentContent + componentHTML;
       setContent(newContent);

@@ -171,7 +171,7 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
                     <td className="mobile-padding" style={{ padding: '32px 56px', backgroundColor: '#EFEFEE', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px' }}>
                       <DropZone
                         id="footer-section"
-                        initialContent="Arrastra Footer"
+                        initialContent="Arrastrar Footer"
                         onDrop={handleDrop}
                         setComponentName={setComponentName}
                         setComponentVariant={setComponentVariant}
