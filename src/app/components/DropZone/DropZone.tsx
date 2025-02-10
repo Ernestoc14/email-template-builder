@@ -63,7 +63,7 @@ const DropZone: React.FC<DropZoneProps> = ({ id, initialContent, onDrop, setComp
       id={id}
       draggable={true}
       style={{
-        border: '1px solid red',
+        border: '3px dotted gray',
         minHeight: '100px',
         color: textColor || 'white',
         padding: '8px'
