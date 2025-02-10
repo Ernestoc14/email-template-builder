@@ -34,6 +34,11 @@ type ObjectComponentsType = {
     }>;
     Banners: Component<{
       imageURL: string;
+      title: string;
+      description: string;
+      appStoreLink: string;
+      playStoreLink: string;
+      appGalleryLink: string;
     }>;
     ItineraryCards: Component<{
       date: string;
@@ -127,6 +132,11 @@ export const ObjectComponents: ObjectComponentsType = {
     previewHTML: "",
     props: {
       imageURL: "",
+      title: "Descarga la App de Copa Airlines",
+      description: "Recibe notificaciones en tiempo real sobre tu vuelo",
+      appStoreLink: "https://apps.apple.com/es/app/copa-airlines/id533700785",
+      playStoreLink: "https://play.google.com/store/apps/details?id=com.mttnow.android.copa.production&hl=es",
+      appGalleryLink: "https://appgallery.huawei.com/app/C102348393",
     }
   },
   ItineraryCards: {
