@@ -26,7 +26,7 @@ export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
           bgcolor: "background.paper",
           border: "1px solid #000",
           boxShadow: 24,
-          p: 4,
+          p: 3,
         }}
       >
         <Box
@@ -37,13 +37,14 @@ export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
             alignItems: "center",
           }}
         >
-          <Box >
+          <Box sx={{paddingBottom: "20px"}}>
           <Typography
-            variant="h5"
-            sx={{ textAlign: "center", padding: "20px" }}
+            variant="h6"
+            sx={{ textAlign: "center", }}
           >
             Create a New Template
           </Typography>
+          {/* Go Back Button */}
           <IconButton
             onClick={props.goBack}
             sx={{ position: "absolute", top: "10px", right: "10px", color: "#0032a0", "&:hover": {backgroundColor: "#e0e7ff", color:"#00227b"}, }}
@@ -72,7 +73,7 @@ export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
           </IconButton>
           </Box>
           <form 
-          style={{display: "flex", flexDirection: "column", gap: "20px"}}
+          style={{display: "flex", flexDirection: "column", gap: "20px", width: "60%"}}
           onSubmit={handleSubmit}>
             <TextField
               onChange={handleChange}
@@ -87,7 +88,8 @@ export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
               variant="contained"
               sx={{ marginTop: "20px",
               backgroundColor: "#0032a0",
-              color: "white"
+              color: "white",
+              textTransform: "none",
               }}
             >
               Create
