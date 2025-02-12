@@ -33,7 +33,7 @@ const Infobars = (variant: string) => {
                         <td class="destino-mobile-padding">
                           <p
                             style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                            Destination:</p>
+                            ${ObjectComponents.Components.Infobars.props.labelTextDestination}</p>
                           <p
                             style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 20px;font-style: normal;font-weight: 700;line-height: 32px;color: #ffffff;">
                             ${ObjectComponents.Components.Infobars.props.destination}</p>
@@ -59,7 +59,7 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder mid-right-spacing date-mobile-padding">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      Date:</p>
+                      ${ObjectComponents.Components.Infobars.props.labelTextDate}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;white-space:nowrap">
                       ${ObjectComponents.Components.Infobars.props.date}</p>
@@ -76,7 +76,7 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      Reservation code:</p>
+                      ${ObjectComponents.Components.Infobars.props.labelTextReservationCode}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;">
                       ${ObjectComponents.Components.Infobars.props.reservationCode}</p>
@@ -122,7 +122,7 @@ const Infobars = (variant: string) => {
                         <td class="destino-mobile-padding">
                           <p
                             style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                            Destination:</p>
+                            ${ObjectComponents.Components.Infobars.props.labelTextDestination}</p>
                           <p
                             style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 20px;font-style: normal;font-weight: 700;line-height: 32px;color: #ffffff;">
                             ${ObjectComponents.Components.Infobars.props.destination}</p>
@@ -148,7 +148,7 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder mid-right-spacing date-mobile-padding">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      Date:</p>
+                      ${ObjectComponents.Components.Infobars.props.labelTextDate}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;white-space:nowrap">
                       ${ObjectComponents.Components.Infobars.props.date}</p>
@@ -165,7 +165,7 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      Reservation code:</p>
+                      ${ObjectComponents.Components.Infobars.props.labelTextReservationCode}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;">
                       ${ObjectComponents.Components.Infobars.props.reservationCode}</p>

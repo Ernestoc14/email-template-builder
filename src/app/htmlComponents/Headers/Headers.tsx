@@ -72,7 +72,7 @@ const Headers = (variant: string) => {
                   <tr>
                     <td align="right"
                       style="font-size: 14px; line-height: 20px; font-style: normal; font-weight: 400; white-space: nowrap;">
-                      ${ObjectComponents.Components.Headers.props.label}
+                      ${ObjectComponents.Components.Headers.props.labelTextReservationCode}
                     </td>
                   </tr>
                   <tr>
@@ -111,7 +111,7 @@ const Headers = (variant: string) => {
                   <tr>
                     <td align="right"
                       style="font-size: 14px; line-height: 20px; font-style: normal; font-weight: 400; white-space: nowrap;">
-                      ${ObjectComponents.Components.Headers.props.label}
+                      ${ObjectComponents.Components.Headers.props.labelTextReservationCode}
                     </td>
                   </tr>
                   <tr>
