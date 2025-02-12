@@ -14,7 +14,7 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
     // Esta función se dispara cada vez que se hace drop en alguna drop zone
 
     useEffect(() => {
-      if( componentName === "Headers" && componentVariant === "Reservation Code") {
+      if( (componentName === "Headers" && componentVariant === "Reservation Code") || (componentName !== "Headers") ){
         setPropsModalOpen(true);
       } else {
         setPropsModalOpen(false);
