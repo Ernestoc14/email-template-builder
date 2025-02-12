@@ -9,10 +9,12 @@ export const MultiButton = (props: MultiButtonProps) => {
           onClick={() => props.onClick(button)}
           key={index}
           variant="contained"
+          fullWidth
           sx={{
             backgroundColor: "#0032a0",
             color: "white",
             fontWeight: "bold",
+            textTransform: "none",
           }}
         >
           {button}

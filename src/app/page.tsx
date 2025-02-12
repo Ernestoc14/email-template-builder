@@ -20,7 +20,7 @@ import { ObjectComponents } from "./types/Components";
 import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
 
 export default function Home() {
-  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] =
     useState(false);
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] =

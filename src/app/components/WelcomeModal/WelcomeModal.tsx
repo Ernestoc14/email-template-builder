@@ -19,7 +19,7 @@ export const WelcomeModal = (props: WelcomeModalProps) => {
           transform: "translate(-50%, -50%)",
           width: "50%",
           bgcolor: "background.paper",
-          border: "1px solid #000",
+          borderRadius: 3,
           boxShadow: 24,
           p: 4,
         }}
@@ -33,10 +33,9 @@ export const WelcomeModal = (props: WelcomeModalProps) => {
           }}
         >
           <Typography
-            variant="h4"
-            sx={{ textAlign: "center", padding: "20px" }}
+            sx={{ fontSize: "28px" , textAlign: "center", padding: "20px" }}
           >
-            Welcome to Notification Template Builder!!
+            Welcome to Notification Template Builder
           </Typography>
           <MultiButton
             buttons={["Create a New Template", "History Template"]}

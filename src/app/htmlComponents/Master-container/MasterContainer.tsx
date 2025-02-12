@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
 import PropsModal from '@/app/components/PropsModal/PropsModal';
 import DropZone from '@/app/components/DropZone/DropZone';
 
@@ -26,7 +25,7 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
     };
   
   return (
-    <Box>
+    <div id='master-container'>
       <PropsModal 
         isOpen={propsModalOpen}
         onClose={() => setPropsModalOpen(false)}
@@ -113,7 +112,7 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
           </tr>
         </tbody>
       </table>
-    </Box>
+    </div>
   );
 };
 
