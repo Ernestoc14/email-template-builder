@@ -1,16 +1,14 @@
 import { Box, Button, IconButton, Modal, TextField, Typography } from "@mui/material";
 import { CreateNewTemplateModalProps } from "./types";
-import { useState } from "react";
 
 export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
-  const [newTemplateName, setNewTemplateName] = useState("")
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     props.onClose()
-    console.log("Template Name Submitted:", newTemplateName);
+    console.log("New Template Name:", props.newTemplateName);
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewTemplateName(e.target.value);
+    props.setNewTemplateName(e.target.value);
     console.log("Template Name Changed: ", e.target.value);
   };
 
@@ -81,7 +79,7 @@ export const CreateNewTemplateModal = (props: CreateNewTemplateModalProps) => {
               label="Template Name"
               variant="outlined"
               required
-              value={newTemplateName}
+              value={props.newTemplateName}
             />
             <Button
               type="submit"

@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import {
   Box,
-  Button,
   List,
   Tab,
   Tabs,
@@ -18,11 +17,13 @@ import { CreateNewTemplateModal } from "./components/CreateNewTemplateModal/Crea
 import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryTemplateModal";
 import { ObjectComponents } from "./types/Components";
 import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
+import GenerateHTMLButton from "./components/GenerateHTMLButton/GenerateHTMLButton";
 
 export default function Home() {
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] =
     useState(false);
+  const [newTemplateName, setNewTemplateName] = useState("")
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] =
     useState(false);
   const [device, setDevice] = useState<string | null>("desktop");
@@ -156,9 +157,9 @@ export default function Home() {
                 <ToggleButton value="mobile">Mobile</ToggleButton>
               </ToggleButtonGroup>
             </Box>
-            <Button variant="contained" color="success">
-              Generate HTML
-            </Button>
+            <GenerateHTMLButton 
+              newTemplateName={newTemplateName}
+            />
           </Box>
           <Box className={styles.canva}>
             <Box
@@ -182,6 +183,8 @@ export default function Home() {
         open={isCreateNewTemplateModalOpen}
         onClose={handleCreateTemplateModalClose}
         goBack={handleReopenWelcomeModal}
+        newTemplateName={newTemplateName}
+        setNewTemplateName={setNewTemplateName}
       />
       <HistoryTemplateModal
         open={isHistoryTemplateModalOpen}
