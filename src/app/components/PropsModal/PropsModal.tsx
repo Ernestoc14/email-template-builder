@@ -2,6 +2,9 @@ import { Modal, Box, Typography, TextField, Button } from "@mui/material";
 import { PropsModalProps } from "./types";
 import { ObjectComponents } from "@/app/types/Components";
 
+// Implementar BG gris para inputs dinámicos
+// Button para Insertar props y cerrar modal
+
 const PropsModal = ({
   isOpen,
   onClose,
@@ -41,10 +44,10 @@ const PropsModal = ({
           gap: 2,
         }}
       >
-        {Object.entries(
+        {Object?.entries(
           ObjectComponents.Components[
             componentName as keyof typeof ObjectComponents.Components
-          ].props
+          ]?.props
         ).map(([propKey, propValue], index) => (
           <TextField
             key={index}
@@ -59,7 +62,9 @@ const PropsModal = ({
               mb: 1,
               "& .MuiOutlinedInput-root": {
                 borderRadius: "12px",
-                backgroundColor: "#f9fafb",
+                backgroundColor: /labelText/i.test(propKey)
+                  ? "#e0e0e0"
+                  : "#f9fafb",
                 transition: "all 0.3s ease",
                 "& fieldset": {
                   borderColor: "#d1d5db",
@@ -86,14 +91,30 @@ const PropsModal = ({
           />
         ))}
       </Box>
+      <Box
+        sx={{
+          display: "flex",
+          gap: 2,
+          justifyContent: "center",
+        }}
+      >
       <Button
         variant="contained"
-        color="primary"
-        sx={{ mt: 2, alignSelf: "flex-end" }}
+        sx={{ textTransform: "none", backgroundColor: "#008800" }}
+        fullWidth
+        onClick={onClose}
+      >
+        Insertar
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ textTransform: "none", backgroundColor: "#cc0000" }}
+        fullWidth
         onClick={onClose}
       >
         Cerrar
       </Button>
+    </Box>
     </Box>
   </Modal>
 );

@@ -7,7 +7,7 @@ type Component<Props = object> = {
 type ObjectComponentsType = {
   Components: {
     Headers: Component<{
-      label: string;
+      labelTextReservationCode: string;
       reservationCode: string;
     }>;
     TitleBoxs: Component<{
@@ -26,8 +26,11 @@ type ObjectComponentsType = {
     }>;
     Infobars: Component<{
       imageURL: string;
+      labelTextDestination: string;
       destination: string;
+      labelTextDate: string;
       date: string;
+      labelTextReservationCode: string;
       reservationCode: string;
     }>;
     Alerts: Component<{
@@ -76,7 +79,7 @@ export const ObjectComponents: ObjectComponentsType = {
       renderHTML: "",
       previewHTML: "",
       props: {
-        label: "Código de reserva",
+        labelTextReservationCode: "Código de reserva",
         reservationCode: "{PNR}",
       },
     },
@@ -115,8 +118,11 @@ export const ObjectComponents: ObjectComponentsType = {
     previewHTML: "",
     props: {
       imageURL: "https://www.copaair.com/webassets/images/destinos/circulados/JFK.png",
+      labelTextDestination: "Destino:",
       destination: "Panama",
+      labelTextDate: "Fecha:",
       date: "Mar, 3, 2025",
+      labelTextReservationCode: "Código de reserva:",
       reservationCode: "EJX932",
     }
   },
