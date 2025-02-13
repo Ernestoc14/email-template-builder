@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import PropsModal from '../PropsModal/PropsModal';
 
 interface DropZoneProps {
   id: string;
   initialContent: string;
-  onDrop: (id: string, newComponentHTML: string) => void;
+  componentName: string;
   setComponentName: (name: string) => void;
+  componentVariant: string;
   setComponentVariant: (variant: string) => void;
   textColor?: string;
 }
 
-const DropZone: React.FC<DropZoneProps> = ({ id, initialContent, onDrop, setComponentName, setComponentVariant, textColor}) => {
-  // Cada drop zone maneja su contenido (se acumula lo que se suelte)
+const DropZone: React.FC<DropZoneProps> = ({
+  id,
+  initialContent,
+  componentName,
+  setComponentName,
+  componentVariant,
+  setComponentVariant,
+  textColor,
+}) => {
   const [content, setContent] = useState(initialContent);
+  const [propsModalOpen, setPropsModalOpen] = useState(false);
+  const [pendingHTML, setPendingHTML] = useState<string | null>(null);
+  const dropTargetRef = useRef<HTMLDivElement | null>(null);
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -39,23 +51,43 @@ const DropZone: React.FC<DropZoneProps> = ({ id, initialContent, onDrop, setComp
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = 'none';
-    e.currentTarget.style.padding = "0"
-    e.currentTarget.style.minHeight = "0"
-    e.currentTarget.style.backgroundColor = 'transparent';
+    // Guardo la referencia del DropZone para quitar los estilos 
+    dropTargetRef.current = e.currentTarget;
 
     const componentHTML = e.dataTransfer.getData('HTML');
     setComponentName(e.dataTransfer.getData('Component'));
     setComponentVariant(e.dataTransfer.getData('Variant'));
 
     if (componentHTML) {
-      // Este placeholder controla el Texto que esta dentro del DropZone que va a ser reemplazado por el componente
+      setPendingHTML(componentHTML); // Se guarda temporalmente el HTML pendiente
+      setPropsModalOpen(true); // Se abre el PropsModal
+    }
+  };
+
+  const handleCloseModal = () => {
+    setPropsModalOpen(false);
+    setComponentName("");
+    setComponentVariant("");
+    setPendingHTML(null); // Se limpia el HTML pendiente si se cierra el modal
+  };
+
+  // Inserta el componente en el DropZone cuando se hace clic en Insertar Button del PropsModal
+  const handleInsertComponent = () => {
+    if (pendingHTML) {
       const placeholderRegex = /Agregar /;
       const currentContent = placeholderRegex.test(content) ? "" : content;
-      const newContent = currentContent + componentHTML;
+      const newContent = currentContent + pendingHTML;
       setContent(newContent);
-      onDrop(id, componentHTML);
+
+      if (dropTargetRef.current) {
+        // Quita los estilos de DropZone
+        dropTargetRef.current.style.border = 'none';
+        dropTargetRef.current.style.padding = "0";
+        dropTargetRef.current.style.minHeight = "0";
+        dropTargetRef.current.style.backgroundColor = 'transparent';
+      }
     }
+    handleCloseModal();
   };
 
   return (
@@ -74,6 +106,13 @@ const DropZone: React.FC<DropZoneProps> = ({ id, initialContent, onDrop, setComp
       onDragEnd={handleDragEnd}
       onDrop={handleDrop}
     >
+      <PropsModal
+        isOpen={propsModalOpen}
+        onClose={handleCloseModal}
+        onInsert={handleInsertComponent}  
+        componentName={componentName}
+        componentVariant={componentVariant}
+      />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );

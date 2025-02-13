@@ -1,38 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import PropsModal from '@/app/components/PropsModal/PropsModal';
+import React, { useState } from 'react';
 import DropZone from '@/app/components/DropZone/DropZone';
 
-interface MasterContainerProps {
-  onDrop?: (component: string, targetId: string) => void;
-}
-
-const MasterContainer: React.FC<MasterContainerProps> = () => {
-  const [componentName, setComponentName] = useState("Headers");
+const MasterContainer = () => {
+  const [componentName, setComponentName] = useState("");
   const [componentVariant, setComponentVariant] = useState("");
-  const [propsModalOpen, setPropsModalOpen] = useState(false);
-    // Esta función se dispara cada vez que se hace drop en alguna drop zone
-
-    useEffect(() => {
-      if( (componentName === "Headers" && componentVariant === "Reservation Code") || (componentName !== "Headers") ){
-        setPropsModalOpen(true);
-      } else {
-        setPropsModalOpen(false);
-      }
-    }, [componentName, componentVariant]);
-
-    const handleDrop = () => {
-      setPropsModalOpen(true);
-    };
   
   return (
     <div id='master-container'>
-      <PropsModal 
-        isOpen={propsModalOpen}
-        onClose={() => setPropsModalOpen(false)}
-        componentName={componentName}
-        componentVariant={componentVariant}
-      />
-      {/* <Box dangerouslySetInnerHTML={{ __html: masterContainerHTML }} /> */}
       <table className="email-wrapper" align="center" border={0} cellPadding={0} cellSpacing={0} 
       style={{ padding: '5px 0 0 0', width: '800px', maxWidth: '800px' }}>
         <tbody>
@@ -49,8 +23,9 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
                               <DropZone
                                 id="header-logo"
                                 initialContent="Agregar Header"
-                                onDrop={handleDrop}
+                                componentName={componentName}
                                 setComponentName={setComponentName}
+                                componentVariant={componentVariant}
                                 setComponentVariant={setComponentVariant}
                               />
                             </td>
@@ -64,8 +39,9 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
                               <DropZone
                                 id="header-section-bluebg"
                                 initialContent="Agregar Header Section"
-                                onDrop={handleDrop}
+                                componentName={componentName}
                                 setComponentName={setComponentName}
+                                componentVariant={componentVariant}
                                 setComponentVariant={setComponentVariant}
                               />
                             </td>
@@ -83,8 +59,9 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
                       <DropZone
                         id="body-section"
                         initialContent="Agregar Body Section"
-                        onDrop={handleDrop}
+                        componentName={componentName}
                         setComponentName={setComponentName}
+                        componentVariant={componentVariant}
                         setComponentVariant={setComponentVariant}
                         textColor='black'
                       />
@@ -99,8 +76,9 @@ const MasterContainer: React.FC<MasterContainerProps> = () => {
                       <DropZone
                         id="footer-section"
                         initialContent="Agregar Footer"
-                        onDrop={handleDrop}
+                        componentName={componentName}
                         setComponentName={setComponentName}
+                        componentVariant={componentVariant}
                         setComponentVariant={setComponentVariant}
                         textColor="black"
                       />
