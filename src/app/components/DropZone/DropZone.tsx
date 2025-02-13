@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import PropsModal from '../PropsModal/PropsModal';
+import { ObjectComponents } from '@/app/types/Components';
 
 interface DropZoneProps {
   id: string;
@@ -54,7 +55,8 @@ const DropZone: React.FC<DropZoneProps> = ({
     // Guardo la referencia del DropZone para quitar los estilos 
     dropTargetRef.current = e.currentTarget;
 
-    const componentHTML = e.dataTransfer.getData('HTML');
+    // const componentHTML = e.dataTransfer.getData('HTML');
+    const componentHTML = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]?.renderHTML
     setComponentName(e.dataTransfer.getData('Component'));
     setComponentVariant(e.dataTransfer.getData('Variant'));
 
@@ -68,7 +70,14 @@ const DropZone: React.FC<DropZoneProps> = ({
     setPropsModalOpen(false);
     setComponentName("");
     setComponentVariant("");
-    setPendingHTML(null); // Se limpia el HTML pendiente si se cierra el modal
+    // setPendingHTML(null); // Se limpia el HTML pendiente si se cierra el modal
+    if (pendingHTML) {
+      const placeholderRegex = /Agregar /;
+      const currentContent = placeholderRegex.test(content) ? "" : content;
+      const newContent = currentContent + pendingHTML;
+      setContent(newContent);
+      setPendingHTML(null);
+    }
   };
 
   // Inserta el componente en el DropZone cuando se hace clic en Insertar Button del PropsModal

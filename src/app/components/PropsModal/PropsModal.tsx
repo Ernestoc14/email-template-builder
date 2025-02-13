@@ -1,6 +1,8 @@
 import { Modal, Box, Typography, TextField, Button } from "@mui/material";
 import { PropsModalProps } from "./types";
 import { ObjectComponents } from "@/app/types/Components";
+import { useState } from "react";
+import CallComponent from "../CallComponent/CallComponent";
 
 const PropsModal = ({
   isOpen,
@@ -9,7 +11,24 @@ const PropsModal = ({
   componentName,
   componentVariant,
 }: PropsModalProps) => {
+  const [updatedProps, setUpdatedProps] = useState({});
+
+  const handleChange = (propsKey: string, value: string) => {
+    setUpdatedProps((prev) => ({...prev, [propsKey]: value}))
+  }
+
   const handleAddComponent = () => {
+    if (componentName) {
+      ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props = {
+        ...ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props,
+        ...updatedProps
+      }
+      // Generando HTML Nuevo con props actualizados
+      
+      // console.log(ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props)
+      CallComponent(componentName, componentVariant);
+      // console.log(updatedProps)
+    }
     onInsert(); // Llama a la función de DropZone para insertar el componente
   };
 
@@ -61,6 +80,7 @@ const PropsModal = ({
               size="small"
               fullWidth
               variant="outlined"
+              onChange={(e) => handleChange(propKey, e.target.value)}
               sx={{
                 mt: 2,
                 mb: 1,
