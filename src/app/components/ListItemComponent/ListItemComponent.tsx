@@ -10,7 +10,6 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState("")
-  const [renderHTML, setRenderHTML] = useState("");
 
   const handleDropDownClick = () => {
     setIsDropdownOpen((prev) => !prev);
@@ -21,7 +20,6 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
     setAnchorEl(event.currentTarget);
     setSelectedVariant(variant)
     setIsPreviewOpen(true);
-    setRenderHTML(ObjectComponents.Components[component as keyof typeof ObjectComponents.Components]?.renderHTML)
   }
 
   return (
@@ -80,8 +78,7 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
             key={index} 
             onDragStart={(e) => {
               //Cuando empieza el onDrag de un Componente se pasara
-              // HTML para mostrarlo en MC y el Componente y la variante
-              e.dataTransfer.setData("HTML",renderHTML); 
+              //el Componente y la variante
               e.dataTransfer.setData("Component", props.primary);
               e.dataTransfer.setData("Variant", variant);
             }} >

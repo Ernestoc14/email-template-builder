@@ -1,7 +1,7 @@
 export interface PropsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onInsert: () => void;
+  onInsert: (updatedHTML: string) => void;
   componentName: string;
   componentVariant: string;
 }

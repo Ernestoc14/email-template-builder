@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropsModal from '../PropsModal/PropsModal';
 import { ObjectComponents } from '@/app/types/Components';
 
@@ -25,6 +25,14 @@ const DropZone: React.FC<DropZoneProps> = ({
   const [propsModalOpen, setPropsModalOpen] = useState(false);
   const [pendingHTML, setPendingHTML] = useState<string | null>(null);
   const dropTargetRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // Forzar re-renderizado cuando cambia content
+    if (contentRef.current) {
+      contentRef.current.innerHTML = content;
+    }
+  }, [content]);
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -52,14 +60,15 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    // Guardo la referencia del DropZone para quitar los estilos 
     dropTargetRef.current = e.currentTarget;
 
-    // const componentHTML = e.dataTransfer.getData('HTML');
-    const componentHTML = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]?.renderHTML
-    setComponentName(e.dataTransfer.getData('Component'));
-    setComponentVariant(e.dataTransfer.getData('Variant'));
+    const draggedComponent = e.dataTransfer.getData('Component');
+    const draggedVariant = e.dataTransfer.getData('Variant');
+    setComponentName(draggedComponent);
+    setComponentVariant(draggedVariant);
 
+    const componentHTML = ObjectComponents.Components[draggedComponent as keyof typeof ObjectComponents.Components]?.renderHTML;
+    
     if (componentHTML) {
       setPendingHTML(componentHTML); // Se guarda temporalmente el HTML pendiente
       setPropsModalOpen(true); // Se abre el PropsModal
@@ -68,28 +77,17 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleCloseModal = () => {
     setPropsModalOpen(false);
-    setComponentName("");
-    setComponentVariant("");
-    // setPendingHTML(null); // Se limpia el HTML pendiente si se cierra el modal
-    if (pendingHTML) {
-      const placeholderRegex = /Agregar /;
-      const currentContent = placeholderRegex.test(content) ? "" : content;
-      const newContent = currentContent + pendingHTML;
-      setContent(newContent);
-      setPendingHTML(null);
-    }
+    setPendingHTML(null);
   };
 
-  // Inserta el componente en el DropZone cuando se hace clic en Insertar Button del PropsModal
-  const handleInsertComponent = () => {
+  const handleInsertComponent = (updatedHTML: string) => {
     if (pendingHTML) {
       const placeholderRegex = /Agregar /;
       const currentContent = placeholderRegex.test(content) ? "" : content;
-      const newContent = currentContent + pendingHTML;
+      const newContent = currentContent + updatedHTML;
       setContent(newContent);
 
       if (dropTargetRef.current) {
-        // Quita los estilos de DropZone
         dropTargetRef.current.style.border = 'none';
         dropTargetRef.current.style.padding = "0";
         dropTargetRef.current.style.minHeight = "0";

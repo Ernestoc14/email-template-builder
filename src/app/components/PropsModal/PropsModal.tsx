@@ -23,13 +23,11 @@ const PropsModal = ({
         ...ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props,
         ...updatedProps
       }
-      // Generando HTML Nuevo con props actualizados
-      
-      // console.log(ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props)
-      CallComponent(componentName, componentVariant);
-      // console.log(updatedProps)
     }
-    onInsert(); // Llama a la función de DropZone para insertar el componente
+    // Generando HTML Nuevo con props actualizados al llamar CallComponent
+    CallComponent(componentName, componentVariant);
+    const updatedHTML = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]?.renderHTML
+    onInsert(updatedHTML); // Llama a la función de DropZone para insertar el componente pasandole HTML con Props
   };
 
   return (
