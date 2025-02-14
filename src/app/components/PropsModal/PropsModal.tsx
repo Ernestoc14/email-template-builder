@@ -122,15 +122,15 @@ const PropsModal = ({
         >
           <Button
             variant="contained"
-            sx={{ textTransform: "none", backgroundColor: "#008800" }}
+            sx={{ textTransform: "none", backgroundColor: "#0032A0" }}
             fullWidth
             onClick={handleAddComponent}
           >
             Insertar
           </Button>
           <Button
-            variant="contained"
-            sx={{ textTransform: "none", backgroundColor: "#cc0000" }}
+            variant="outlined"
+            sx={{ textTransform: "none", backgroundColor: "white", color: "#0032A0", border: "1px solid #0032A0" }}
             fullWidth
             onClick={onClose}
           >
