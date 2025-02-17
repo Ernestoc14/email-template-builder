@@ -77,13 +77,9 @@ const DropZone: React.FC<DropZoneProps> = ({
         (draggedComponent === "Headers" && draggedVariant === "Reservation Code") ||
         draggedComponent !== "Headers"
       ) {
-        console.log(draggedComponent, draggedVariant);
         setPropsModalOpen(true); // Se abre el PropsModal
       } else {
-        console.log(draggedComponent, draggedVariant);
-        console.log(componentHTML)
         handleInsertComponent(componentHTML);
-        console.log("Desde DZ")
       }
     }
   };
