@@ -27,6 +27,7 @@ const PropsModal = ({
     }
     // Generando HTML Nuevo con props actualizados al llamar CallComponent
     CallComponent(componentName, componentVariant);
+    console.log(componentName, componentVariant);
     const updatedHTML = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]?.renderHTML
     onInsert(updatedHTML); // Llama a la función de DropZone para insertar el componente pasandole HTML con Props
   };

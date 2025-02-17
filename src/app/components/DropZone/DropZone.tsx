@@ -73,7 +73,18 @@ const DropZone: React.FC<DropZoneProps> = ({
     
     if (componentHTML) {
       setPendingHTML(componentHTML); // Se guarda temporalmente el HTML pendiente
-      setPropsModalOpen(true); // Se abre el PropsModal
+      if ( 
+        (draggedComponent === "Headers" && draggedVariant === "Reservation Code") ||
+        draggedComponent !== "Headers"
+      ) {
+        console.log(draggedComponent, draggedVariant);
+        setPropsModalOpen(true); // Se abre el PropsModal
+      } else {
+        console.log(draggedComponent, draggedVariant);
+        console.log(componentHTML)
+        handleInsertComponent(componentHTML);
+        console.log("Desde DZ")
+      }
     }
   };
 
@@ -83,10 +94,11 @@ const DropZone: React.FC<DropZoneProps> = ({
   };
 
   const handleInsertComponent = (updatedHTML: string) => {
-    if (pendingHTML) {
+    const htmlPendiente = updatedHTML || pendingHTML;
+    if (htmlPendiente) {
       const placeholderRegex = /Agregar /;
       const currentContent = placeholderRegex.test(content) ? "" : content;
-      const newContent = currentContent + updatedHTML;
+      const newContent = currentContent + htmlPendiente;
       setContent(newContent);
 
       if (dropTargetRef.current) {
