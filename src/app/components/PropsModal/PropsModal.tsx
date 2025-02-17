@@ -10,6 +10,7 @@ const PropsModal = ({
   onInsert,
   componentName,
   componentVariant,
+  language,
 }: PropsModalProps) => {
   const [updatedProps, setUpdatedProps] = useState({});
 
@@ -49,7 +50,7 @@ const PropsModal = ({
         }}
       >
         <Typography variant="h6" component="h2">
-          Personaliza {componentVariant} de {componentName}
+          Personaliza {componentVariant} de {componentName} para {language}
         </Typography>
         <Box
           sx={{

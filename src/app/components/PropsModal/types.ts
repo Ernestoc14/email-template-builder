@@ -4,4 +4,5 @@ export interface PropsModalProps {
   onInsert: (updatedHTML: string) => void;
   componentName: string;
   componentVariant: string;
+  language: string;
 }

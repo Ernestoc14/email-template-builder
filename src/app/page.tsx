@@ -20,24 +20,25 @@ import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
 import GenerateHTMLButton from "./components/GenerateHTMLButton/GenerateHTMLButton";
 
 export default function Home() {
-  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] =
     useState(false);
   const [newTemplateName, setNewTemplateName] = useState("")
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] =
     useState(false);
-  const [device, setDevice] = useState<string | null>("desktop");
-  const [language, setLanguage] = useState<number>(0);
+  const [device, setDevice] = useState<string>("desktop");
+  const [language, setLanguage] = useState<string>("ES");
 
   // Tabs Functions
-  const handleChangeLanguage = (event: React.SyntheticEvent, newLanguage: number) => {
+  const handleChangeLanguage = (event: React.SyntheticEvent, newLanguage: string) => {
     setLanguage(newLanguage)
+    console.log(newLanguage)
   };
 
   // ToggleButton Functions
   const handleToggleDevice = (
     event: React.MouseEvent<HTMLElement>,
-    newDevice: string | null
+    newDevice: string
   ) => {
     setDevice(newDevice);
   };
@@ -142,10 +143,10 @@ export default function Home() {
           >
             <Box sx={{ display: "flex", gap: "60px" }}>
               <Tabs value={language} onChange={handleChangeLanguage} sx={{ border: "1px solid #e5e5e5"}}>
-                <Tab label="ES" />
-                <Tab label="EN" />
-                <Tab label="PT" />
-                <Tab label="FR" />
+                <Tab label="ES" value="ES" />
+                <Tab label="EN" value="EN" />
+                <Tab label="PT" value="PT" />
+                <Tab label="FR" value="FR" />
               </Tabs>
               <ToggleButtonGroup
                 color="primary"
@@ -169,7 +170,9 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              <MasterContainer />
+              <MasterContainer
+                language={language}
+              />
             </Box>
           </Box>
         </Box>

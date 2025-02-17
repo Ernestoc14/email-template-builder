@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import DropZone from '@/app/components/DropZone/DropZone';
 
-const MasterContainer = () => {
+interface MasterContainerProps {
+  language: string;
+}
+
+const MasterContainer = ({ language }: MasterContainerProps) => {
   const [componentName, setComponentName] = useState("");
   const [componentVariant, setComponentVariant] = useState("");
   
@@ -27,6 +31,7 @@ const MasterContainer = () => {
                                 setComponentName={setComponentName}
                                 componentVariant={componentVariant}
                                 setComponentVariant={setComponentVariant}
+                                language={language}
                               />
                             </td>
                           </tr>
@@ -43,6 +48,7 @@ const MasterContainer = () => {
                                 setComponentName={setComponentName}
                                 componentVariant={componentVariant}
                                 setComponentVariant={setComponentVariant}
+                                language={language}
                               />
                             </td>
                           </tr>
@@ -64,6 +70,7 @@ const MasterContainer = () => {
                         componentVariant={componentVariant}
                         setComponentVariant={setComponentVariant}
                         textColor='black'
+                        language={language}
                       />
                     </td>
                   </tr>
@@ -81,6 +88,7 @@ const MasterContainer = () => {
                         componentVariant={componentVariant}
                         setComponentVariant={setComponentVariant}
                         textColor="black"
+                        language={language}
                       />
                     </td>
                   </tr>

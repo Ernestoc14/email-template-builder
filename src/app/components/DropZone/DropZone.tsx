@@ -10,6 +10,7 @@ interface DropZoneProps {
   componentVariant: string;
   setComponentVariant: (variant: string) => void;
   textColor?: string;
+  language: string;
 }
 
 const DropZone: React.FC<DropZoneProps> = ({
@@ -20,6 +21,7 @@ const DropZone: React.FC<DropZoneProps> = ({
   componentVariant,
   setComponentVariant,
   textColor,
+  language,
 }) => {
   const [content, setContent] = useState(initialContent);
   const [propsModalOpen, setPropsModalOpen] = useState(false);
@@ -119,6 +121,7 @@ const DropZone: React.FC<DropZoneProps> = ({
         onInsert={handleInsertComponent}  
         componentName={componentName}
         componentVariant={componentVariant}
+        language={language}
       />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
