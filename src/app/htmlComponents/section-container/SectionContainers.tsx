@@ -6,10 +6,10 @@ const SectionContainers = (variant: string, language: string) => {
   let renderHTML, previewHTML = ""
   if (variant === "Center Section") {
     renderHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
-    style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 16px;border-top-right-radius: 16px;">
+    style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-radius: 8px;">
     <!-- Start -->
     <tr>
-      <td style="font-size: 14px; padding: 32px 48px" class="mobile-padding">
+      <td style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
         <!-- Start Section Title -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
@@ -54,14 +54,14 @@ const SectionContainers = (variant: string, language: string) => {
       <td>
         <!-- Start Content Area Cmp -->
         <table width="100%" cellpadding="0" cellspacing="0" border="0"
-          style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse;">
+          style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-bottom-left-radius: 9px; border-bottom-right-radius: 9px;">
           <tr>
-            <td style="padding: 32px 48px;" class="content-area-mobile-padding">
+            <td style="padding: 32px;" class="content-area-mobile-padding">
               <table cellspacing="0" cellpadding="0"
                 style="margin: auto; width: 100%; min-height: 500px;">
                 <tr>
-                  <td align="center" style="color: #0032a0; background-color: #8ed8ff; border-radius: 6px;">
-                    Content Area - Children Size (Min Height 500px)
+                  <td align="center" style="color: #0032a0; border: 1px solid #cccccb; border-radius: 6px;">
+                    DropZone Component
                   </td>
                 </tr>
               </table>
@@ -73,10 +73,10 @@ const SectionContainers = (variant: string, language: string) => {
     </tr>
   </table>`
     previewHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
-    style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 16px;border-top-right-radius: 16px;">
+    style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-radius: 8px;">
     <!-- Start -->
     <tr>
-      <td style="font-size: 14px; padding: 32px 48px" class="mobile-padding">
+      <td style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
         <!-- Start Section Title -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
@@ -121,14 +121,14 @@ const SectionContainers = (variant: string, language: string) => {
       <td>
         <!-- Start Content Area Cmp -->
         <table width="100%" cellpadding="0" cellspacing="0" border="0"
-          style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse;">
+          style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-bottom-left-radius: 9px; border-bottom-right-radius: 9px;">
           <tr>
-            <td style="padding: 32px 48px;" class="content-area-mobile-padding">
+            <td style="padding: 32px;" class="content-area-mobile-padding">
               <table cellspacing="0" cellpadding="0"
                 style="margin: auto; width: 100%; min-height: 500px;">
                 <tr>
-                  <td align="center" style="color: #0032a0; background-color: #8ed8ff; border-radius: 6px;">
-                    Content Area - Children Size (Min Height 500px)
+                  <td align="center" style="color: #0032a0; border: 1px solid #cccccb; border-radius: 6px;">
+                    DropZone Component
                   </td>
                 </tr>
               </table>
@@ -141,9 +141,9 @@ const SectionContainers = (variant: string, language: string) => {
   </table>`
   } else if (variant === "Center Title Section") {
     renderHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
-    style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 16px;border-top-right-radius: 16px;">
+    style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 10px;border-top-right-radius: 10px;">
     <tr>
-      <td style="font-size: 14px; padding: 32px 48px" class="section-title-mobile-padding">
+      <td style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
         <!-- Start Title Cmp -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
@@ -185,9 +185,9 @@ const SectionContainers = (variant: string, language: string) => {
     </tr>
   </table>`
     previewHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
-    style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 16px;border-top-right-radius: 16px;">
+    style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 10px;border-top-right-radius: 10px;">
     <tr>
-      <td style="font-size: 14px; padding: 32px 48px" class="section-title-mobile-padding">
+      <td style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
         <!-- Start Title Cmp -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
@@ -231,8 +231,8 @@ const SectionContainers = (variant: string, language: string) => {
   } else if (variant === "Content Section") {
     renderHTML = `<table cellspacing="0" cellpadding="0" style="margin: auto; width: 100%; min-height: 500px;">
           <tr>
-            <td align="center" style="color: #0032a0; background-color: #8ed8ff; border-radius: 6px;">
-              Content Area - Children Size (Min Height 500px)
+            <td align="center" style="color: #0032a0; border: 1px solid #cccccb; border-radius: 6px;">
+              DropZone Component
             </td>
           </tr>
         </table>`
@@ -243,8 +243,8 @@ const SectionContainers = (variant: string, language: string) => {
         <!-- Start Replace -->
         <table cellspacing="0" cellpadding="0" style="margin: auto; width: 100%; min-height: 500px;">
           <tr>
-            <td align="center" style="color: #0032a0; background-color: #8ed8ff; border-radius: 6px;">
-              Content Area - Children Size (Min Height 500px)
+            <td align="center" style="color: #0032a0; border: 1px solid #cccccb; border-radius: 6px;">
+              DropZone Component
             </td>
           </tr>
         </table>
@@ -253,163 +253,158 @@ const SectionContainers = (variant: string, language: string) => {
     </tr>
   </table>`
   } else if (variant === "Left Section") {
-    renderHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;"> 
-          <!-- Start -->
-          <tr>
-            <td style="font-size: 14px; padding: 32px 48px" class="mobile-padding">
-              <!-- Start Section Title -->
-              <table cellpadding="0" cellspacing="0" border="0" style="width: auto">
-                <tbody>
-                  <tr style="height: 100%" class="title-info-reorder">
-                    <td>
-                      <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
-                        style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
-                        class="card-logo" alt="card logo" width="48" />
-                    </td>
-                    <td>
-                      <table>
-                        <tr>
-                          <td
-                            style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
-                            class="title-info-reorder title-mobile-padding">
-                            ${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].title}
-                          </td>
-                          <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
-                            class="title-info-reorder">
-                            <span class="remove-span-info">·</span>
-                            <span
-                              style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoLeft}</span>
-                            <span>·</span>
-                            <span
-                              style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoRight}</span>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Section Title -->
-            </td>
-          </tr>
-          <!-- Start Divider -->
-          <tr>
-            <td class="divider-mobile-spacing"
-              style="border-bottom: 1px solid #cccccb; width: 100%; max-height: 1px; height: 1px;line-height: 0;">
-              &nbsp;
-            </td>
-          </tr>
-          <!-- End Divider -->
-          <tr>
-            <td>
-              <!-- Start Content Area Cmp -->
-              <table width="100%" cellpadding="0" cellspacing="0" border="0"
-                style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse;">
-                <tr>
-                  <td style="padding: 32px 48px;" class="content-area-mobile-padding">
-                    <table cellspacing="0" cellpadding="0" style="margin: auto; width: 100%; min-height: 500px;">
-                      <tr>
-                        <td align="center" style="color: #0032a0; background-color: #8ed8ff; border-radius: 6px;">
-                          Content Area - Children Size (Min Height 500px)
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              <!-- End Content Area Cmp -->
-            </td>
-          </tr>
-        </table>`
-    previewHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
-    style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 16px;border-top-right-radius: 16px;">
+    renderHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-radius: 8px;">
+    <!-- Start -->
     <tr>
-      <td style="padding: 0 40px;">
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;"> 
-          <!-- Start -->
-          <tr>
-            <td style="font-size: 14px; padding: 32px 48px" class="mobile-padding">
-              <!-- Start Section Title -->
-              <table cellpadding="0" cellspacing="0" border="0" style="width: auto">
-                <tbody>
-                  <tr style="height: 100%" class="title-info-reorder">
-                    <td>
-                      <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
-                        style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
-                        class="card-logo" alt="card logo" width="48" />
+      <td style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
+        <!-- Start Section Title -->
+        <table cellpadding="0" cellspacing="0" border="0" style="width: auto">
+          <tbody>
+            <tr style="height: 100%" class="title-info-reorder">
+              <td style="width: 48px;">
+                <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
+                  style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
+                  class="card-logo remove-title-image" alt="card logo" width="48" />
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
+                      class="title-info-reorder title-mobile-padding">
+                        ${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].title}
                     </td>
-                    <td>
-                      <table>
-                        <tr>
-                          <td
-                            style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
-                            class="title-info-reorder title-mobile-padding">
-                            ${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].title}
-                          </td>
-                          <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
-                            class="title-info-reorder">
-                            <span class="remove-span-info">·</span>
-                            <span
-                              style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoLeft}</span>
-                            <span>·</span>
-                            <span
-                              style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoRight}</span>
-                          </td>
-                        </tr>
-                      </table>
+                    <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
+                      class="title-info-reorder">
+                      <span class="remove-span-info">·</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoLeft}</span>
+                      <span>·</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoRight}</span>
                     </td>
                   </tr>
-                </tbody>
-              </table>
-              <!-- End Section Title -->
-            </td>
-          </tr>
-          <!-- Start Divider -->
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- End Section Title -->
+      </td>
+    </tr>
+    <!-- Start Divider -->
+    <tr>
+      <td class="divider-mobile-spacing"
+        style="border-bottom: 1px solid #cccccb; width: 100%; max-height: 1px; height: 1px;line-height: 0;">
+        &nbsp;
+      </td>
+    </tr>
+    <!-- End Divider -->
+    <tr>
+      <td>
+        <!-- Start Content Area Cmp -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0"
+          style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-bottom-left-radius: 9px; border-bottom-right-radius: 9px;">
           <tr>
-            <td class="divider-mobile-spacing"
-              style="border-bottom: 1px solid #cccccb; width: 100%; max-height: 1px; height: 1px;line-height: 0;">
-              &nbsp;
-            </td>
-          </tr>
-          <!-- End Divider -->
-          <tr>
-            <td>
-              <!-- Start Content Area Cmp -->
-              <table width="100%" cellpadding="0" cellspacing="0" border="0"
-                style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse;">
+            <td style="padding: 32px;" class="content-area-mobile-padding">
+              <table cellspacing="0" cellpadding="0"
+                style="margin: auto; width: 100%; min-height: 500px;">
                 <tr>
-                  <td style="padding: 32px 48px;" class="content-area-mobile-padding">
-                    <table cellspacing="0" cellpadding="0" style="margin: auto; width: 100%; min-height: 500px;">
-                      <tr>
-                        <td align="center" style="color: #0032a0; background-color: #8ed8ff; border-radius: 6px;">
-                          Content Area - Children Size (Min Height 500px)
-                        </td>
-                      </tr>
-                    </table>
+                  <td align="center" style="color: #0032a0; border: 1px solid #cccccb; border-radius: 6px;">
+                    DropZone Component
                   </td>
                 </tr>
               </table>
-              <!-- End Content Area Cmp -->
             </td>
           </tr>
         </table>
+        <!-- End Content Area Cmp -->
+      </td>
+    </tr>
+  </table>`
+    previewHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-radius: 8px;">
+    <!-- Start -->
+    <tr>
+      <td style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
+        <!-- Start Section Title -->
+        <table cellpadding="0" cellspacing="0" border="0" style="width: auto">
+          <tbody>
+            <tr style="height: 100%" class="title-info-reorder">
+              <td style="width: 48px;">
+                <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
+                  style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
+                  class="card-logo remove-title-image" alt="card logo" width="48" />
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
+                      class="title-info-reorder title-mobile-padding">
+                        ${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].title}
+                    </td>
+                    <td style="align-items: center; color: #666666; vertical-align: middle; white-space: nowrap;"
+                      class="title-info-reorder">
+                      <span class="remove-span-info">·</span>
+                      <span style="padding: 0 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoLeft}</span>
+                      <span>·</span>
+                      <span style="padding-left: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif;">${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].infoRight}</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- End Section Title -->
+      </td>
+    </tr>
+    <!-- Start Divider -->
+    <tr>
+      <td class="divider-mobile-spacing"
+        style="border-bottom: 1px solid #cccccb; width: 100%; max-height: 1px; height: 1px;line-height: 0;">
+        &nbsp;
+      </td>
+    </tr>
+    <!-- End Divider -->
+    <tr>
+      <td>
+        <!-- Start Content Area Cmp -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0"
+          style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-bottom-left-radius: 9px; border-bottom-right-radius: 9px;">
+          <tr>
+            <td style="padding: 32px;" class="content-area-mobile-padding">
+              <table cellspacing="0" cellpadding="0"
+                style="margin: auto; width: 100%; min-height: 500px;">
+                <tr>
+                  <td align="center" style="color: #0032a0; border: 1px solid #cccccb; border-radius: 6px;">
+                    DropZone Component
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- End Content Area Cmp -->
       </td>
     </tr>
   </table>`
   } else if (variant === "Left Title Section") {
-    renderHTML = `<table cellpadding="0" cellspacing="0" border="0" style="width: auto">
+    renderHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+    <tr>
+      <td style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
+        <!-- Start Title Cmp -->
+        <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
-                  class="card-logo" alt="card logo" width="48"/>
+                  class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
                 <table>
                   <tr>
-                    <td
-                      style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
+                    <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
                       ${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].title}
                     </td>
@@ -425,25 +420,35 @@ const SectionContainers = (variant: string, language: string) => {
               </td>
             </tr>
           </tbody>
-        </table>`
-    previewHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
-    style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 16px;border-top-right-radius: 16px;">
+        </table>
+        <!-- End Title Cmp -->
+      </td>
+    </tr>
+    <!-- Start Divider -->
     <tr>
-      <td style="font-size: 14px; padding: 32px 48px" class="section-title-mobile-padding">
+      <td class="divider-mobile-spacing"
+        style="border-bottom: 1px solid #cccccb; width: 100%; max-height: 1px; height: 1px;line-height: 0;">
+        &nbsp;
+      </td>
+    </tr>
+  </table>`
+    previewHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
+    style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+    <tr>
+      <td style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
         <!-- Start Title Cmp -->
-        <table cellpadding="0" cellspacing="0" border="0" style="width: auto">
+        <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
               <td>
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
-                  class="card-logo" alt="card logo" width="48"/>
+                  class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
                 <table>
                   <tr>
-                    <td
-                      style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
+                    <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
                       ${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].title}
                     </td>
