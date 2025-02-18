@@ -1,4 +1,6 @@
-const Banners = (variant: string) => {
+import { ObjectComponents } from "@/app/types/Components";
+
+const Banners = (variant: string, language: string) => {
   let renderHTML, previewHTML = "";
   if(variant === "Banner with Image") {
     renderHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width:100%; border-collapse: separate;">
@@ -10,12 +12,12 @@ const Banners = (variant: string) => {
                     <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;">
                       <tr>
                         <td style="color: #0032A0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size:16px;line-height:24px;font-weight:700;">
-                          Download the Copa Airlines mobile app
+                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].title}
                         </td>
                       </tr>
                       <tr>
                         <td style="padding-top: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #666666;">
-                          Obtén actualizaciones en tiempo real sobre tu puerta de abordaje, terminal, información sobre tu vuelo y mucho más.
+                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].description}
                         </td>
                       </tr>
                       <tr>
@@ -23,7 +25,7 @@ const Banners = (variant: string) => {
                           <table class="mobile-table-center" style="border-collapse: collapse;">
                             <tr>
                               <td style="width: 87px; padding-right: 16px;">
-                                <a href="https://apps.apple.com/es/app/copa-airlines/id533700785"
+                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}}"
                                   target="_blank" style="text-decoration: none;">
                                   <img src="https://www.copaair.com/assets/app-store-2X.png"
                                     alt="Apple Store" width="87" height="26"
@@ -31,7 +33,7 @@ const Banners = (variant: string) => {
                                 </a>
                               </td>
                               <td style="width: 87px; padding-right: 16px;">
-                                <a href="https://play.google.com/store/apps/details?id=com.mttnow.android.copa.production&hl=es"
+                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}}"
                                   target="_blank" style="text-decoration: none;">
                                   <img src="https://www.copaair.com/assets/play-store-2X.png"
                                     alt="Google Play" width="87" height="26"
@@ -39,7 +41,7 @@ const Banners = (variant: string) => {
                                 </a>
                               </td>
                               <td style="width: 87px;">
-                                <a href="https://appgallery.huawei.com/app/C102348393" target="_blank"
+                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}}" target="_blank"
                                   style="text-decoration: none;">
                                   <img src="https://www.copaair.com/assets/app-gallery-2X.png"
                                     alt="AppGallery" width="87" height="26"
@@ -77,12 +79,12 @@ const Banners = (variant: string) => {
                     <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;">
                       <tr>
                         <td style="color: #0032A0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size:16px;line-height:24px;font-weight:700;">
-                          Download the Copa Airlines mobile app
+                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].title}
                         </td>
                       </tr>
                       <tr>
                         <td style="padding-top: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #666666;">
-                          Obtén actualizaciones en tiempo real sobre tu puerta de abordaje, terminal, información sobre tu vuelo y mucho más.
+                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].description}
                         </td>
                       </tr>
                       <tr>
@@ -90,7 +92,7 @@ const Banners = (variant: string) => {
                           <table class="mobile-table-center" style="border-collapse: collapse;">
                             <tr>
                               <td style="width: 87px; padding-right: 16px;">
-                                <a href="https://apps.apple.com/es/app/copa-airlines/id533700785"
+                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appStoreLink}"
                                   target="_blank" style="text-decoration: none;">
                                   <img src="https://www.copaair.com/assets/app-store-2X.png"
                                     alt="Apple Store" width="87" height="26"
@@ -98,7 +100,7 @@ const Banners = (variant: string) => {
                                 </a>
                               </td>
                               <td style="width: 87px; padding-right: 16px;">
-                                <a href="https://play.google.com/store/apps/details?id=com.mttnow.android.copa.production&hl=es"
+                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].playStoreLink}"
                                   target="_blank" style="text-decoration: none;">
                                   <img src="https://www.copaair.com/assets/play-store-2X.png"
                                     alt="Google Play" width="87" height="26"
@@ -106,7 +108,7 @@ const Banners = (variant: string) => {
                                 </a>
                               </td>
                               <td style="width: 87px;">
-                                <a href="https://appgallery.huawei.com/app/C102348393" target="_blank"
+                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}" target="_blank"
                                   style="text-decoration: none;">
                                   <img src="https://www.copaair.com/assets/app-gallery-2X.png"
                                     alt="AppGallery" width="87" height="26"

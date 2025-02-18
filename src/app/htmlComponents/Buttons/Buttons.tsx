@@ -1,6 +1,6 @@
 import { ObjectComponents } from "@/app/types/Components";
 
-const Buttons = (variant: string) => {
+const Buttons = (variant: string, language: string) => {
     let renderHTML, previewHTML = "";
     if (variant === "Light") {
       renderHTML = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #FFFFFF;">
@@ -11,9 +11,9 @@ const Buttons = (variant: string) => {
                     <w:anchorlock/>
                     <center style="">
                 <![endif]-->
-                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props.urlLink}" 
+                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" 
                     style="border: none; display: inline-block;color: #ffffff;text-decoration: none;border-radius: 40px;margin: 0;text-align: center;padding: 15px 0;font-size: 14px;line-height: 20px;width: 100%;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-weight: 600;background-color: #0E68FF;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                 </a>
                 <!--[if mso]>
                     </center>
@@ -36,9 +36,9 @@ const Buttons = (variant: string) => {
                     <w:anchorlock/>
                     <center style="">
                 <![endif]-->
-                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props.urlLink}" 
+                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" 
                     style="border: none; display: inline-block;color: #ffffff;text-decoration: none;border-radius: 40px;margin: 0;text-align: center;padding: 15px 0;font-size: 14px;line-height: 20px;width: 100%;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-weight: 600;background-color: #0E68FF;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                 </a>
                 <!--[if mso]>
                     </center>
@@ -56,14 +56,14 @@ const Buttons = (variant: string) => {
             <tr>
               <td align="right" style="width: 50%;">
                 <!-- <p style="text-align: left; margin: 0; color: #0032a0; font-size: 12px; display: table;"> -->
-                  <a href="${ObjectComponents.Components.Buttons.props.urlLink}" target="_blank"
+                  <a href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" target="_blank"
                     style="border: none; display: inline-block;color: #0032a0;text-decoration: none; margin: 0;text-align: center; font-size: 14px;line-height: 20px;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-weight: 600;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                   </a>
                 <!-- </p> -->
               </td>
               <td style="width: 50%;">
-                <a href="${ObjectComponents.Components.Buttons.props.urlLink}" target="_blank" style="display: block; height: 24px">
+                <a href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" target="_blank" style="display: block; height: 24px">
                   <img src="https://www.copaair.com/assets/icon-keyboard-arrow.png" alt="arrow"/>
                 </a>
               </td>
@@ -78,14 +78,14 @@ const Buttons = (variant: string) => {
             <tr>
               <td align="right" style="width: 50%;">
                 <!-- <p style="text-align: left; margin: 0; color: #0032a0; font-size: 12px; display: table;"> -->
-                  <a href="${ObjectComponents.Components.Buttons.props.urlLink}" target="_blank"
+                  <a href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" target="_blank"
                     style="border: none; display: inline-block;color: #0032a0;text-decoration: none; margin: 0;text-align: center; font-size: 14px;line-height: 20px;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-weight: 600;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                   </a>
                 <!-- </p> -->
               </td>
               <td style="width: 50%;">
-                <a href="${ObjectComponents.Components.Buttons.props.urlLink}" target="_blank" style="display: block; height: 24px">
+                <a href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" target="_blank" style="display: block; height: 24px">
                   <img src="https://www.copaair.com/assets/icon-keyboard-arrow.png" alt="arrow"/>
                 </a>
               </td>
@@ -104,9 +104,9 @@ const Buttons = (variant: string) => {
                     <w:anchorlock/>
                     <center style="">
                 <![endif]-->
-                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props.urlLink}" 
+                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" 
                     style="border: none; display: inline-block;color: #ffffff;text-decoration: none;border-radius: 40px;margin: 0;text-align: center;padding: 15px 0;font-size: 14px;line-height: 20px;width: 100%;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-weight: 600;background-color: #0032A0;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                 </a>
                 <!--[if mso]>
                     </center>
@@ -129,9 +129,9 @@ const Buttons = (variant: string) => {
                     <w:anchorlock/>
                     <center style="">
                 <![endif]-->
-                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props.urlLink}" 
+                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" 
                     style="border: none; display: inline-block;color: #ffffff;text-decoration: none;border-radius: 40px;margin: 0;text-align: center;padding: 15px 0;font-size: 14px;line-height: 20px;width: 100%;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-weight: 600;background-color: #0032A0;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                 </a>
                 <!--[if mso]>
                     </center>
@@ -153,9 +153,9 @@ const Buttons = (variant: string) => {
                     <w:anchorlock/>
                     <center>
                 <![endif]-->
-                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props.urlLink}" 
+                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" 
                     style="mso-border-alt: none; display: inline-block;color: #0032A0; border: 1px solid #0032A0; text-decoration: none; border-radius: 40px; margin: 0; text-align: center; padding: 15px 0;font-size: 14px;line-height: 20px; width: 100%; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 600; background-color: transparent;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                 </a>
                 <!--[if mso]>
                     </center>
@@ -178,9 +178,9 @@ const Buttons = (variant: string) => {
                     <w:anchorlock/>
                     <center>
                 <![endif]-->
-                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props.urlLink}" 
+                <a class="btn-blue" href="${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].urlLink}" 
                     style="mso-border-alt: none; display: inline-block;color: #0032A0; border: 1px solid #0032A0; text-decoration: none; border-radius: 40px; margin: 0; text-align: center; padding: 15px 0;font-size: 14px;line-height: 20px; width: 100%; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 600; background-color: transparent;">
-                    ${ObjectComponents.Components.Buttons.props.label}
+                    ${ObjectComponents.Components.Buttons.props[language as "ES" | "EN" | "PT" | "FR"].label}
                 </a>
                 <!--[if mso]>
                     </center>

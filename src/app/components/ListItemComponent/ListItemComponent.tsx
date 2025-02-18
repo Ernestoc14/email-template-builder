@@ -16,7 +16,7 @@ export const ListItemComponent = (props: ListItemComponentProps) => {
   };
 
   const handlePreviewClick = (event: React.MouseEvent<HTMLElement>, component: string, variant: string) => {
-    CallComponent(component, variant);
+    CallComponent(component, variant, props.language);
     setAnchorEl(event.currentTarget);
     setSelectedVariant(variant)
     setIsPreviewOpen(true);

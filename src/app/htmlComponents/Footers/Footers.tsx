@@ -1,5 +1,6 @@
+import { ObjectComponents } from "@/app/types/Components";
 
-const Footers = (variant: string) => {
+const Footers = (variant: string, language: string) => {
     let renderHTML, previewHTML;
     if(variant === "Social"){
       renderHTML = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
@@ -43,7 +44,7 @@ const Footers = (variant: string) => {
                 </tr>
                 <tr>
                   <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666; padding-bottom: 8px;">
-                    Este mensaje ha sido enviado a la dirección proporcionada a Copa Airlines para informarle sobre el estado de su solicitud.
+                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
                   </td>
                 </tr>
                 <tr>
@@ -109,7 +110,7 @@ const Footers = (variant: string) => {
                 </tr>
                 <tr>
                   <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666; padding-bottom: 8px;">
-                    Este mensaje ha sido enviado a la dirección proporcionada a Copa Airlines para informarle sobre el estado de su solicitud.
+                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
                   </td>
                 </tr>
                 <tr>
@@ -138,7 +139,7 @@ const Footers = (variant: string) => {
                 <tr>
                   <td align="center"
                     style="font-size: 12px;font-style: normal;font-weight: 400;line-height: 16px;color: #666666;padding-bottom: 8px;">
-                    Por favor no responder a este mensaje. Para mayor asistencia contacte a nuestro
+                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
                     <a style="color: #666666;font-weight:600;text-decoration:underline!important;"
                       href="https://www.copaair.com/en-gs/customer-service/call-center/" target="_blank">
                       <span style="white-space: nowrap;">Centro de Llamadas.</span>
@@ -172,7 +173,7 @@ const Footers = (variant: string) => {
                 <tr>
                   <td align="center"
                     style="font-size: 12px;font-style: normal;font-weight: 400;line-height: 16px;color: #666666;padding-bottom: 8px;">
-                    Por favor no responder a este mensaje. Para mayor asistencia contacte a nuestro
+                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
                     <a style="color: #666666;font-weight:600;text-decoration:underline!important;"
                       href="https://www.copaair.com/en-gs/customer-service/call-center/" target="_blank">
                       <span style="white-space: nowrap;">Centro de Llamadas.</span>

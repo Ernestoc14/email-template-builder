@@ -1,5 +1,6 @@
+import { ObjectComponents } from "@/app/types/Components";
 
-const Alerts = (variant: string) => {
+const Alerts = (variant: string, language: string) => {
   let renderHTML, previewHTML = "";
   if (variant === "Content Error") {
     renderHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width:100%; border-collapse: separate;">
@@ -27,7 +28,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -75,7 +76,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -122,7 +123,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -170,7 +171,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -216,7 +217,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #FFFFFF; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -263,7 +264,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #FFFFFF; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -309,7 +310,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -356,7 +357,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-weight: 400; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                    Estamos teniendo inconvenientes con nuestras líneas telefónicas para Nicaragua, Perú y Bolivia. Estamos trabajando para recuperar el servicio.
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                     <!--[if mso]>
                         </tr>
@@ -403,7 +404,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -451,7 +452,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -498,7 +499,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -546,7 +547,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -593,7 +594,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -641,7 +642,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -688,7 +689,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -736,7 +737,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -783,7 +784,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -831,7 +832,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -864,7 +865,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                    Flight canceled due to adverse weather conditions
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                 </tr>
               </table>
@@ -888,7 +889,7 @@ const Alerts = (variant: string) => {
                       width="20" alt="information">
                   </td>
                   <td style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #ffffff; font-size: 14px; line-height: 20px;text-align: left">
-                    Flight canceled due to adverse weather conditions
+                    ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                   </td>
                 </tr>
               </table>
@@ -925,7 +926,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>
@@ -973,7 +974,7 @@ const Alerts = (variant: string) => {
                           </td>
                           <td
                             style="font-family: SuisseIntl, Arial, Helvetica, sans-serif; font-weight: 600; color: #333333; font-size: 14px; line-height: 20px;text-align: left">
-                            Flight canceled due to adverse weather conditions
+                            ${ObjectComponents.Components.Alerts.props[language as "ES" | "EN" | "PT" | "FR"].alertText}
                           </td>
                         <!--[if mso]>
                         </tr>

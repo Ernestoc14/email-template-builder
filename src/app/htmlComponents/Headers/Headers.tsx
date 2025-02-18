@@ -1,6 +1,6 @@
 import { ObjectComponents } from "@/app/types/Components";
 
-const Headers = (variant: string) => {
+const Headers = (variant: string, language: string) => {
   let renderHTML, previewHTML = "";
   if (variant === "Copa y ConnectMiles") {
     renderHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
@@ -72,13 +72,13 @@ const Headers = (variant: string) => {
                   <tr>
                     <td align="right"
                       style="font-size: 14px; line-height: 20px; font-style: normal; font-weight: 400; white-space: nowrap;">
-                      ${ObjectComponents.Components.Headers.props.labelTextReservationCode}
+                      ${ObjectComponents.Components.Headers.props[language as "ES" | "EN" | "PT" | "FR"].labelTextReservationCode}
                     </td>
                   </tr>
                   <tr>
                     <td align="right"
                       style="font-size: 16px; line-height: 20px; font-style: normal; font-weight: 600; font-family: Gilroy, Arial, Helvetica, sans-serif; ">
-                      ${ObjectComponents.Components.Headers.props.reservationCode}
+                      ${ObjectComponents.Components.Headers.props[language as "ES" | "EN" | "PT" | "FR"].reservationCode}
                     </td>
                   </tr>
                 </table>
@@ -111,13 +111,13 @@ const Headers = (variant: string) => {
                   <tr>
                     <td align="right"
                       style="font-size: 14px; line-height: 20px; font-style: normal; font-weight: 400; white-space: nowrap;">
-                      ${ObjectComponents.Components.Headers.props.labelTextReservationCode}
+                      ${ObjectComponents.Components.Headers.props[language as "ES" | "EN" | "PT" | "FR"].labelTextReservationCode}
                     </td>
                   </tr>
                   <tr>
                     <td align="right"
                       style="font-size: 16px; line-height: 20px; font-style: normal; font-weight: 600; font-family: Gilroy, Arial, Helvetica, sans-serif; ">
-                      ${ObjectComponents.Components.Headers.props.reservationCode}
+                      ${ObjectComponents.Components.Headers.props[language as "ES" | "EN" | "PT" | "FR"].reservationCode}
                     </td>
                   </tr>
                 </table>

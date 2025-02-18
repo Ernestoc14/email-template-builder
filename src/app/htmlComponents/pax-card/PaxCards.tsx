@@ -1,5 +1,6 @@
+import { ObjectComponents } from "@/app/types/Components"
 
-const PaxCards = (variant: string) => {
+const PaxCards = (variant: string, language: string) => {
     let renderHTML, previewHTML = ""
     if(variant === "Simple Pax") {
       renderHTML = `<table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
@@ -43,7 +44,7 @@ const PaxCards = (variant: string) => {
                                       <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                         <v:fill color="#121212;" />
                                         <v:textbox inset="0,0,0,0">
-                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                         </v:textbox>
                                         </v:oval>
                                       </td>
@@ -73,7 +74,7 @@ const PaxCards = (variant: string) => {
                                             style="border-radius: 50%;text-align: center;font-size: 16px;font-style: normal;font-weight: 600;line-height: 20px;min-width: 52px;"
                                             class="status-bg-presidential-status outlook-status-td">
                                             <span class="outlook-status-td status-color-all-status">
-                                              KA
+                                              ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}
                                             </span>
                                           </td>
                                         </tr>
@@ -86,17 +87,17 @@ const PaxCards = (variant: string) => {
                                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                                   <tr>
                                     <td style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #333333; padding-bottom: 4px;">
-                                      Katia Selena Vega Rios
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].paxName}
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="reorder-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; padding-bottom: 4px;">
-                                      Sin programa de lealtad
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].lealtad}
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="reorder-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; padding-bottom: 4px;">
-                                      Seats 5F, 6D, 7G, 4A
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].seats}
                                     </td>
                                   </tr>
                                 </table>
@@ -106,7 +107,7 @@ const PaxCards = (variant: string) => {
                               <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
                                 <tr>
                                   <td class="show-item-mobile" style="display: none; font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #0C7E3E;">
-                                    Check-In Completed
+                                    ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].status}
                                   </td>
                                 </tr>
                               </table>
@@ -159,7 +160,7 @@ const PaxCards = (variant: string) => {
                                       <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                         <v:fill color="#121212;" />
                                         <v:textbox inset="0,0,0,0">
-                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                         </v:textbox>
                                         </v:oval>
                                       </td>
@@ -189,7 +190,7 @@ const PaxCards = (variant: string) => {
                                             style="border-radius: 50%;text-align: center;font-size: 16px;font-style: normal;font-weight: 600;line-height: 20px;min-width: 52px;"
                                             class="status-bg-presidential-status outlook-status-td">
                                             <span class="outlook-status-td status-color-all-status">
-                                              KA
+                                              ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}
                                             </span>
                                           </td>
                                         </tr>
@@ -202,17 +203,17 @@ const PaxCards = (variant: string) => {
                                 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                                   <tr>
                                     <td style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #333333; padding-bottom: 4px;">
-                                      Katia Selena Vega Rios
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].paxName}
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="reorder-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; padding-bottom: 4px;">
-                                      Sin programa de lealtad
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].lealtad}
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="reorder-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; padding-bottom: 4px;">
-                                      Seats 5F, 6D, 7G, 4A
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].seats}
                                     </td>
                                   </tr>
                                 </table>
@@ -222,7 +223,7 @@ const PaxCards = (variant: string) => {
                               <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
                                 <tr>
                                   <td class="show-item-mobile" style="display: none; font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #0C7E3E;">
-                                    Check-In Completed
+                                    ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].status}
                                   </td>
                                 </tr>
                               </table>
@@ -276,7 +277,7 @@ const PaxCards = (variant: string) => {
                                           <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                             <v:fill color="#D6E3FF" />
                                             <v:textbox inset="0,0,0,0">
-                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #0032A0;">KA</p>
+                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #0032A0;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                             </v:textbox>
                                           </v:oval>
                                         </td>
@@ -288,7 +289,7 @@ const PaxCards = (variant: string) => {
                                             <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                               <v:fill color="#0032A0;" />
                                                 <v:textbox inset="0,0,0,0">
-                                                  <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                                  <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                                 </v:textbox>
                                               </v:oval>
                                         </td>
@@ -300,7 +301,7 @@ const PaxCards = (variant: string) => {
                                           <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                             <v:fill color="#062660;" />
                                             <v:textbox inset="0,0,0,0">
-                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                             </v:textbox>
                                           </v:oval>
                                         </td>
@@ -312,7 +313,7 @@ const PaxCards = (variant: string) => {
                                           <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                           <v:fill color="#8D7249;" />
                                             <v:textbox inset="0,0,0,0">
-                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                             </v:textbox>
                                           </v:oval>
                                         </td>
@@ -324,7 +325,7 @@ const PaxCards = (variant: string) => {
                                         <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                         <v:fill color="#666666;" />
                                           <v:textbox inset="0,0,0,0">
-                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                         </v:textbox>
                                       </v:oval>
                                       </td>
@@ -336,7 +337,7 @@ const PaxCards = (variant: string) => {
                                       <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                         <v:fill color="#121212;" />
                                         <v:textbox inset="0,0,0,0">
-                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                         </v:textbox>
                                         </v:oval>
                                       </td>
@@ -366,7 +367,7 @@ const PaxCards = (variant: string) => {
                                             style="border-radius: 50%;text-align: center;font-size: 16px;font-style: normal;font-weight: 600;line-height: 20px;min-width: 52px;"
                                             class="status-bg-member-status outlook-status-td">
                                             <span class="outlook-status-td status-color-all-status">
-                                              KA
+                                              ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}
                                             </span>
                                           </td>
                                         </tr>
@@ -379,32 +380,32 @@ const PaxCards = (variant: string) => {
                                 <table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                                   <tr>
                                     <td style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #333333; padding-bottom: 4px;">
-                                      Katia Selena Vega Rios
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].paxName}
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="reorder-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; padding-bottom: 4px;">
-                                      ConnectMiles Member
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].lealtad}
                                       <span class="remove-item-mobile">
                                         |
                                       </span>
                                       <span class="reorder-mobile">
-                                        Pending Seats
+                                        ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].seats}
                                       </span>
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="remove-item-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #333333; padding-bottom: 4px;">
-                                      Documents: 
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDocument}:
                                       <span style="text-decoration: underline; color: #666666;">
-                                        Verification Completed
+                                        ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].documentStatus}
                                       </span>
-                                      <img style="width: 16px; height: 16px; vertical-align: top;" src="https://www.copaair.com/webassets/icons/alerts/alert_banner_error.png" alt="" width="16" height="16">
+                                      <img style="width: 16px; height: 16px; vertical-align: top;" src="${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].iconURL}" alt="" width="16" height="16">
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="remove-item-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #0C7E3E;">
-                                      Check-In Completed
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].status}
                                     </td>
                                   </tr>
                                 </table>
@@ -421,7 +422,7 @@ const PaxCards = (variant: string) => {
                                         <center style="mso-line-height-rule:exactly;">
                                     <![endif]-->
                                     <span style="white-space:nowrap;font-family: SuisseIntl, Helvetica, sans-serif;font-size: 12px;font-weight: 600;padding: 4px 8px;background-color: #FFF4D5;border-radius: 12px;color:#121212">
-                                      Check-In Pendiente
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].status}
                                     </span>
                                     <!--[if mso]>
                                         </center>
@@ -432,9 +433,9 @@ const PaxCards = (variant: string) => {
                                 </tr>
                                 <tr>
                                   <td class="show-item-mobile" style="width: 100%; display: none; font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #333333;">
-                                    Documents: 
+                                    ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDocument}:
                                     <span style=" color: #0C7E3E;">
-                                      Verification Completed
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].documentStatus}
                                     </span>
                                   </td>
                                 </tr>
@@ -488,7 +489,7 @@ const PaxCards = (variant: string) => {
                                           <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                             <v:fill color="#D6E3FF" />
                                             <v:textbox inset="0,0,0,0">
-                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #0032A0;">KA</p>
+                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #0032A0;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                             </v:textbox>
                                           </v:oval>
                                         </td>
@@ -500,7 +501,7 @@ const PaxCards = (variant: string) => {
                                             <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                               <v:fill color="#0032A0;" />
                                                 <v:textbox inset="0,0,0,0">
-                                                  <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                                  <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                                 </v:textbox>
                                               </v:oval>
                                         </td>
@@ -512,7 +513,7 @@ const PaxCards = (variant: string) => {
                                           <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                             <v:fill color="#062660;" />
                                             <v:textbox inset="0,0,0,0">
-                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                             </v:textbox>
                                           </v:oval>
                                         </td>
@@ -524,7 +525,7 @@ const PaxCards = (variant: string) => {
                                           <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                           <v:fill color="#8D7249;" />
                                             <v:textbox inset="0,0,0,0">
-                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                              <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                             </v:textbox>
                                           </v:oval>
                                         </td>
@@ -536,7 +537,7 @@ const PaxCards = (variant: string) => {
                                         <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                         <v:fill color="#666666;" />
                                           <v:textbox inset="0,0,0,0">
-                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                         </v:textbox>
                                       </v:oval>
                                       </td>
@@ -548,7 +549,7 @@ const PaxCards = (variant: string) => {
                                       <v:oval style="position:absolute;margin-left:2px;;margin-top:2px;width:52px;height:52px" stroke="false">
                                         <v:fill color="#121212;" />
                                         <v:textbox inset="0,0,0,0">
-                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">KA</p>
+                                          <p style="text-align:center;font-size:12pt;font-family:Arial; position:absolute;margin-left:1px;margin-top:8px;color: #F9F9F8;">${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}</p>
                                         </v:textbox>
                                         </v:oval>
                                       </td>
@@ -578,7 +579,7 @@ const PaxCards = (variant: string) => {
                                             style="border-radius: 50%;text-align: center;font-size: 16px;font-style: normal;font-weight: 600;line-height: 20px;min-width: 52px;"
                                             class="status-bg-member-status outlook-status-td">
                                             <span class="outlook-status-td status-color-all-status">
-                                              KA
+                                              ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].initials}
                                             </span>
                                           </td>
                                         </tr>
@@ -591,32 +592,32 @@ const PaxCards = (variant: string) => {
                                 <table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                                   <tr>
                                     <td style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #333333; padding-bottom: 4px;">
-                                      Katia Selena Vega Rios
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].paxName}
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="reorder-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; padding-bottom: 4px;">
-                                      ConnectMiles Member
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].lealtad}
                                       <span class="remove-item-mobile">
                                         |
                                       </span>
                                       <span class="reorder-mobile">
-                                        Pending Seats
+                                        ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].seats}
                                       </span>
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="remove-item-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #333333; padding-bottom: 4px;">
-                                      Documents: 
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDocument}:
                                       <span style="text-decoration: underline; color: #666666;">
-                                        Verification Completed
+                                        ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].documentStatus}
                                       </span>
                                       <img style="width: 16px; height: 16px; vertical-align: top;" src="https://www.copaair.com/webassets/icons/alerts/alert_banner_error.png" alt="" width="16" height="16">
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="remove-item-mobile" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #0C7E3E;">
-                                      Check-In Completed
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].status}
                                     </td>
                                   </tr>
                                 </table>
@@ -633,7 +634,7 @@ const PaxCards = (variant: string) => {
                                         <center style="mso-line-height-rule:exactly;">
                                     <![endif]-->
                                     <span style="white-space:nowrap;font-family: SuisseIntl, Helvetica, sans-serif;font-size: 12px;font-weight: 600;padding: 4px 8px;background-color: #FFF4D5;border-radius: 12px;color:#121212">
-                                      Check-In Pendiente
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].status}
                                     </span>
                                     <!--[if mso]>
                                         </center>
@@ -644,9 +645,9 @@ const PaxCards = (variant: string) => {
                                 </tr>
                                 <tr>
                                   <td class="show-item-mobile" style="width: 100%; display: none; font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; color: #333333;">
-                                    Documents: 
+                                    ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDocument}:
                                     <span style=" color: #0C7E3E;">
-                                      Verification Completed
+                                      ${ObjectComponents.Components.PaxCards.props[language as "ES" | "EN" | "PT" | "FR"].documentStatus}
                                     </span>
                                   </td>
                                 </tr>

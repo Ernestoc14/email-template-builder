@@ -32,7 +32,6 @@ export default function Home() {
   // Tabs Functions
   const handleChangeLanguage = (event: React.SyntheticEvent, newLanguage: string) => {
     setLanguage(newLanguage)
-    console.log(newLanguage)
   };
 
   // ToggleButton Functions
@@ -126,6 +125,7 @@ export default function Home() {
                       index ===
                       Object.keys(ObjectComponents.Components).length - 1
                     }
+                    language={language}
                   />
                 )
               )}

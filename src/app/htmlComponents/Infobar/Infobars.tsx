@@ -1,6 +1,6 @@
 import { ObjectComponents } from "@/app/types/Components";
 
-const Infobars = (variant: string) => {
+const Infobars = (variant: string, language: string) => {
   let renderHTML, previewHTML = "";
   if (variant === "Single Infobar") {
     renderHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
@@ -23,7 +23,7 @@ const Infobars = (variant: string) => {
                           <div class="no-border"
                             style="border: 1px solid #ffffff;width: 52px;height: 52px;border-radius: 50%;padding: 1px;margin: 0 auto;">
                             <!--Change the "JFK" below with the IAT Code of the destination in uppercase-->
-                            <img src="${ObjectComponents.Components.Infobars.props.imageURL}"
+                            <img src="${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                               width="52" height="52" border="0" alt="City IMG" style="border:0;">
                           </div>
                           <!--[if mso]>
@@ -33,10 +33,10 @@ const Infobars = (variant: string) => {
                         <td class="destino-mobile-padding">
                           <p
                             style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                            ${ObjectComponents.Components.Infobars.props.labelTextDestination}</p>
+                            ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDestination}</p>
                           <p
                             style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 20px;font-style: normal;font-weight: 700;line-height: 32px;color: #ffffff;">
-                            ${ObjectComponents.Components.Infobars.props.destination}</p>
+                            ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].destination}</p>
                         </td>
                       </tr>
                     </table>
@@ -59,10 +59,10 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder mid-right-spacing date-mobile-padding">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      ${ObjectComponents.Components.Infobars.props.labelTextDate}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDate}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;white-space:nowrap">
-                      ${ObjectComponents.Components.Infobars.props.date}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].date}</p>
                   </td>
                   <td style="padding: 0 32px; width: 1px;" class="infobar-divider-remove">
                     <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
@@ -76,10 +76,10 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      ${ObjectComponents.Components.Infobars.props.labelTextReservationCode}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].labelTextReservationCode}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;">
-                      ${ObjectComponents.Components.Infobars.props.reservationCode}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].reservationCode}</p>
                   </td>
                 </tr>
               </table>
@@ -112,7 +112,7 @@ const Infobars = (variant: string) => {
                           <div class="no-border"
                             style="border: 1px solid #ffffff;width: 52px;height: 52px;border-radius: 50%;padding: 1px;margin: 0 auto;">
                             <!--Change the "JFK" below with the IAT Code of the destination in uppercase-->
-                            <img src="${ObjectComponents.Components.Infobars.props.imageURL}"
+                            <img src="${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                               width="52" height="52" border="0" alt="City IMG" style="border:0;">
                           </div>
                           <!--[if mso]>
@@ -122,10 +122,10 @@ const Infobars = (variant: string) => {
                         <td class="destino-mobile-padding">
                           <p
                             style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                            ${ObjectComponents.Components.Infobars.props.labelTextDestination}</p>
+                            ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDestination}</p>
                           <p
                             style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 20px;font-style: normal;font-weight: 700;line-height: 32px;color: #ffffff;">
-                            ${ObjectComponents.Components.Infobars.props.destination}</p>
+                            ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].destination}</p>
                         </td>
                       </tr>
                     </table>
@@ -148,10 +148,10 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder mid-right-spacing date-mobile-padding">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      ${ObjectComponents.Components.Infobars.props.labelTextDate}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].labelTextDate}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;white-space:nowrap">
-                      ${ObjectComponents.Components.Infobars.props.date}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].date}</p>
                   </td>
                   <td style="padding: 0 32px; width: 1px;" class="infobar-divider-remove">
                     <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
@@ -165,10 +165,10 @@ const Infobars = (variant: string) => {
                   <td class="xsmall-reorder">
                     <p
                       style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #ffffff;">
-                      ${ObjectComponents.Components.Infobars.props.labelTextReservationCode}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].labelTextReservationCode}</p>
                     <p
                       style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #ffffff;">
-                      ${ObjectComponents.Components.Infobars.props.reservationCode}</p>
+                      ${ObjectComponents.Components.Infobars.props[language as "ES" | "EN" | "PT" | "FR"].reservationCode}</p>
                   </td>
                 </tr>
               </table>

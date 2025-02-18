@@ -1,6 +1,6 @@
 import { ObjectComponents } from "@/app/types/Components";
 
-const TitleBoxs = (variant: string) => {
+const TitleBoxs = (variant: string, language: string) => {
     let renderHTML, previewHTML = "";
     if(variant === "Single Title Box"){
       renderHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; color: #FFFFFF;">
@@ -8,11 +8,11 @@ const TitleBoxs = (variant: string) => {
             <td style="word-break: break-word; height: 60px;" class="titlebox-mobile-padding">
               <p class="title-titlebox-mobile"
                 style="font-family: Gilroy, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 32px; line-height: 40px; margin: 0;">
-                ${ObjectComponents.Components.TitleBoxs.props.title}
+                ${ObjectComponents.Components.TitleBoxs.props[language as "ES" | "EN" | "PT" | "FR"].title}
               </p>
               <p
                 style=" font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; margin: 0; padding-top: 8px;">
-                ${ObjectComponents.Components.TitleBoxs.props.description}
+                ${ObjectComponents.Components.TitleBoxs.props[language as "ES" | "EN" | "PT" | "FR"].description}
               </p>
             </td>
           </tr>
@@ -28,11 +28,11 @@ const TitleBoxs = (variant: string) => {
             <td style="word-break: break-word; height: 60px;" class="titlebox-mobile-padding">
               <p class="title-titlebox-mobile"
                 style="font-family: Gilroy, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 32px; line-height: 40px; margin: 0;">
-                ${ObjectComponents.Components.TitleBoxs.props.title}
+                ${ObjectComponents.Components.TitleBoxs.props[language as "ES" | "EN" | "PT" | "FR"].title}
               </p>
               <p
                 style=" font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; margin: 0; padding-top: 8px;">
-                ${ObjectComponents.Components.TitleBoxs.props.description}
+                ${ObjectComponents.Components.TitleBoxs.props[language as "ES" | "EN" | "PT" | "FR"].description}
               </p>
             </td>
           </tr>

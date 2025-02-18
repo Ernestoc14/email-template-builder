@@ -19,14 +19,23 @@ const PropsModal = ({
   }
 
   const handleAddComponent = () => {
-    if (componentName) {
-      ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props = {
-        ...ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props,
-        ...updatedProps
+    if (componentName && language) {
+      const component = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]
+      component.props = {
+        ...component.props,
+        [language]: {
+          ...component.props[language as keyof typeof component.props],
+          ...updatedProps
+        }
       }
+
+      // ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props = {
+      //   ...ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props,
+      //   ...updatedProps
+      // }
     }
     // Generando HTML Nuevo con props actualizados al llamar CallComponent
-    CallComponent(componentName, componentVariant);
+    CallComponent(componentName, componentVariant, language);
     console.log(componentName, componentVariant);
     const updatedHTML = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]?.renderHTML
     onInsert(updatedHTML); // Llama a la función de DropZone para insertar el componente pasandole HTML con Props
@@ -62,16 +71,16 @@ const PropsModal = ({
                   componentName as keyof typeof ObjectComponents.Components
                 ]?.props
               ).length;
-              return propsLength <= 4 ? "repeat(1, 1fr)" : "repeat(2, 1fr)";
+              return propsLength <= 4 ? "repeat(2, 1fr)" : "repeat(2, 1fr)";
             },
             gap: 2,
           }}
         >
           {Object.entries(
-            ObjectComponents.Components[
-              componentName as keyof typeof ObjectComponents.Components
-            ]?.props || {}
-          ).map(([propKey, propValue], index) => (
+  ObjectComponents.Components[
+    componentName as keyof typeof ObjectComponents.Components
+  ]?.props[language as "ES" | "EN" | "PT" | "FR"] || {}
+).map(([propKey, propValue], index) => (
             <TextField
               key={index}
               id={propKey}
