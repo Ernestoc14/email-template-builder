@@ -9,18 +9,18 @@ const SectionContainers = (variant: string, language: string) => {
     style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-radius: 8px;">
     <!-- Start -->
     <tr>
-      <td style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
+      <td align="center" style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
         <!-- Start Section Title -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
-              <td>
+              <td style="width: 48px;">
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
@@ -76,18 +76,18 @@ const SectionContainers = (variant: string, language: string) => {
     style="margin: 0;width: 100%; background-color: #fcfcfc; border-collapse: collapse; border-radius: 8px;">
     <!-- Start -->
     <tr>
-      <td style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
+      <td align="center" style="font-size: 14px; padding: 16px 48px" class="mobile-padding">
         <!-- Start Section Title -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
-              <td>
+              <td style="width: 48px;">
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
@@ -143,18 +143,18 @@ const SectionContainers = (variant: string, language: string) => {
     renderHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
     style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 10px;border-top-right-radius: 10px;">
     <tr>
-      <td style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
+      <td align="center" style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
         <!-- Start Title Cmp -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
-              <td>
+              <td style="width: 48px;">
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
@@ -187,18 +187,18 @@ const SectionContainers = (variant: string, language: string) => {
     previewHTML = `<table width="100%" cellpadding="0" cellspacing="0" border="0"
     style="margin: 0;width: 100%;background-color: #fcfcfc; border-collapse: collapse;border-top-left-radius: 10px;border-top-right-radius: 10px;">
     <tr>
-      <td style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
+      <td align="center" style="font-size: 14px; padding: 16px;" class="section-title-mobile-padding">
         <!-- Start Title Cmp -->
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
-              <td>
+              <td style="widht: 48px;">
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
@@ -268,7 +268,7 @@ const SectionContainers = (variant: string, language: string) => {
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
@@ -335,7 +335,7 @@ const SectionContainers = (variant: string, language: string) => {
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle; font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif; white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
@@ -396,13 +396,13 @@ const SectionContainers = (variant: string, language: string) => {
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
-              <td>
+              <td style="width: 48px;">
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
@@ -440,13 +440,13 @@ const SectionContainers = (variant: string, language: string) => {
         <table align="center" cellpadding="0" cellspacing="0" border="0" style="width: auto">
           <tbody>
             <tr style="height: 100%" class="title-info-reorder">
-              <td>
+              <td style="width: 48px;">
                 <img src="${ObjectComponents.Components.SectionContainers.props[language as "ES" | "EN" | "PT" | "FR"].imageURL}"
                   style="width: 48px;border: 0;margin: 0;padding: 0; height: auto;outline: none;text-decoration: none; display: block;"
                   class="card-logo remove-title-image" alt="card logo" width="48" />
               </td>
               <td>
-                <table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td align="center" style="color: #0032a0; padding: 0 8px; vertical-align: middle;font-size: 20px;font-weight: 700; margin:0;font-family: Gilroy, Arial, Helvetica, sans-serif;white-space: nowrap;"
                       class="title-info-reorder title-mobile-padding">
