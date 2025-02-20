@@ -20,7 +20,7 @@ import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
 import GenerateHTMLButton from "./components/GenerateHTMLButton/GenerateHTMLButton";
 
 export default function Home() {
-  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] =
     useState(false);
   const [newTemplateName, setNewTemplateName] = useState("")
@@ -160,6 +160,7 @@ export default function Home() {
             </Box>
             <GenerateHTMLButton 
               newTemplateName={newTemplateName}
+              language={language}
             />
           </Box>
           <Box className={styles.canva}>

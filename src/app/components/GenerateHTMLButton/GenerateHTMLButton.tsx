@@ -1,7 +1,11 @@
 import { Button } from "@mui/material";
-import { GenerateHTMLButtonProps } from "./types";
 
-const GenerateHTMLButton = (props: GenerateHTMLButtonProps) => {
+export interface GenerateHTMLButtonProps {
+  newTemplateName: string
+  language: string
+}
+
+const GenerateHTMLButton = ({ newTemplateName , language}: GenerateHTMLButtonProps) => {
 
   const generateHTML = (newTemplateName: string) => {
     const HTMLGenerado = document.getElementById("master-container")?.innerHTML;
@@ -11,7 +15,7 @@ const GenerateHTMLButton = (props: GenerateHTMLButtonProps) => {
     xmlns:o="urn:schemas-microsoft-com:office:office">
   <head></head>
   <head>
-    <title>${props.newTemplateName}</title>
+    <title>${newTemplateName}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -189,9 +193,7 @@ const GenerateHTMLButton = (props: GenerateHTMLButtonProps) => {
         ]
       }
     </script> -->
-    
     ${HTMLGenerado}
-  
   </body>
   </html>
     `
@@ -201,7 +203,7 @@ const GenerateHTMLButton = (props: GenerateHTMLButtonProps) => {
 
     const link = document.createElement('a');
     link.href = url;
-    link.download = `${newTemplateName}.html`;
+    link.download = `${newTemplateName}-${language}.html`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -213,7 +215,7 @@ const GenerateHTMLButton = (props: GenerateHTMLButtonProps) => {
     <Button
       variant="contained"
       color="success"
-      onClick={() => generateHTML(props.newTemplateName)}
+      onClick={() => generateHTML(newTemplateName)}
     >
       Generate HTML
     </Button>
