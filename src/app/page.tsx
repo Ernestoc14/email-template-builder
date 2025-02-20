@@ -20,7 +20,7 @@ import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
 import GenerateHTMLButton from "./components/GenerateHTMLButton/GenerateHTMLButton";
 
 export default function Home() {
-  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(true);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] =
     useState(false);
   const [newTemplateName, setNewTemplateName] = useState("")

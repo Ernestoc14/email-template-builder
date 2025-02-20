@@ -28,11 +28,6 @@ const PropsModal = ({
           ...updatedProps
         }
       }
-
-      // ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props = {
-      //   ...ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components].props,
-      //   ...updatedProps
-      // }
     }
     // Generando HTML Nuevo con props actualizados al llamar CallComponent
     CallComponent(componentName, componentVariant, language);
@@ -49,7 +44,14 @@ const PropsModal = ({
           left: "50%",
           transform: "translate(-50%, -50%)",
           gap: 2,
-          width: "30%",
+          width: () => {
+            const propsLength = Object.keys(
+              ObjectComponents.Components?.[
+                componentName as keyof typeof ObjectComponents.Components
+              ]?.props[language as "ES" | "EN" | "PT" | "FR"] || {}
+            ).length;
+            return propsLength > 6 ? "50%" : "30%";
+          },
           display: "flex",
           flexDirection: "column",
           position: "absolute",
@@ -69,9 +71,12 @@ const PropsModal = ({
               const propsLength = Object.keys(
                 ObjectComponents.Components?.[
                   componentName as keyof typeof ObjectComponents.Components
-                ]?.props
+                ]?.props[language as "ES" | "EN" | "PT" | "FR"] || {}
               ).length;
-              return propsLength <= 4 ? "repeat(2, 1fr)" : "repeat(2, 1fr)";
+              console.log(propsLength)
+              if(propsLength > 6) return "repeat(3, 1fr)";
+              if(propsLength > 4) return "repeat(2, 1fr)";
+              return "repeat(1, 1fr)";
             },
             gap: 2,
           }}
