@@ -12,12 +12,14 @@
       "footerId": "footer-01",
       "boxAzulId": "box-azul-01" 
   },
-  "header":{
+  
+  "header":[{
+      "variant": "Reservation Code",
       "esProps":{},
       "enProps":{},
       "ptProps":{},
       "frProps":{}
-  },
+  }],
   "boxAzul":{
       "components": [
                   {   
@@ -47,10 +49,10 @@
           }
       ]
   },
-  "footer":{
+  "footer":[{
       "esProps":{},
       "enProps":{},
       "ptProps":{},
       "frProps":{}
-  }
+  }]
 }

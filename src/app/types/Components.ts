@@ -1,340 +1,76 @@
+import { AlertsTranslations } from "../htmlComponents/Alerts/types";
+import { BannersTranslations } from "../htmlComponents/Banners/types";
+import { ButtonsTranslations } from "../htmlComponents/Buttons/types";
+import { FootersTranslations } from "../htmlComponents/Footers/types";
+import { HeadersTranslations } from "../htmlComponents/Headers/types";
+import { InfobarsTranslations } from "../htmlComponents/Infobars/types";
+import { ItineraryCardsTranslations } from "../htmlComponents/Itinerary-cards/types";
+import { PaxCardsTranslations } from "../htmlComponents/Pax-cards/types";
+import { TitleBoxsTranslations } from "../htmlComponents/Title-boxs/types";
+
 type Component<Props = object> = {
   variants: string[];
   renderHTML: string;
   previewHTML: string;
   props: Props;
 }
-type ObjectComponentsType = {
-  Components: {
-    Headers: Component<{
-      ES: {
-        labelTextReservationCode: string;
-        reservationCode: string;
-      },
-      EN: {
-        labelTextReservationCode: string;
-        reservationCode: string;
-      },
-      FR: {
-        labelTextReservationCode: string;
-        reservationCode: string;
-      },
-      PT: {
-        labelTextReservationCode: string;
-        reservationCode: string;
-      }
-    }>;
-    TitleBoxs: Component<{
-      ES: {
-        title: string;
-        description: string
-      },
-      EN: {
-        title: string;
-        description: string
-      },
-      FR: {
-        title: string;
-        description: string
-      },
-      PT: {
-        title: string;
-        description: string
-      }
-    }>;
-    SectionContainers: Component<{
-      ES: {
-        imageURL?: string;
-        title: string;
-        infoLeft?: string;
-        infoRight?: string;
-      },
-      EN: {
-        imageURL?: string;
-        title: string;
-        infoLeft?: string;
-        infoRight?: string;
-      },
-      PT: {
-        imageURL?: string;
-        title: string;
-        infoLeft?: string;
-        infoRight?: string;
-      },
-      FR: {
-        imageURL?: string;
-        title: string;
-        infoLeft?: string;
-        infoRight?: string;
-      },
-    }>;
-    Buttons: Component<{
-      ES: {
-        label: string;
-        urlLink: string;
-      },
-      EN: {
-        label: string;
-        urlLink: string;
-      },
-      PT: {
-        label: string;
-        urlLink: string;
-      },
-      FR: {
-        label: string;
-        urlLink: string;
-      },
-    }>;
-    Infobars: Component<{
-      ES: {
-        imageURL: string;
-        labelTextDestination: string;
-        destination: string;
-        labelTextDate: string;
-        date: string;
-        labelTextReservationCode: string;
-        reservationCode: string;
-      },
-      EN: {
-        imageURL: string;
-        labelTextDestination: string;
-        destination: string;
-        labelTextDate: string;
-        date: string;
-        labelTextReservationCode: string;
-        reservationCode: string;
-      },
-      PT: {
-        imageURL: string;
-        labelTextDestination: string;
-        destination: string;
-        labelTextDate: string;
-        date: string;
-        labelTextReservationCode: string;
-        reservationCode: string;
-      },
-      FR: {
-        imageURL: string;
-        labelTextDestination: string;
-        destination: string;
-        labelTextDate: string;
-        date: string;
-        labelTextReservationCode: string;
-        reservationCode: string;
-      },
-    }>;
-    Alerts: Component<{
-      ES: {
-        alertText: string;
-      },
-      EN: {
-        alertText: string;
-      },
-      PT: {
-        alertText: string;
-      },
-      FR: {
-        alertText: string;
-      }
-    }>;
-    Banners: Component<{
-      ES: {
-        imageURL: string;
-        title: string;
-        description: string;
-        appStoreLink: string;
-        playStoreLink: string;
-        appGalleryLink: string;
-      },
-      EN: {
-        imageURL: string;
-        title: string;
-        description: string;
-        appStoreLink: string;
-        playStoreLink: string;
-        appGalleryLink: string;
-      },
-      PT: {
-        imageURL: string;
-        title: string;
-        description: string;
-        appStoreLink: string;
-        playStoreLink: string;
-        appGalleryLink: string;
-      },
-      FR: {
-        imageURL: string;
-        title: string;
-        description: string;
-        appStoreLink: string;
-        playStoreLink: string;
-        appGalleryLink: string;
-      },
-    }>;
-    ItineraryCards: Component<{
-      ES: {
-        date: string;
-        aircraft: string;
-        pillsFlightStatus: string;
-        departureCrossedOutTime: string;
-        departureTime: string;
-        flightDuration: string;
-        arrivalTime: string;
-        arrivalCrossedOutTime: string;
-        origin: string;
-        destination: string;
-        labelTextOriginTerminal: string;
-        originTerminal: string;
-        labelTextOriginGate: string;
-        originGate: string;
-        labelTextDestinationTerminal: string;
-        destinationTerminal: string;
-        labelTextDestinationGate: string;
-        destinationGate: string;
-      },
-      EN: {
-        date: string;
-        aircraft: string;
-        pillsFlightStatus: string;
-        departureCrossedOutTime: string;
-        departureTime: string;
-        flightDuration: string;
-        arrivalTime: string;
-        arrivalCrossedOutTime: string;
-        origin: string;
-        destination: string;
-        labelTextOriginTerminal: string;
-        originTerminal: string;
-        labelTextOriginGate: string;
-        originGate: string;
-        labelTextDestinationTerminal: string;
-        destinationTerminal: string;
-        labelTextDestinationGate: string;
-        destinationGate: string;
-      },
-      PT: {
-        date: string;
-        aircraft: string;
-        pillsFlightStatus: string;
-        departureCrossedOutTime: string;
-        departureTime: string;
-        flightDuration: string;
-        arrivalTime: string;
-        arrivalCrossedOutTime: string;
-        origin: string;
-        destination: string;
-        labelTextOriginTerminal: string;
-        originTerminal: string;
-        labelTextOriginGate: string;
-        originGate: string;
-        labelTextDestinationTerminal: string;
-        destinationTerminal: string;
-        labelTextDestinationGate: string;
-        destinationGate: string;
-      },
-      FR: {
-        date: string;
-        aircraft: string;
-        pillsFlightStatus: string;
-        departureCrossedOutTime: string;
-        departureTime: string;
-        flightDuration: string;
-        arrivalTime: string;
-        arrivalCrossedOutTime: string;
-        origin: string;
-        destination: string;
-        labelTextOriginTerminal: string;
-        originTerminal: string;
-        labelTextOriginGate: string;
-        originGate: string;
-        labelTextDestinationTerminal: string;
-        destinationTerminal: string;
-        labelTextDestinationGate: string;
-        destinationGate: string;
-      },
-    }>;
-    PaxCards: Component<{
-      ES: {
-        initials: string;
-        paxName: string;
-        lealtad: string;
-        seats: string;
-        labelTextDocument?: string;
-        documentStatus?: string;
-        iconURL?: string;
-        status: string;
-      },
-      EN: {
-        initials: string;
-        paxName: string;
-        lealtad: string;
-        seats: string;
-        labelTextDocument?: string;
-        documentStatus?: string;
-        iconURL?: string;
-        status: string;
-      },
-      PT: {
-        initials: string;
-        paxName: string;
-        lealtad: string;
-        seats: string;
-        labelTextDocument?: string;
-        documentStatus?: string;
-        iconURL?: string;
-        status: string;
-      },
-      FR: {
-        initials: string;
-        paxName: string;
-        lealtad: string;
-        seats: string;
-        labelTextDocument?: string;
-        documentStatus?: string;
-        iconURL?: string;
-        status: string;
-      },
-    }>;
-    Footers: Component<{
-      ES: {
-        text: string;
-      },
-      EN: {
-        text: string;
-      },
-      PT: {
-        text: string;
-      },
-      FR: {
-        text: string;
-      },
-    }>;
-    }
-  }
 
-export const ObjectComponents: ObjectComponentsType = {
+
+// declare type ObjectComponentsType {
+// Headers | Footer |
+
+// declare type ObjectComponentsType = 
+//   | Headers
+//   | TitleBoxs
+//   // | SectionContainers
+//   | Buttons
+//   | Infobars
+//   | Alerts
+//   | Banners
+//   | ItineraryCards
+//   | PaxCards
+//   | Footers
+
+// const header:Headers = object  
+// header.props[lang].labelTextReservationCode
+
+export interface ObjectComponentsType {
+  Components: {
+    Headers: Component<HeadersTranslations>,
+    TitleBoxs: Component<TitleBoxsTranslations>
+    Buttons: Component<ButtonsTranslations>
+    Infobars: Component<InfobarsTranslations>
+    Alerts: Component<AlertsTranslations>
+    Banners: Component<BannersTranslations>
+    ItineraryCards: Component<ItineraryCardsTranslations>
+    PaxCards: Component<PaxCardsTranslations>
+    Footers: Component<FootersTranslations>
+  }
+}
+
+
+export const ObjectComponents: ObjectComponentsType  = {
   Components: {
     Headers: {
-      variants: ["Copa Logo", "Reservation Code", "Copa y ConnectMiles"],
+      variants: ["Copa Logo", "Copa y ConnectMiles", "Reservation Code"],
       renderHTML: "",
       previewHTML: "",
       props: {
         ES: {
-          labelTextReservationCode: "Código de reserva",
-          reservationCode: "{PNR}",
+          labelTextReservationCode: "Código de Reservación",
+          reservationCode: "123456",
         },
         EN: {
           labelTextReservationCode: "Reservation Code",
-          reservationCode: "{PNR}",
+          reservationCode: "123456",
         },
         PT: {
-          labelTextReservationCode: "Código de reserva",
-          reservationCode: "{PNR}",
+          labelTextReservationCode: "Código de Reservação",
+          reservationCode: "123456",
         },
         FR: {
           labelTextReservationCode: "Code de réservation",
-          reservationCode: "{PNR}",
+          reservationCode: "123456",
         },
       },
     },
@@ -361,37 +97,6 @@ export const ObjectComponents: ObjectComponentsType = {
         },
       },
     },
-    SectionContainers: {
-      variants: ["Center Section", "Center Title Section", "Content Section", "Left Section", "Left Title Section"],
-      renderHTML: "",
-      previewHTML: "",
-      props: {
-        ES: {
-          imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
-          title: "Panama City (PTY)",
-          infoLeft: "Económica",
-          infoRight: "Boeing 737-800",
-        },
-        EN: {
-          imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
-          title: "Panama City (PTY)",
-          infoLeft: "Economy",
-          infoRight: "Boeing 737-800",
-        },
-        PT: {
-          imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
-          title: "Panama City (PTY)",
-          infoLeft: "Econômica",
-          infoRight: "Boeing 737-800",
-        },
-        FR: {
-          imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
-          title: "Panama City (PTY)",
-          infoLeft: "Classe économique",
-          infoRight: "Boeing 737-800",
-        },
-    },
-  },
   Buttons: {
     variants: ["Light", "Link", "Main", "Outline"],
     renderHTML: "",

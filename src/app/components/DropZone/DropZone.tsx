@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropsModal from '../PropsModal/PropsModal';
 import { ObjectComponents } from '@/app/types/Components';
+import { Canva } from '../Canva/Canva';
 
 interface DropZoneProps {
   id: string;
@@ -110,7 +111,6 @@ const DropZone: React.FC<DropZoneProps> = ({
   return (
     <div
       id={id}
-      draggable={true}
       style={{
         border: '1px dashed #d1d1d1',
         minHeight: '100px',
@@ -132,6 +132,7 @@ const DropZone: React.FC<DropZoneProps> = ({
         language={language}
       />
       <div dangerouslySetInnerHTML={{ __html: content }} />
+      {/* <Canva language={language} /> */}
     </div>
   );
 };

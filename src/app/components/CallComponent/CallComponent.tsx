@@ -4,11 +4,11 @@ import Banners from "@/app/htmlComponents/Banners/Banners";
 import Buttons from "@/app/htmlComponents/Buttons/Buttons";
 import Footers from "@/app/htmlComponents/Footers/Footers";
 import Headers from "@/app/htmlComponents/Headers/Headers";
-import Infobars from "@/app/htmlComponents/Infobar/Infobars";
-import ItineraryCards from "@/app/htmlComponents/Itinerary-card/ItineraryCards";
-import PaxCards from "@/app/htmlComponents/Pax-card/PaxCards";
+import Infobars from "@/app/htmlComponents/Infobars/Infobars";
+import ItineraryCards from "@/app/htmlComponents/Itinerary-cards/ItineraryCards";
+import PaxCards from "@/app/htmlComponents/Pax-cards/PaxCards";
 import SectionContainers from "@/app/htmlComponents/Section-container/SectionContainers";
-import TitleBoxs from "@/app/htmlComponents/Title-box/TItleBoxs";
+import TitleBoxs from "@/app/htmlComponents/Title-boxs/TItleBoxs";
 import { ObjectComponents } from "@/app/types/Components";
 
 interface ComponentResult {
