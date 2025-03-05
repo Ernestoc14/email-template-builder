@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DropZone from '@/app/components/DropZone/DropZone';
+import JSONMain from '@/app/components/json.json';
 
 interface MasterContainerProps {
   language: string;
@@ -24,15 +25,23 @@ const MasterContainer = ({ language }: MasterContainerProps) => {
                         <tbody>
                           <tr>
                             <td className="header-logo-padding" style={{ padding: '32px 32px 0' }}>
-                              <DropZone
-                                id="header-logo"
-                                initialContent="Agregar Header"
-                                componentName={componentName}
-                                setComponentName={setComponentName}
-                                componentVariant={componentVariant}
-                                setComponentVariant={setComponentVariant}
-                                language={language}
-                              />
+                              {JSONMain.header.length === 0 ? (
+                                <DropZone
+                                  id="header-logo"
+                                  initialContent="Agregar Header"
+                                  componentName={componentName}
+                                  setComponentName={setComponentName}
+                                  componentVariant={componentVariant}
+                                  setComponentVariant={setComponentVariant}
+                                  language={language}
+                                />
+                              ) : (
+                                    // <div dangerouslySetInnerHTML={{ __html: header.renderHTML }} />
+                                    <div>
+                                      <h1>HASD</h1>
+                                      <p>{JSONMain.header.length}</p>
+                                    </div>
+                              )}
                             </td>
                           </tr>
                         </tbody>

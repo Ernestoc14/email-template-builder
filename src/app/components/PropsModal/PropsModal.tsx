@@ -1,39 +1,57 @@
-import { Modal, Box, Typography, TextField, Button } from "@mui/material";
+import { Modal, Box, Typography, TextField, Button, Tabs, Tab } from "@mui/material";
 import { PropsModalProps } from "./types";
 import { ObjectComponents } from "@/app/types/Components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CallComponent from "../CallComponent/CallComponent";
 
-const PropsModal = ({
-  isOpen,
-  onClose,
-  onInsert,
-  componentName,
-  componentVariant,
-  language,
-}: PropsModalProps) => {
-  const [updatedProps, setUpdatedProps] = useState({});
+const PropsModal = ({ isOpen, onClose, onInsert, componentName, componentVariant, language }: PropsModalProps) => {
+  const [updatedProps, setUpdatedProps] = useState<Record<string, Record<string, string>>>({
+    ES: {},
+    EN: {},
+    PT: {},
+    FR: {},
+  });
 
-  const handleChange = (propsKey: string, value: string) => {
-    setUpdatedProps((prev) => ({...prev, [propsKey]: value}))
-  }
+  const [propsModalLanguage, setPropsModalLanguage] = useState("ES");
 
-  const handleAddComponent = () => {
-    if (componentName && language) {
-      const component = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]
-      component.props = {
-        ...component.props,
-        [language]: {
-          ...component.props[language as keyof typeof component.props],
-          ...updatedProps
-        }
+  useEffect(() => {
+    if (componentName && isOpen) {
+      const component = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components];
+      if (component) {
+        setUpdatedProps((prevProps) => ({
+          ...prevProps,
+          ...component.props, // Solo actualiza props si el modal está abierto
+        }));
       }
     }
-    // Generando HTML Nuevo con props actualizados al llamar CallComponent
-    CallComponent(componentName, componentVariant, language);
-    console.log(componentName, componentVariant);
-    const updatedHTML = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]?.renderHTML
-    onInsert(updatedHTML); // Llama a la función de DropZone para insertar el componente pasandole HTML con Props
+  }, [componentName, isOpen]); // ✅ Se ejecuta SOLO cuando se abre el modal
+
+  const handleChange = (propsKey: string, value: string) => {
+    setUpdatedProps((prev) => ({
+      ...prev,
+      [propsModalLanguage]: {
+        ...(prev[propsModalLanguage] || {}),
+        [propsKey]: value,
+      },
+    }));
+  };
+
+  const handleChangeLanguage = (_event: React.SyntheticEvent, newLanguage: string) => {
+    if (newLanguage !== propsModalLanguage) {
+      setPropsModalLanguage(newLanguage);
+    }
+  };
+
+  const handleAddComponent = () => {
+    if (componentName) {
+      const component = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components];
+      if (component) {
+        component.props = { ...updatedProps };
+      }
+      CallComponent(componentName, componentVariant, propsModalLanguage);
+      const updatedHTML = ObjectComponents.Components[componentName as keyof typeof ObjectComponents.Components]?.renderHTML;
+      onInsert(updatedHTML);
+    }
   };
 
   return (
@@ -62,30 +80,18 @@ const PropsModal = ({
         }}
       >
         <Typography variant="h6" component="h2">
-          Personaliza {componentVariant} de {componentName} para {language}
+          Personaliza {componentVariant} de {componentName} para {propsModalLanguage}
         </Typography>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: () => {
-              const propsLength = Object.keys(
-                ObjectComponents.Components?.[
-                  componentName as keyof typeof ObjectComponents.Components
-                ]?.props[language as "ES" | "EN" | "PT" | "FR"] || {}
-              ).length;
-              console.log(propsLength)
-              if(propsLength > 6) return "repeat(3, 1fr)";
-              if(propsLength > 4) return "repeat(2, 1fr)";
-              return "repeat(1, 1fr)";
-            },
-            gap: 2,
-          }}
-        >
-          {Object.entries(
-  ObjectComponents.Components[
-    componentName as keyof typeof ObjectComponents.Components
-  ]?.props[language as "ES" | "EN" | "PT" | "FR"] || {}
-).map(([propKey, propValue], index) => (
+        <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+          <Tabs value={propsModalLanguage} onChange={handleChangeLanguage} sx={{ border: "1px solid #e5e5e5" }}>
+            <Tab label="ES" value="ES" />
+            <Tab label="EN" value="EN" />
+            <Tab label="PT" value="PT" />
+            <Tab label="FR" value="FR" />
+          </Tabs>
+        </Box>
+        <Box sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 2 }}>
+          {Object.entries(updatedProps[propsModalLanguage] || {}).map(([propKey, propValue], index) => (
             <TextField
               key={index}
               id={propKey}
