@@ -24,10 +24,10 @@ export interface JSONMain {
                   {   
                       "componentId": "component-00";
                       "component": "Alert";
-                      "esProps":{};
-                      "enProps":{};
-                      "ptProps":{};
-                      "frProps":{}
+                      // "esProps":{};
+                      // "enProps":{};
+                      // "ptProps":{};
+                      // "frProps":{}
                   }
               ]
   };
@@ -39,10 +39,10 @@ export interface JSONMain {
                   {   
                       "componentId": "component-00";
                       "component": "Alert";
-                      "esProps":{};
-                      "enProps":{};
-                      "ptProps":{};
-                      "frProps":{}
+                      // "esProps":{};
+                      // "enProps":{};
+                      // "ptProps":{};
+                      // "frProps":{}
                   }
               ]
           }

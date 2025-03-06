@@ -9,7 +9,7 @@ interface MasterContainerProps {
 const MasterContainer = ({ language }: MasterContainerProps) => {
   const [componentName, setComponentName] = useState("");
   const [componentVariant, setComponentVariant] = useState("");
-  
+
   return (
     <div id='master-container'>
       <table className="email-wrapper" align="center" border={0} cellPadding={0} cellSpacing={0} 
@@ -36,11 +36,9 @@ const MasterContainer = ({ language }: MasterContainerProps) => {
                                   language={language}
                                 />
                               ) : (
-                                    // <div dangerouslySetInnerHTML={{ __html: header.renderHTML }} />
-                                    <div>
-                                      <h1>HASD</h1>
-                                      <p>{JSONMain.header.length}</p>
-                                    </div>
+                                  <div dangerouslySetInnerHTML={{ __html: JSONMain.header[0].renderHTML}} />
+                                  // <Render componentName={componentName} componentVariant={componentVariant} language={language} /> 
+                                  //  <Canva language={language} /> 
                               )}
                             </td>
                           </tr>
@@ -89,16 +87,22 @@ const MasterContainer = ({ language }: MasterContainerProps) => {
                 <tbody>
                   <tr>
                     <td className="mobile-padding" style={{ padding: '32px 56px', backgroundColor: '#EFEFEE', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px' }}>
-                      <DropZone
-                        id="footer-section"
-                        initialContent="Agregar Footer"
-                        componentName={componentName}
-                        setComponentName={setComponentName}
-                        componentVariant={componentVariant}
-                        setComponentVariant={setComponentVariant}
-                        textColor="black"
-                        language={language}
-                      />
+                      {JSONMain.footer.length === 0 ? (
+                                <DropZone
+                                id="footer-section"
+                                initialContent="Agregar Footer"
+                                componentName={componentName}
+                                setComponentName={setComponentName}
+                                componentVariant={componentVariant}
+                                setComponentVariant={setComponentVariant}
+                                textColor="black"
+                                language={language}
+                              />
+                              ) : (
+                                  <div dangerouslySetInnerHTML={{ __html: JSONMain.footer[0].renderHTML}} />
+                                  // <Render componentName={componentName} componentVariant={componentVariant} language={language} /> 
+                                  //  <Canva language={language} /> 
+                              )}
                     </td>
                   </tr>
                 </tbody>
