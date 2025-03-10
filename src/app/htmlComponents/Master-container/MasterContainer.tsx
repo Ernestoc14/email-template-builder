@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DropZone from '@/app/components/DropZone/DropZone';
 import JSONMain from '@/app/components/json.json';
+import { RenderComponent } from '@/app/components/RenderComponent/RenderComponent';
 
 interface MasterContainerProps {
   language: string;
@@ -36,7 +37,10 @@ const MasterContainer = ({ language }: MasterContainerProps) => {
                                   language={language}
                                 />
                               ) : (
-                                  <div dangerouslySetInnerHTML={{ __html: JSONMain.header[0].renderHTML}} />
+                                  // <div dangerouslySetInnerHTML={{ __html: JSONMain.header[0].renderHTML}} />
+                                  // Renderizar rendercmp desde dz, controlar HTML por props de DZ
+                                  // 
+                                  <RenderComponent componentName={componentName} componentVariant={componentVariant} language={language} />
                                   // <Render componentName={componentName} componentVariant={componentVariant} language={language} /> 
                                   //  <Canva language={language} /> 
                               )}
@@ -99,7 +103,8 @@ const MasterContainer = ({ language }: MasterContainerProps) => {
                                 language={language}
                               />
                               ) : (
-                                  <div dangerouslySetInnerHTML={{ __html: JSONMain.footer[0].renderHTML}} />
+                                  // <div dangerouslySetInnerHTML={{ __html: JSONMain.footer[0].renderHTML}} />
+                                    <RenderComponent componentName={componentName} componentVariant={componentVariant} language={language} />
                                   // <Render componentName={componentName} componentVariant={componentVariant} language={language} /> 
                                   //  <Canva language={language} /> 
                               )}
