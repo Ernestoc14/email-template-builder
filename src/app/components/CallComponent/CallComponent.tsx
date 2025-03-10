@@ -16,64 +16,58 @@ interface ComponentResult {
   previewHTML: string;
 }
 
-const CallComponent = (component: string, variant: string, language: string): void => {
+const CallComponent = (
+  component: string,
+  variant: string,
+  language: string
+): void => {
   try {
     if (component === "Headers") {
       const result = Headers(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.Headers.renderHTML = renderHTML;
       ObjectComponents.Components.Headers.previewHTML = previewHTML;
-    } 
-    else if (component === "TitleBoxs") {
+    } else if (component === "TitleBoxs") {
       const result = TitleBoxs(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.TitleBoxs.renderHTML = renderHTML;
       ObjectComponents.Components.TitleBoxs.previewHTML = previewHTML;
-    } 
-    else if (component === "SectionContainers") {
+    } else if (component === "SectionContainers") {
       const result = SectionContainers(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.SectionContainers.renderHTML = renderHTML;
       ObjectComponents.Components.SectionContainers.previewHTML = previewHTML;
-    } 
-    else if (component === "Buttons") {
+    } else if (component === "Buttons") {
       const result = Buttons(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.Buttons.renderHTML = renderHTML;
       ObjectComponents.Components.Buttons.previewHTML = previewHTML;
-    } 
-    else if (component === "Infobars") {
+    } else if (component === "Infobars") {
       const result = Infobars(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.Infobars.renderHTML = renderHTML;
       ObjectComponents.Components.Infobars.previewHTML = previewHTML;
-    } 
-    else if (component === "Alerts") {
+    } else if (component === "Alerts") {
       const result = Alerts(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.Alerts.renderHTML = renderHTML;
       ObjectComponents.Components.Alerts.previewHTML = previewHTML;
-    } 
-    else if (component === "Banners") {
+    } else if (component === "Banners") {
       const result = Banners(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.Banners.renderHTML = renderHTML;
       ObjectComponents.Components.Banners.previewHTML = previewHTML;
-    } 
-    else if (component === "ItineraryCards") {
+    } else if (component === "ItineraryCards") {
       const result = ItineraryCards(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.ItineraryCards.renderHTML = renderHTML;
       ObjectComponents.Components.ItineraryCards.previewHTML = previewHTML;
-
-    } 
-    else if (component === "PaxCards") {
+    } else if (component === "PaxCards") {
       const result = PaxCards(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.PaxCards.renderHTML = renderHTML;
       ObjectComponents.Components.PaxCards.previewHTML = previewHTML;
-    } 
-    else if (component == "Footers") {
+    } else if (component == "Footers") {
       const result = Footers(variant, language);
       const { renderHTML, previewHTML } = result as ComponentResult;
       ObjectComponents.Components.Footers.renderHTML = renderHTML;

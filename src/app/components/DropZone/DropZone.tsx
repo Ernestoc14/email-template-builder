@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import PropsModal from '../PropsModal/PropsModal';
-import { ObjectComponents } from '@/app/types/Components';
+import React, { useState, useRef, useEffect } from "react";
+import PropsModal from "../PropsModal/PropsModal";
+import { ObjectComponents } from "@/app/types/Components";
 
 interface DropZoneProps {
   id: string;
@@ -10,7 +10,6 @@ interface DropZoneProps {
   componentVariant: string;
   setComponentVariant: (variant: string) => void;
   textColor?: string;
-  language: string;
 }
 
 const DropZone: React.FC<DropZoneProps> = ({
@@ -21,7 +20,6 @@ const DropZone: React.FC<DropZoneProps> = ({
   componentVariant,
   setComponentVariant,
   textColor,
-  language,
 }) => {
   const [content, setContent] = useState(initialContent);
   const [propsModalOpen, setPropsModalOpen] = useState(false);
@@ -38,43 +36,47 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = '2px dashed yellow';
-    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 255, 0.1)';
+    e.currentTarget.style.border = "2px dashed yellow";
+    e.currentTarget.style.backgroundColor = "rgba(0, 0, 255, 0.1)";
   };
 
   const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = '2px dashed blue';
-    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 255, 0.1)';
+    e.currentTarget.style.border = "2px dashed blue";
+    e.currentTarget.style.backgroundColor = "rgba(0, 0, 255, 0.1)";
   };
 
   const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = '1px solid red';
-    e.currentTarget.style.backgroundColor = 'transparent';
+    e.currentTarget.style.border = "1px solid red";
+    e.currentTarget.style.backgroundColor = "transparent";
   };
 
   const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = '1px solid red';
-    e.currentTarget.style.backgroundColor = 'transparent';
+    e.currentTarget.style.border = "1px solid red";
+    e.currentTarget.style.backgroundColor = "transparent";
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     dropTargetRef.current = e.currentTarget;
 
-    const draggedComponent = e.dataTransfer.getData('Component');
-    const draggedVariant = e.dataTransfer.getData('Variant');
+    const draggedComponent = e.dataTransfer.getData("Component");
+    const draggedVariant = e.dataTransfer.getData("Variant");
     setComponentName(draggedComponent);
     setComponentVariant(draggedVariant);
 
-    const componentHTML = ObjectComponents.Components[draggedComponent as keyof typeof ObjectComponents.Components]?.renderHTML;
-    
+    const componentHTML =
+      ObjectComponents.Components[
+        draggedComponent as keyof typeof ObjectComponents.Components
+      ]?.renderHTML;
+
     if (componentHTML) {
       setPendingHTML(componentHTML); // Se guarda temporalmente el HTML pendiente
-      if ( 
-        (draggedComponent === "Headers" && draggedVariant === "Reservation Code") ||
+      if (
+        (draggedComponent === "Headers" &&
+          draggedVariant === "Reservation Code") ||
         draggedComponent !== "Headers"
       ) {
         setPropsModalOpen(true); // Se abre el PropsModal
@@ -98,10 +100,10 @@ const DropZone: React.FC<DropZoneProps> = ({
       setContent(newContent);
 
       if (dropTargetRef.current) {
-        dropTargetRef.current.style.border = 'none';
+        dropTargetRef.current.style.border = "none";
         dropTargetRef.current.style.padding = "0";
         dropTargetRef.current.style.minHeight = "0";
-        dropTargetRef.current.style.backgroundColor = 'transparent';
+        dropTargetRef.current.style.backgroundColor = "transparent";
       }
     }
     handleCloseModal();
@@ -111,10 +113,10 @@ const DropZone: React.FC<DropZoneProps> = ({
     <div
       id={id}
       style={{
-        border: '1px dashed #d1d1d1',
-        minHeight: '100px',
-        color: textColor || 'white',
-        padding: '8px'
+        border: "1px dashed #d1d1d1",
+        minHeight: "100px",
+        color: textColor || "white",
+        padding: "8px",
       }}
       onDragOver={handleDragOver}
       onDragEnter={handleDragEnter}
@@ -125,10 +127,9 @@ const DropZone: React.FC<DropZoneProps> = ({
       <PropsModal
         isOpen={propsModalOpen}
         onClose={handleCloseModal}
-        onInsert={handleInsertComponent}  
+        onInsert={handleInsertComponent}
         componentName={componentName}
         componentVariant={componentVariant}
-        language={language}
       />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>

@@ -18,20 +18,26 @@ import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryT
 import { ObjectComponents } from "./types/Components";
 import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
 import GenerateHTMLButton from "./components/GenerateHTMLButton/GenerateHTMLButton";
+import { useLanguage } from "./context/LanguageContext";
 
 export default function Home() {
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
   const [isCreateNewTemplateModalOpen, setIsCreateNewTemplateModalOpen] =
     useState(false);
-  const [newTemplateName, setNewTemplateName] = useState("")
+  const [newTemplateName, setNewTemplateName] = useState("");
   const [isHistoryTemplateModalOpen, setIsHistoryTemplateModalOpen] =
     useState(false);
   const [device, setDevice] = useState<string>("desktop");
-  const [language, setLanguage] = useState<string>("ES");
+  const { language, setLanguage } = useLanguage();
 
   // Tabs Functions
-  const handleChangeLanguage = (event: React.SyntheticEvent, newLanguage: string) => {
-    setLanguage(newLanguage)
+  const handleChangeLanguage = (
+    event: React.SyntheticEvent,
+    newLanguage: string
+  ) => {
+    console.log(newLanguage);
+    setLanguage(newLanguage);
+    console.log(language);
   };
 
   // ToggleButton Functions
@@ -142,7 +148,11 @@ export default function Home() {
             }}
           >
             <Box sx={{ display: "flex", gap: "60px" }}>
-              <Tabs value={language} onChange={handleChangeLanguage} sx={{ border: "1px solid #e5e5e5"}}>
+              <Tabs
+                value={language}
+                onChange={handleChangeLanguage}
+                sx={{ border: "1px solid #e5e5e5" }}
+              >
                 <Tab label="ES" value="ES" />
                 <Tab label="EN" value="EN" />
                 <Tab label="PT" value="PT" />
@@ -158,7 +168,7 @@ export default function Home() {
                 <ToggleButton value="mobile">Mobile</ToggleButton>
               </ToggleButtonGroup>
             </Box>
-            <GenerateHTMLButton 
+            <GenerateHTMLButton
               newTemplateName={newTemplateName}
               language={language}
             />
@@ -171,9 +181,7 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              <MasterContainer
-                language={language}
-              />
+              <MasterContainer />
             </Box>
           </Box>
         </Box>

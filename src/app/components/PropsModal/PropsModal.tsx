@@ -12,6 +12,7 @@ import { ObjectComponents } from "@/app/types/Components";
 import { useState, useEffect } from "react";
 import CallComponent from "../CallComponent/CallComponent";
 import { addComponent } from "../Canva/Canva";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const PropsModal = ({
   isOpen,
@@ -19,7 +20,6 @@ const PropsModal = ({
   onInsert,
   componentName,
   componentVariant,
-  language,
 }: PropsModalProps) => {
   const [updatedProps, setUpdatedProps] = useState<
     Record<string, Record<string, string>>
@@ -29,8 +29,7 @@ const PropsModal = ({
     PT: {},
     FR: {},
   });
-
-  const [propsModalLanguage, setPropsModalLanguage] = useState(language);
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     if (componentName && isOpen) {
@@ -50,8 +49,8 @@ const PropsModal = ({
   const handleChange = (propsKey: string, value: string) => {
     setUpdatedProps((prev) => ({
       ...prev,
-      [propsModalLanguage]: {
-        ...(prev[propsModalLanguage] || {}),
+      [language]: {
+        ...(prev[language] || {}),
         [propsKey]: value,
       },
     }));
@@ -61,9 +60,7 @@ const PropsModal = ({
     _event: React.SyntheticEvent,
     newLanguage: string
   ) => {
-    if (newLanguage !== propsModalLanguage) {
-      setPropsModalLanguage(newLanguage);
-    }
+    setLanguage(newLanguage);
   };
 
   const handleAddComponent = () => {
@@ -75,14 +72,13 @@ const PropsModal = ({
       if (component) {
         component.props = { ...updatedProps };
       }
-      CallComponent(componentName, componentVariant, propsModalLanguage);
+      CallComponent(componentName, componentVariant, language);
       const updatedHTML =
         ObjectComponents.Components[
           componentName as keyof typeof ObjectComponents.Components
         ]?.renderHTML;
       onInsert(updatedHTML);
-      addComponent(componentName, componentVariant, propsModalLanguage);
-      console.log(componentName, componentVariant, propsModalLanguage);
+      addComponent(componentName, componentVariant, language);
     }
   };
 
@@ -112,12 +108,11 @@ const PropsModal = ({
         }}
       >
         <Typography variant="h6" component="h2">
-          Personaliza {componentVariant} de {componentName} para{" "}
-          {propsModalLanguage}
+          Personaliza {componentVariant} de {componentName} para {language}
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
           <Tabs
-            value={propsModalLanguage}
+            value={language}
             onChange={handleChangeLanguage}
             sx={{ border: "1px solid #e5e5e5" }}
           >
@@ -143,7 +138,7 @@ const PropsModal = ({
             gap: 2,
           }}
         >
-          {Object.entries(updatedProps[propsModalLanguage] || {}).map(
+          {Object.entries(updatedProps[language] || {}).map(
             ([propKey, propValue], index) => (
               <TextField
                 key={index}
