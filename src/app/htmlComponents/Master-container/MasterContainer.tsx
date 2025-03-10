@@ -59,8 +59,8 @@ const MasterContainer = () => {
                                 />
                               ) : (
                                 <RenderComponent
-                                  componentName={componentName}
-                                  componentVariant={componentVariant}
+                                  componentName={JSONMain.header[0].componentName}
+                                  componentVariant={JSONMain.header[0].variant}
                                 />
                               )}
                             </td>
@@ -152,8 +152,8 @@ const MasterContainer = () => {
                         />
                       ) : (
                         <RenderComponent
-                          componentName={componentName}
-                          componentVariant={componentVariant}
+                          componentName={JSONMain.footer[0].componentName}
+                          componentVariant={JSONMain.footer[0].variant}
                         />
                       )}
                     </td>
