@@ -6,6 +6,7 @@ import { HeadersTranslations } from "../htmlComponents/Headers/types";
 import { InfobarsTranslations } from "../htmlComponents/Infobars/types";
 import { ItineraryCardsTranslations } from "../htmlComponents/Itinerary-cards/types";
 import { PaxCardsTranslations } from "../htmlComponents/Pax-cards/types";
+import { SectionContainersTranslations } from "../htmlComponents/Section-container/types";
 import { TitleBoxsTranslations } from "../htmlComponents/Title-boxs/types";
 
 type Component<Props = object> = {
@@ -15,29 +16,11 @@ type Component<Props = object> = {
   props: Props;
 }
 
-
-// declare type ObjectComponentsType {
-// Headers | Footer |
-
-// declare type ObjectComponentsType = 
-//   | Headers
-//   | TitleBoxs
-//   // | SectionContainers
-//   | Buttons
-//   | Infobars
-//   | Alerts
-//   | Banners
-//   | ItineraryCards
-//   | PaxCards
-//   | Footers
-
-// const header:Headers = object  
-// header.props[lang].labelTextReservationCode
-
 export interface ObjectComponentsType {
   Components: {
     Headers: Component<HeadersTranslations>,
     TitleBoxs: Component<TitleBoxsTranslations>
+    SectionContainers: Component<SectionContainersTranslations>
     Buttons: Component<ButtonsTranslations>
     Infobars: Component<InfobarsTranslations>
     Alerts: Component<AlertsTranslations>
@@ -97,6 +80,37 @@ export const ObjectComponents: ObjectComponentsType  = {
         },
       },
     },
+  SectionContainers: {
+    variants: ["Center Section", "Center Title Section", "Content Section", "Left Section", "Left Title Section"],
+    renderHTML: "",
+    previewHTML: "",
+    props: {
+      ES: {
+        imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
+        title: "Hacia Panama(PTY)",
+        infoLeft: "Cabina Principal",
+        infoRight: "Boeing 737-800",
+      },
+      EN: {
+        imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
+        title: "To Panama(PTY)",
+        infoLeft: "Main Cabin",
+        infoRight: "Boeing 737-800",
+      },
+      PT: {
+        imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
+        title: "Para Panama(PTY)",
+        infoLeft: "Cabine Principal",
+        infoRight: "Boeing 737-800",
+      },
+      FR: {
+        imageURL: "https://www.copaair.com/webassets/images/notifications/Equipaje-circle.png",
+        title: "Vers Panama(PTY)",
+        infoLeft: "Cabine principale",
+        infoRight: "Boeing 737-800",
+      },
+    },
+  },
   Buttons: {
     variants: ["Light", "Link", "Main", "Outline"],
     renderHTML: "",
