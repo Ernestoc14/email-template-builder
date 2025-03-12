@@ -16,7 +16,7 @@ const MasterContainer = () => {
         cellPadding={0}
         cellSpacing={0}
         style={{ padding: "5px 0 0 0", width: "800px", maxWidth: "800px" }}
-      >
+        >
         <tbody>
           <tr>
             <td>
@@ -59,7 +59,9 @@ const MasterContainer = () => {
                                 />
                               ) : (
                                 <RenderComponent
-                                  componentName={JSONMain.header[0].componentName}
+                                  componentName={
+                                    JSONMain.header[0].componentName
+                                  }
                                   componentVariant={JSONMain.header[0].variant}
                                 />
                               )}
@@ -83,14 +85,36 @@ const MasterContainer = () => {
                                 padding: "32px 72px",
                               }}
                             >
-                              <DropZone
-                                id="header-section-bluebg"
-                                initialContent="Agregar Header Section"
-                                componentName={componentName}
-                                setComponentName={setComponentName}
-                                componentVariant={componentVariant}
-                                setComponentVariant={setComponentVariant}
-                              />
+                              {JSONMain.boxAzul.components.length === 0 ? (
+                                <DropZone
+                                  id="header-section-bluebg"
+                                  initialContent="Agregar Header Section"
+                                  componentName={componentName}
+                                  setComponentName={setComponentName}
+                                  componentVariant={componentVariant}
+                                  setComponentVariant={setComponentVariant}
+                                />
+                              ) : (
+                                <>
+                                  {JSONMain.boxAzul.components.map(
+                                    (component, index) => (
+                                      <RenderComponent
+                                        key={index}
+                                        componentName={component.componentName}
+                                        componentVariant={component.variant}
+                                      />
+                                    )
+                                  )}
+                                  <DropZone
+                                    id="header-section-bluebg"
+                                    initialContent="Agregar Mas Componentes"
+                                    componentName={componentName}
+                                    setComponentName={setComponentName}
+                                    componentVariant={componentVariant}
+                                    setComponentVariant={setComponentVariant}
+                                  />
+                                </>
+                              )}
                             </td>
                           </tr>
                         </tbody>

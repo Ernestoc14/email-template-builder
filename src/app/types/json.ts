@@ -20,16 +20,18 @@ export interface JSONMain {
   "masterContainer": MasterContainer;
   "header": Headers[];
   "boxAzul":{
-      "components": [
-                  {   
-                      "componentId": "component-00";
-                      "component": "Alert";
-                      // "esProps":{};
-                      // "enProps":{};
-                      // "ptProps":{};
-                      // "frProps":{}
-                  }
-              ]
+      "components": [{
+            "componentName": string;
+            "variant": string;
+            "renderHTML": string;
+            "previewHTML": string;
+            "props": {
+                "ES": object;
+                "EN": object;
+                "PT": object;
+                "FR": object;
+            }
+      }]
   };
   "body":{
       "sectionComponents":[

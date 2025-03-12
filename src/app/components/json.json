@@ -14,15 +14,7 @@
     },
     "header":[],
     "boxAzul":{
-        "components": [{   
-                        "componentId": "component-00",
-                        "component": "Alert",
-                        "variant": "variant",
-                        "esProps":{},
-                        "enProps":{},
-                        "ptProps":{},
-                        "frProps":{}
-                        }]
+        "components": []
     },
     "body":{
         "sectionComponents":[{

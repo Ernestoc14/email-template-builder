@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import CallComponent from "../CallComponent/CallComponent";
 import { addComponent } from "../Canva/Canva";
 import { useLanguage } from "@/app/context/LanguageContext";
+import JSONMain from "@/app/components/json.json";
 
 const PropsModal = ({
   isOpen,
@@ -79,6 +80,7 @@ const PropsModal = ({
         ]?.renderHTML;
       onInsert(updatedHTML);
       addComponent(componentName, componentVariant, language);
+      console.log(JSONMain.boxAzul.components);
     }
   };
 

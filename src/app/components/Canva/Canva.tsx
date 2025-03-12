@@ -27,6 +27,25 @@ export const addComponent = (
         },
       });
       break;
+    case "TitleBoxs":
+      CallComponent(componentName, variant, language);
+      const titleBoxData = 
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      json.boxAzul.components.push({
+        componentName,
+        variant,
+        renderHTML: titleBoxData.renderHTML,
+        previewHTML: titleBoxData.previewHTML,
+        props: {
+          ES: titleBoxData?.props.ES,
+          EN: titleBoxData?.props.EN,
+          PT: titleBoxData?.props.PT,
+          FR: titleBoxData?.props.FR,
+        }
+      });
+      break;
     case "Footers":
       CallComponent(componentName, variant, language);
       const footerData =
