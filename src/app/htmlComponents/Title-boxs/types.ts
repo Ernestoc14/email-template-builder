@@ -15,5 +15,5 @@ export interface TitleBoxsTranslations {
 
 export interface TitleBoxsProps {
   title: string;
-  description: string;
+  description?: string;
 }

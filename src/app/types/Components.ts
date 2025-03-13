@@ -58,7 +58,7 @@ export const ObjectComponents: ObjectComponentsType  = {
       },
     },
     TitleBoxs: {
-      variants: ["Single Title Box"],
+      variants: ["Title Description", "Just Title"],
       renderHTML: "",
       previewHTML: "",
       props: {
