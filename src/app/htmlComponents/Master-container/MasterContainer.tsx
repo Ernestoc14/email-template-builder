@@ -45,7 +45,7 @@ const MasterContainer = () => {
                         <tbody>
                           <tr>
                             <td
-                              className="header-logo-padding"
+                              className="logo-header-padding"
                               style={{ padding: "32px 32px 0" }}
                             >
                               {JSONMain.header.length === 0 ? (
