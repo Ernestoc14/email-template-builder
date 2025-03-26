@@ -1,7 +1,6 @@
 import { ObjectComponents } from "@/app/types/Components";
 import CallComponent from "../CallComponent/CallComponent";
 import { useState, useEffect } from "react";
-import json from "../json.json";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 interface RenderComponentProps {
@@ -24,8 +23,6 @@ export const RenderComponent = ({
       ]?.renderHTML;
     setRenderedHTML(newHTML);
   }, [language, componentName, componentVariant]);
-
-  console.log(json);
 
   return (
     <div

@@ -2,12 +2,12 @@ import { AlertsTranslations } from "../htmlComponents/Alerts/types";
 import { BannersTranslations } from "../htmlComponents/Banners/types";
 import { ButtonsTranslations } from "../htmlComponents/Buttons/types";
 import { FootersTranslations } from "../htmlComponents/Footers/types";
-import { HeadersTranslations } from "../htmlComponents/Headers/types";
+import { HeadersProps, HeadersTranslations } from "../htmlComponents/Headers/types";
 import { InfobarsTranslations } from "../htmlComponents/Infobars/types";
 import { ItineraryCardsTranslations } from "../htmlComponents/Itinerary-cards/types";
 import { PaxCardsTranslations } from "../htmlComponents/Pax-cards/types";
 import { SectionContainersTranslations } from "../htmlComponents/Section-container/types";
-import { TitleBoxsTranslations } from "../htmlComponents/Title-boxs/types";
+import { TitleBoxsProps, TitleBoxsTranslations } from "../htmlComponents/Title-boxs/types";
 
 type Component<Props = object> = {
   variants: string[];
@@ -15,6 +15,18 @@ type Component<Props = object> = {
   previewHTML: string;
   props: Props;
 }
+
+declare type ComponentsType  = 
+HeadersProps
+| TitleBoxsProps
+| SectionContainersTranslations
+| ButtonsTranslations
+| InfobarsTranslations
+| AlertsTranslations
+| BannersTranslations
+| ItineraryCardsTranslations
+| PaxCardsTranslations
+| FootersTranslations
 
 export interface ObjectComponentsType {
   Components: {

@@ -1,7 +1,9 @@
+import { Component } from "../Canva/Canva";
+
 export interface PropsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onInsert: (updatedHTML: string) => void;
   componentName: string;
   componentVariant: string;
+  sendComponent: (component: Component | null) => void 
 }

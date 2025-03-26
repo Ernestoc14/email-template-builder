@@ -11,16 +11,76 @@ import { PropsModalProps } from "./types";
 import { ObjectComponents } from "@/app/types/Components";
 import { useState, useEffect } from "react";
 import CallComponent from "../CallComponent/CallComponent";
-import { addComponent } from "../Canva/Canva";
 import { useLanguage } from "@/app/context/LanguageContext";
-import JSONMain from "@/app/components/json.json";
+import { Component } from "../Canva/Canva";
+
+export const addComponent = (
+  componentName: string,
+  variant: string,
+) => {
+  let component: Component | null = null;
+  const componentId = `${componentName}-${Math.floor(
+    1000 + Math.random() * 9000
+  )}`;
+  console.log(componentId);
+
+  switch (componentName) {
+    case "Headers":
+      const headerData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: headerData?.props.ES,
+        enProps: headerData?.props.EN,
+        ptProps: headerData?.props.PT,
+        frProps: headerData?.props.FR,
+      };
+      break;
+    case "TitleBoxs":
+      const titleBoxData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: titleBoxData?.props.ES,
+        enProps: titleBoxData?.props.EN,
+        ptProps: titleBoxData?.props.PT,
+        frProps: titleBoxData?.props.FR,
+      }
+      break;
+    case "Footers":
+      const footerData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+        component = {
+          componentId,
+          componentName,
+          variant,
+          esProps: footerData?.props.ES,
+          enProps: footerData?.props.EN,
+          ptProps: footerData?.props.PT,
+          frProps: footerData?.props.FR,
+        }
+    default:
+      break;
+  }
+  return (component);
+};
 
 const PropsModal = ({
   isOpen,
   onClose,
-  onInsert,
   componentName,
   componentVariant,
+  sendComponent,
 }: PropsModalProps) => {
   const [updatedProps, setUpdatedProps] = useState<
     Record<string, Record<string, string>>
@@ -78,10 +138,9 @@ const PropsModal = ({
         ObjectComponents.Components[
           componentName as keyof typeof ObjectComponents.Components
         ]?.renderHTML;
-      onInsert(updatedHTML);
-      addComponent(componentName, componentVariant, language);
-      console.log(JSONMain.boxAzul.components);
+      sendComponent(addComponent(componentName, componentVariant))
     }
+    onClose();
   };
 
   return (

@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import DropZone from "@/app/components/DropZone/DropZone";
-import JSONMain from "@/app/components/json.json";
 import { RenderComponent } from "@/app/components/RenderComponent/RenderComponent";
+import { Component, masterJSONType } from "@/app/components/Canva/Canva";
 
-const MasterContainer = () => {
+export interface MasterContainerProps {
+  masterJSON: masterJSONType;
+  sendComponent: (component: Component) => void;
+}
+
+const MasterContainer = ({
+  masterJSON,
+  sendComponent,
+}: MasterContainerProps) => {
   const [componentName, setComponentName] = useState("");
   const [componentVariant, setComponentVariant] = useState("");
+
+  const handleComponent = (component: Component) => {
+    sendComponent(component);
+  };
 
   return (
     <div id="master-container">
@@ -16,7 +28,7 @@ const MasterContainer = () => {
         cellPadding={0}
         cellSpacing={0}
         style={{ padding: "5px 0 0 0", width: "800px", maxWidth: "800px" }}
-        >
+      >
         <tbody>
           <tr>
             <td>
@@ -48,7 +60,7 @@ const MasterContainer = () => {
                               className="logo-header-padding"
                               style={{ padding: "32px 32px 0" }}
                             >
-                              {JSONMain.header.length === 0 ? (
+                              {masterJSON.header.length === 0 ? (
                                 <DropZone
                                   id="header-logo"
                                   initialContent="Agregar Header"
@@ -56,13 +68,16 @@ const MasterContainer = () => {
                                   setComponentName={setComponentName}
                                   componentVariant={componentVariant}
                                   setComponentVariant={setComponentVariant}
+                                  sendComponent={handleComponent}
                                 />
                               ) : (
                                 <RenderComponent
                                   componentName={
-                                    JSONMain.header[0].componentName
+                                    masterJSON.header[0].componentName
                                   }
-                                  componentVariant={JSONMain.header[0].variant}
+                                  componentVariant={
+                                    masterJSON.header[0].variant
+                                  }
                                 />
                               )}
                             </td>
@@ -85,7 +100,7 @@ const MasterContainer = () => {
                                 padding: "32px 72px",
                               }}
                             >
-                              {JSONMain.boxAzul.components.length === 0 ? (
+                              {masterJSON.boxAzul.components.length === 0 ? (
                                 <DropZone
                                   id="header-section-bluebg"
                                   initialContent="Agregar Header Section"
@@ -93,10 +108,11 @@ const MasterContainer = () => {
                                   setComponentName={setComponentName}
                                   componentVariant={componentVariant}
                                   setComponentVariant={setComponentVariant}
+                                  sendComponent={handleComponent}
                                 />
                               ) : (
                                 <>
-                                  {JSONMain.boxAzul.components.map(
+                                  {masterJSON.boxAzul.components.map(
                                     (component, index) => (
                                       <RenderComponent
                                         key={index}
@@ -112,6 +128,7 @@ const MasterContainer = () => {
                                     setComponentName={setComponentName}
                                     componentVariant={componentVariant}
                                     setComponentVariant={setComponentVariant}
+                                    sendComponent={handleComponent}
                                   />
                                 </>
                               )}
@@ -140,6 +157,7 @@ const MasterContainer = () => {
                         setComponentName={setComponentName}
                         componentVariant={componentVariant}
                         setComponentVariant={setComponentVariant}
+                        sendComponent={handleComponent}
                         textColor="black"
                       />
                     </td>
@@ -164,7 +182,7 @@ const MasterContainer = () => {
                         borderBottomRightRadius: "8px",
                       }}
                     >
-                      {JSONMain.footer.length === 0 ? (
+                      {masterJSON.footer.length === 0 ? (
                         <DropZone
                           id="footer-section"
                           initialContent="Agregar Footer"
@@ -172,12 +190,13 @@ const MasterContainer = () => {
                           setComponentName={setComponentName}
                           componentVariant={componentVariant}
                           setComponentVariant={setComponentVariant}
+                          sendComponent={handleComponent}
                           textColor="black"
                         />
                       ) : (
                         <RenderComponent
-                          componentName={JSONMain.footer[0].componentName}
-                          componentVariant={JSONMain.footer[0].variant}
+                          componentName={masterJSON.footer[0].componentName}
+                          componentVariant={masterJSON.footer[0].variant}
                         />
                       )}
                     </td>

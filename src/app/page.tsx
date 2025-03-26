@@ -16,9 +16,9 @@ import { WelcomeModal } from "./components/WelcomeModal/WelcomeModal";
 import { CreateNewTemplateModal } from "./components/CreateNewTemplateModal/CreateNewTemplateModal";
 import { HistoryTemplateModal } from "./components/HistoryTemplateModal/HistoryTemplateModal";
 import { ObjectComponents } from "./types/Components";
-import MasterContainer from "./htmlComponents/Master-container/MasterContainer";
 import GenerateHTMLButton from "./components/GenerateHTMLButton/GenerateHTMLButton";
 import { useLanguage } from "./context/LanguageContext";
+import Canvas from "./components/Canva/Canva";
 
 export default function Home() {
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
@@ -35,9 +35,7 @@ export default function Home() {
     event: React.SyntheticEvent,
     newLanguage: string
   ) => {
-    console.log(newLanguage);
     setLanguage(newLanguage);
-    console.log(language);
   };
 
   // ToggleButton Functions
@@ -181,7 +179,7 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              <MasterContainer />
+              <Canvas />
             </Box>
           </Box>
         </Box>

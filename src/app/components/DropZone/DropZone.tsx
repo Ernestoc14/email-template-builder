@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropsModal from "../PropsModal/PropsModal";
-import { ObjectComponents } from "@/app/types/Components";
+import { Component } from "../Canva/Canva";
 
 interface DropZoneProps {
   id: string;
@@ -10,6 +10,7 @@ interface DropZoneProps {
   componentVariant: string;
   setComponentVariant: (variant: string) => void;
   textColor?: string;
+  sendComponent: (component: Component) => void;
 }
 
 const DropZone: React.FC<DropZoneProps> = ({
@@ -20,6 +21,7 @@ const DropZone: React.FC<DropZoneProps> = ({
   componentVariant,
   setComponentVariant,
   textColor,
+  sendComponent,
 }) => {
   const [content, setContent] = useState(initialContent);
   const [propsModalOpen, setPropsModalOpen] = useState(false);
@@ -67,22 +69,12 @@ const DropZone: React.FC<DropZoneProps> = ({
     setComponentName(draggedComponent);
     setComponentVariant(draggedVariant);
 
-    const componentHTML =
-      ObjectComponents.Components[
-        draggedComponent as keyof typeof ObjectComponents.Components
-      ]?.renderHTML;
-
-    if (componentHTML) {
-      setPendingHTML(componentHTML); // Se guarda temporalmente el HTML pendiente
-      if (
-        (draggedComponent === "Headers" &&
-          draggedVariant === "Reservation Code") ||
-        draggedComponent !== "Headers"
-      ) {
-        setPropsModalOpen(true); // Se abre el PropsModal
-      } else {
-        handleInsertComponent(componentHTML);
-      }
+    if (
+      (draggedComponent === "Headers" &&
+        draggedVariant === "Reservation Code") ||
+      draggedComponent !== "Headers"
+    ) {
+      setPropsModalOpen(true);
     }
   };
 
@@ -91,22 +83,10 @@ const DropZone: React.FC<DropZoneProps> = ({
     setPendingHTML(null);
   };
 
-  const handleInsertComponent = (updatedHTML: string) => {
-    const htmlPendiente = updatedHTML || pendingHTML;
-    if (htmlPendiente) {
-      const placeholderRegex = /Agregar /;
-      const currentContent = placeholderRegex.test(content) ? "" : content;
-      const newContent = currentContent + htmlPendiente;
-      setContent(newContent);
-
-      if (dropTargetRef.current) {
-        dropTargetRef.current.style.border = "none";
-        dropTargetRef.current.style.padding = "0";
-        dropTargetRef.current.style.minHeight = "0";
-        dropTargetRef.current.style.backgroundColor = "transparent";
-      }
+  const handleComponent = (component: Component | null) => {
+    if (component) {
+      sendComponent(component);
     }
-    handleCloseModal();
   };
 
   return (
@@ -127,9 +107,9 @@ const DropZone: React.FC<DropZoneProps> = ({
       <PropsModal
         isOpen={propsModalOpen}
         onClose={handleCloseModal}
-        onInsert={handleInsertComponent}
         componentName={componentName}
         componentVariant={componentVariant}
+        sendComponent={handleComponent}
       />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
