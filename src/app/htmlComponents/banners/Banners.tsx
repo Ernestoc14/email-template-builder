@@ -1,144 +1,235 @@
-import { ObjectComponents } from "@/app/types/Components";
+import { Component } from "@/app/components/Canva/Canva";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-const Banners = (variant: string, language: string) => {
-  let renderHTML, previewHTML = "";
-  if(variant === "Banner with Image") {
-    renderHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width:100%; border-collapse: separate;">
-          <tr>
-            <td style="line-height: 0; background-color:#FFFFFF; border-radius: 16px; border: 1px solid #DBDAD8;">
-              <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
-                <tr>
-                  <td class="block-mobile-item" style="padding: 24px 32px; mso-padding-alt: 0 32px;">
-                    <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;">
-                      <tr>
-                        <td style="color: #0032A0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size:16px;line-height:24px;font-weight:700;">
-                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].title}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding-top: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #666666;">
-                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].description}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="apps-logo-mobile-padding" style="padding-top: 16px;">
-                          <table class="mobile-table-center" style="border-collapse: collapse;">
+const Banners = ({ data }: { data: Component }) => {
+  const { language } = useLanguage();
+
+  const langProp: "esProps" | "enProps" | "ptProps" | "frProps" = `${
+    language.toLowerCase() as "es" | "en" | "pt" | "fr"
+  }Props`;
+
+  switch (data.variant) {
+    case "Banner with Image":
+      return (
+        <table>
+          <tbody>
+            <tr>
+              <td
+                style={{
+                  lineHeight: 0,
+                  border: "solid 1px #DBDAD8",
+                  backgroundColor: "#FFFFFF",
+                  padding: 0,
+                  borderRadius: "8px",
+                }}
+              >
+                <table
+                  cellPadding={0}
+                  cellSpacing={0}
+                  role="presentation"
+                  style={{
+                    borderCollapse: "collapse",
+                    width: "100%",
+                    borderSpacing: 0,
+                  }}
+                >
+                  <tbody>
+                    <tr>
+                      <td className="block-mobile-item">
+                        <table
+                          cellPadding={0}
+                          cellSpacing={0}
+                          role="presentation"
+                          style={{
+                            borderCollapse: "collapse",
+                            width: "100%",
+                            borderSpacing: 0,
+                          }}
+                        >
+                          <tbody>
                             <tr>
-                              <td style="width: 87px; padding-right: 16px;">
-                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}}"
-                                  target="_blank" style="text-decoration: none;">
-                                  <img src="https://www.copaair.com/assets/app-store-2X.png"
-                                    alt="Apple Store" width="87" height="26"
-                                    style="width: 87px;margin: 0;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;">
-                                </a>
-                              </td>
-                              <td style="width: 87px; padding-right: 16px;">
-                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}}"
-                                  target="_blank" style="text-decoration: none;">
-                                  <img src="https://www.copaair.com/assets/play-store-2X.png"
-                                    alt="Google Play" width="87" height="26"
-                                    style="width: 87px;margin: 0;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;">
-                                </a>
-                              </td>
-                              <td style="width: 87px;">
-                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}}" target="_blank"
-                                  style="text-decoration: none;">
-                                  <img src="https://www.copaair.com/assets/app-gallery-2X.png"
-                                    alt="AppGallery" width="87" height="26"
-                                    style="width: 87px;margin: 0;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;">
-                                </a>
+                              <td
+                                className="banner-paddings"
+                                style={{
+                                  padding: "24px 32px 0 32px",
+                                  color: "#0032A0",
+                                  fontFamily:
+                                    "Gilroy, Helvetica, Arial, sans-serif",
+                                  fontSize: "16px",
+                                  lineHeight: "24px",
+                                  fontWeight: 700,
+                                }}
+                              >
+                                {
+                                  // @ts-expect-error doesn't exist header props
+                                  data[langProp].title
+                                }
                               </td>
                             </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                  <td class="block-mobile-item phone-image-mobile-padding" valign="bottom" align="center"
-                    style="vertical-align:bottom;padding:0;padding-right: 19px;">
-                    <img
-                      src="https://www.copaair.com/webassets/images/notifications/gate-banner-phone-mobile-es.png"
-                      style="width: 214px; height: 172px;" width="214" height="172" class="remove-image-mobile">
-                    <!--[if !mso]><!-->
-                    <img
-                      src="https://www.copaair.com/webassets/images/notifications/gate-banner-phone-mobile-es.png"
-                      style="display: none; " width="300" class="show-image-mobile">
-                    <!--<![endif]-->
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>`
-    previewHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width:100%; border-collapse: separate;">
-          <tr>
-            <td style="line-height: 0; background-color:#FFFFFF; border-radius: 16px; border: 1px solid #DBDAD8;">
-              <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
-                <tr>
-                  <td class="block-mobile-item" style="padding: 24px 32px; mso-padding-alt: 0 32px;">
-                    <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;">
-                      <tr>
-                        <td style="color: #0032A0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size:16px;line-height:24px;font-weight:700;">
-                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].title}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding-top: 8px; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #666666;">
-                          ${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].description}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="apps-logo-mobile-padding" style="padding-top: 16px;">
-                          <table class="mobile-table-center" style="border-collapse: collapse;">
                             <tr>
-                              <td style="width: 87px; padding-right: 16px;">
-                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appStoreLink}"
-                                  target="_blank" style="text-decoration: none;">
-                                  <img src="https://www.copaair.com/assets/app-store-2X.png"
-                                    alt="Apple Store" width="87" height="26"
-                                    style="width: 87px;margin: 0;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;">
-                                </a>
-                              </td>
-                              <td style="width: 87px; padding-right: 16px;">
-                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].playStoreLink}"
-                                  target="_blank" style="text-decoration: none;">
-                                  <img src="https://www.copaair.com/assets/play-store-2X.png"
-                                    alt="Google Play" width="87" height="26"
-                                    style="width: 87px;margin: 0;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;">
-                                </a>
-                              </td>
-                              <td style="width: 87px;">
-                                <a href="${ObjectComponents.Components.Banners.props[language as "ES" | "EN" | "PT" | "FR"].appGalleryLink}" target="_blank"
-                                  style="text-decoration: none;">
-                                  <img src="https://www.copaair.com/assets/app-gallery-2X.png"
-                                    alt="AppGallery" width="87" height="26"
-                                    style="width: 87px;margin: 0;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;">
-                                </a>
+                              <td
+                                className="banner-paddings-1"
+                                style={{
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                  color: "#666666",
+                                  padding: "8px 32px 16px 32px",
+                                }}
+                              >
+                                {
+                                  // @ts-expect-error doesn't exist header props
+                                  data[langProp].description
+                                }
                               </td>
                             </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                  <td class="block-mobile-item phone-image-mobile-padding" valign="bottom" align="center"
-                    style="vertical-align:bottom;padding:0;padding-right: 19px;">
-                    <img
-                      src="https://www.copaair.com/webassets/images/notifications/gate-banner-phone-mobile-es.png"
-                      style="width: 214px; height: 172px;" width="214" height="172" class="remove-image-mobile">
-                    <!--[if !mso]><!-->
-                    <img
-                      src="https://www.copaair.com/webassets/images/notifications/gate-banner-phone-mobile-es.png"
-                      style="display: none; " width="300" class="show-image-mobile">
-                    <!--<![endif]-->
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>`
+                            <tr>
+                              <td
+                                style={{ padding: "0 32px 24px 32px" }}
+                                className="mobile-padding-app-images"
+                              >
+                                <table
+                                  className="store-table"
+                                  role="presentation"
+                                  style={{
+                                    borderCollapse: "collapse",
+                                    textAlign: "center",
+                                    width: "100%",
+                                  }}
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td
+                                        style={{
+                                          width: "87px",
+                                          padding: "0 16px 0 0",
+                                        }}
+                                        className="store-padding-image"
+                                      >
+                                        <a
+                                          href="https://apps.apple.com/es/app/copa-airlines/id533700785"
+                                          target="_blank"
+                                          style={{ textDecoration: "none" }}
+                                        >
+                                          <img
+                                            src="https://www.copaair.com/assets/app-store-2X.png"
+                                            alt="Apple Store"
+                                            width="87"
+                                            style={{
+                                              width: "87px",
+                                              margin: 0,
+                                              border: 0,
+                                              height: "auto",
+                                              lineHeight: "100%",
+                                              outline: "none",
+                                              textDecoration: "none",
+                                            }}
+                                            className="img-stores"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td
+                                        style={{
+                                          width: "87px",
+                                          padding: "0 16px 0 0",
+                                        }}
+                                        className="store-padding-image"
+                                      >
+                                        <a
+                                          href="https://play.google.com/store/apps/details?id=com.mttnow.android.copa.production&hl=es"
+                                          target="_blank"
+                                          style={{ textDecoration: "none" }}
+                                        >
+                                          <img
+                                            src="https://www.copaair.com/assets/play-store-2X.png"
+                                            alt="Google Play"
+                                            width="87"
+                                            style={{
+                                              width: "87px",
+                                              margin: 0,
+                                              border: 0,
+                                              height: "auto",
+                                              lineHeight: "100%",
+                                              outline: "none",
+                                              textDecoration: "none",
+                                            }}
+                                            className="img-stores"
+                                          />
+                                        </a>
+                                      </td>
+                                      <td
+                                        style={{
+                                          padding: 0,
+                                          textAlign: "left",
+                                        }}
+                                      >
+                                        <a
+                                          href="https://appgallery.huawei.com/app/C102348393"
+                                          target="_blank"
+                                          style={{ textDecoration: "none" }}
+                                        >
+                                          <img
+                                            src="https://www.copaair.com/assets/app-gallery-2X.png"
+                                            alt="AppGallery"
+                                            width="87"
+                                            style={{
+                                              width: "87px",
+                                              margin: 0,
+                                              border: 0,
+                                              height: "auto",
+                                              lineHeight: "100%",
+                                              outline: "none",
+                                              textDecoration: "none",
+                                            }}
+                                            className="img-stores"
+                                          />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td
+                        className="block-mobile-item phone-image-mobile-padding"
+                        valign="bottom"
+                        align="center"
+                        style={{ verticalAlign: "bottom" }}
+                      >
+                        <img
+                          src={`${
+                            // @ts-expect-error doesn't exist header props
+                            data[langProp].desktopImageURL
+                          }`}
+                          style={{ width: "214px", height: "172px" }}
+                          width={214}
+                          height={172}
+                          className="remove-image-mobile"
+                        />
+                        {/* [if !mso] --> */}
+                        <img
+                          src={`${
+                            // @ts-expect-error doesn't exist header props
+                            data[langProp].mobileImageURL
+                          }`}
+                          style={{ display: "none" }}
+                          width={300}
+                          className="show-image-mobile"
+                        />
+                        {/* <! [endif] */}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      );
   }
-  return { renderHTML, previewHTML }
-}
-
+};
 export default Banners;

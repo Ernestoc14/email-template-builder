@@ -1,209 +1,250 @@
-import { ObjectComponents } from "@/app/types/Components";
+import { Component } from "@/app/components/Canva/Canva";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-const Footers = (variant: string, language: string) => {
-    let renderHTML, previewHTML;
-    if(variant === "Social"){
-      renderHTML = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
-                <tr>
-                  <td style="padding-bottom: 16px;">
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
-                      <tr>
-                        <td>
-                          <a href="https://twitter.com/copaairlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/twitter-x.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.facebook.com/copaairlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/facebook.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.instagram.com/copaairlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/instagram.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.youtube.com/copaairlines" style="display: block; height: 32px;"> 
-                            <img src="https://www.copaair.com/assets/youtube.png"> 
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.tiktok.com/@copaairlines" style="display: block; height: 32px;"> 
-                            <img src="https://www.copaair.com/assets/tiktok.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://linkedin.com/company/copa-airlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/linkedin.png">
-                          </a>
-                        </td>
-                      </tr>
-                  </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666; padding-bottom: 8px;">
-                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666; padding-bottom: 16px;">
-                    Por favor no responder a este correo. Revise nuestras 
-                    <a style="color: #666666; font-weight: 600; text-decoration: underline !important;" 
-                      href="https://www.copaair.com/en-gs/legal/terms-and-conditions/privacy-policy" target="_blank">
-                      <span style=" white-space: nowrap;">Políticas de Privacidad.</span>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">  
-                    <a href="https://www.staralliance.com/en/" target="_blank">
-                      <img src="https://www.copaair.com/assets/StarAlliance-Footer-Logo-01-01.png" alt="StarAlliance Logo" width="168">
-                    </a>
-                  </td>
-                </tr>
-              </table>`
-      previewHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
-          <tr>
-            <!-- Start Footer Cmp -->
-            <!--  Copy this code into Master Container-->
-            <td style="padding: 32px 56px; background-color: #EFEFEF; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" class="socialsFooter-mobile-padding">
-              <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
-                <tr>
-                  <td style="padding-bottom: 16px;">
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
-                      <tr>
-                        <td>
-                          <a href="https://twitter.com/copaairlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/twitter-x.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.facebook.com/copaairlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/facebook.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.instagram.com/copaairlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/instagram.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.youtube.com/copaairlines" style="display: block; height: 32px;"> 
-                            <img src="https://www.copaair.com/assets/youtube.png"> 
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://www.tiktok.com/@copaairlines" style="display: block; height: 32px;"> 
-                            <img src="https://www.copaair.com/assets/tiktok.png">
-                          </a>
-                        </td>
-                        <td>
-                          <a href="https://linkedin.com/company/copa-airlines" style="display: block; height: 32px;">
-                            <img src="https://www.copaair.com/assets/linkedin.png">
-                          </a>
-                        </td>
-                      </tr>
-                  </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666; padding-bottom: 8px;">
-                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666; padding-bottom: 16px;">
-                    Por favor no responder a este correo. Revise nuestras 
-                    <a style="color: #666666; font-weight: 600; text-decoration: underline !important;" 
-                      href="https://www.copaair.com/en-gs/legal/terms-and-conditions/privacy-policy" target="_blank">
-                      <span style=" white-space: nowrap;">Políticas de Privacidad.</span>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">  
-                    <a href="https://www.staralliance.com/en/" target="_blank">
-                      <img src="https://www.copaair.com/assets/StarAlliance-Footer-Logo-01-01.png" alt="StarAlliance Logo" width="168">
-                    </a>
-                  </td>
-                </tr>
-              </table>
-              <!-- Finaliza Footer Cmp-->
-            </td>
-          </tr>
-        </table>`
-    } else if(variant === "Traditional") {
-      renderHTML = `<table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
-                <tr>
-                  <td align="center"
-                    style="font-size: 12px;font-style: normal;font-weight: 400;line-height: 16px;color: #666666;padding-bottom: 8px;">
-                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
-                    <a style="color: #666666;font-weight:600;text-decoration:underline!important;"
-                      href="https://www.copaair.com/en-gs/customer-service/call-center/" target="_blank">
-                      <span style="white-space: nowrap;">Centro de Llamadas.</span>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center"
-                    style="font-size: 12px;font-style: normal;font-weight: 400;line-height: 16px;color: #666666;padding-bottom: 16px;">
-                    Vea nuestra
-                    <a style="color: #666666;font-weight:600;text-decoration:underline!important"
-                      href="https://www.copaair.com/en-gs/legal/terms-and-conditions/privacy-policy/" target="_blank">
-                      <span>Politica de Privacidad.</span>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                    <a href="https://www.staralliance.com/en/" target="_blank">
-                      <img src="https://www.copaair.com/assets/StarAlliance-Footer-Logo-01-01.png" alt="StarAlliance Logo" width="168">
-                    </a>
-                  </td>
-                </tr>
-              </table>`;
-      previewHTML = `<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
-          <tr>
-            <!-- Start Footer Cmp -->
-            <!--  Copy this code into Master Container-->
-            <td style="padding: 32px 56px; background-color: #EFEFEF; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" class="transaccionalFooter-mobile-padding">
-              <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
-                <tr>
-                  <td align="center"
-                    style="font-size: 12px;font-style: normal;font-weight: 400;line-height: 16px;color: #666666;padding-bottom: 8px;">
-                    ${ObjectComponents.Components.Footers.props[language as "ES" | "EN" | "PT" | "FR"].text}
-                    <a style="color: #666666;font-weight:600;text-decoration:underline!important;"
-                      href="https://www.copaair.com/en-gs/customer-service/call-center/" target="_blank">
-                      <span style="white-space: nowrap;">Centro de Llamadas.</span>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center"
-                    style="font-size: 12px;font-style: normal;font-weight: 400;line-height: 16px;color: #666666;padding-bottom: 16px;">
-                    Vea nuestra
-                    <a style="color: #666666;font-weight:600;text-decoration:underline!important"
-                      href="https://www.copaair.com/en-gs/legal/terms-and-conditions/privacy-policy/" target="_blank">
-                      <span>Politica de Privacidad.</span>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                    <a href="https://www.staralliance.com/en/" target="_blank">
-                      <img src="https://www.copaair.com/assets/StarAlliance-Footer-Logo-01-01.png" alt="StarAlliance Logo" width="168">
-                    </a>
-                  </td>
-                </tr>
-              </table>
-              <!-- Finaliza Footer Cmp-->
-            </td>
-          </tr>
-        </table>`;
-    }
-  return { renderHTML, previewHTML };
-}
+const Footers = ({ data }: { data: Component }) => {
+  const { language } = useLanguage();
 
-export default Footers
+  const langProp: "esProps" | "enProps" | "ptProps" | "frProps" = `${
+    language.toLowerCase() as "es" | "en" | "pt" | "fr"
+  }Props`;
+
+  switch (data.variant) {
+    case "Social":
+      return (
+        <table
+          align="center"
+          border={0}
+          cellPadding={0}
+          cellSpacing={0}
+          style={{ width: "100%" }}
+        >
+          <tbody>
+            <tr>
+              <td style={{ paddingBottom: "16px" }}>
+                <table
+                  align="center"
+                  border={0}
+                  cellPadding={0}
+                  cellSpacing={0}
+                  style={{ margin: "0 auto" }}
+                >
+                  <tbody>
+                    <tr>
+                      {[
+                        {
+                          href: "https://twitter.com/copaairlines",
+                          src: "https://www.copaair.com/assets/twitter-x.png",
+                        },
+                        {
+                          href: "https://www.facebook.com/copaairlines",
+                          src: "https://www.copaair.com/assets/facebook.png",
+                        },
+                        {
+                          href: "https://www.instagram.com/copaairlines",
+                          src: "https://www.copaair.com/assets/instagram.png",
+                        },
+                        {
+                          href: "https://www.youtube.com/copaairlines",
+                          src: "https://www.copaair.com/assets/youtube.png",
+                        },
+                        {
+                          href: "https://www.tiktok.com/@copaairlines",
+                          src: "https://www.copaair.com/assets/tiktok.png",
+                        },
+                        {
+                          href: "https://linkedin.com/company/copa-airlines",
+                          src: "https://www.copaair.com/assets/linkedin.png",
+                        },
+                      ].map(({ href, src }) => (
+                        <td key={href}>
+                          <a
+                            href={href}
+                            style={{ display: "block", height: "32px" }}
+                          >
+                            <img src={src} alt="Social Media Icon" />
+                          </a>
+                        </td>
+                      ))}
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td
+                align="center"
+                style={{
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "16px",
+                  color: "#666666",
+                  paddingBottom: "8px",
+                }}
+              >
+                {
+                  // @ts-expect-error doesn't exist footer props
+                  data[langProp].text
+                }
+              </td>
+            </tr>
+            <tr>
+              <td
+                align="center"
+                style={{
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "16px",
+                  color: "#666666",
+                  paddingBottom: "16px",
+                }}
+              >
+                {
+                  // @ts-expect-error doesn't exist footer props
+                  data[langProp].secondText
+                }{" "}
+                <a
+                  style={{
+                    color: "#666666",
+                    fontWeight: 600,
+                    textDecoration: "underline",
+                  }}
+                  href={`${
+                    // @ts-expect-error doesn't exist footer props
+                    data[langProp].secondLink
+                  }`}
+                  target="_blank"
+                >
+                  <span style={{ whiteSpace: "nowrap" }}>
+                    {
+                      // @ts-expect-error doesn't exist footer props
+                      data[langProp].secondLinkText
+                    }
+                  </span>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <a href="https://www.staralliance.com/en/" target="_blank">
+                  <img
+                    src="https://www.copaair.com/assets/StarAlliance-Footer-Logo-01-01.png"
+                    alt="StarAlliance Logo"
+                    width="168"
+                  />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      );
+
+    case "Traditional":
+      return (
+        <table
+          align="center"
+          border={0}
+          cellPadding={0}
+          cellSpacing={0}
+          style={{ width: "100%" }}
+        >
+          <tbody>
+            <tr>
+              <td
+                align="center"
+                style={{
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "16px",
+                  color: "#666666",
+                  paddingBottom: "8px",
+                }}
+              >
+                {
+                  // @ts-expect-error doesn't exist footer props
+                  data[langProp].text
+                }{" "}
+                <a
+                  style={{
+                    color: "#666666",
+                    fontWeight: 600,
+                    textDecoration: "underline",
+                  }}
+                  href={`${
+                    // @ts-expect-error doesn't exist footer props
+                    data[langProp].firstLink
+                  }`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span style={{ whiteSpace: "nowrap" }}>
+                    {
+                      // @ts-expect-error doesn't exist footer props
+                      data[langProp].linkText
+                    }
+                  </span>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td
+                align="center"
+                style={{
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "16px",
+                  color: "#666666",
+                  paddingBottom: "16px",
+                }}
+              >
+                {
+                  // @ts-expect-error doesn't exist footer props
+                  data[langProp].secondText
+                }{" "}
+                <a
+                  style={{
+                    color: "#666666",
+                    fontWeight: 600,
+                    textDecoration: "underline",
+                  }}
+                  href={`${
+                    // @ts-expect-error doesn't exist footer props
+                    data[langProp].secondLink
+                  }`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>
+                    {
+                      // @ts-expect-error doesn't exist footer props
+                      data[langProp].secondLinkText
+                    }
+                  </span>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <a
+                  href="https://www.staralliance.com/en/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="https://www.copaair.com/assets/StarAlliance-Footer-Logo-01-01.png"
+                    alt="StarAlliance Logo"
+                    width={168}
+                  />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      );
+  }
+};
+
+export default Footers;

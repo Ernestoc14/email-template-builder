@@ -1,22 +1,22 @@
-import React, { useState } from "react";
 import DropZone from "@/app/components/DropZone/DropZone";
 import { RenderComponent } from "@/app/components/RenderComponent/RenderComponent";
-import { Component, masterJSONType } from "@/app/components/Canva/Canva";
+import { Component, masterJSONType } from "@/app/context/MasterJSONContext";
 
 export interface MasterContainerProps {
   masterJSON: masterJSONType;
-  sendComponent: (component: Component) => void;
+  sendComponent: (component: Component, sectionID?: string) => void;
 }
 
 const MasterContainer = ({
   masterJSON,
   sendComponent,
 }: MasterContainerProps) => {
-  const [componentName, setComponentName] = useState("");
-  const [componentVariant, setComponentVariant] = useState("");
 
-  const handleComponent = (component: Component) => {
-    sendComponent(component);
+  const handleComponent = (component: Component, sectionID?: string) => {
+    console.log("SectionID de MC:", sectionID);
+    sendComponent(component, sectionID);
+    // console.log("SecID", sectionID);
+    // console.log("MC - ID", component.componentId);
   };
 
   return (
@@ -64,21 +64,10 @@ const MasterContainer = ({
                                 <DropZone
                                   id="header-logo"
                                   initialContent="Agregar Header"
-                                  componentName={componentName}
-                                  setComponentName={setComponentName}
-                                  componentVariant={componentVariant}
-                                  setComponentVariant={setComponentVariant}
-                                  sendComponent={handleComponent}
+                                  sendComponent={(component) => handleComponent(component)}
                                 />
                               ) : (
-                                <RenderComponent
-                                  componentName={
-                                    masterJSON.header[0].componentName
-                                  }
-                                  componentVariant={
-                                    masterJSON.header[0].variant
-                                  }
-                                />
+                                <RenderComponent data={masterJSON.header[0]} />
                               )}
                             </td>
                           </tr>
@@ -104,10 +93,6 @@ const MasterContainer = ({
                                 <DropZone
                                   id="header-section-bluebg"
                                   initialContent="Agregar Header Section"
-                                  componentName={componentName}
-                                  setComponentName={setComponentName}
-                                  componentVariant={componentVariant}
-                                  setComponentVariant={setComponentVariant}
                                   sendComponent={handleComponent}
                                 />
                               ) : (
@@ -115,19 +100,15 @@ const MasterContainer = ({
                                   {masterJSON.boxAzul.components.map(
                                     (component, index) => (
                                       <RenderComponent
-                                        key={index}
-                                        componentName={component.componentName}
-                                        componentVariant={component.variant}
+                                        key={component.componentId + index}
+                                        data={component}
+                                        sendComponent={handleComponent}
                                       />
                                     )
                                   )}
                                   <DropZone
                                     id="header-section-bluebg"
                                     initialContent="Agregar Mas Componentes"
-                                    componentName={componentName}
-                                    setComponentName={setComponentName}
-                                    componentVariant={componentVariant}
-                                    setComponentVariant={setComponentVariant}
                                     sendComponent={handleComponent}
                                   />
                                 </>
@@ -150,16 +131,41 @@ const MasterContainer = ({
                 <tbody>
                   <tr>
                     <td className="mobile-padding" style={{ padding: "32px" }}>
-                      <DropZone
-                        id="body-section"
-                        initialContent="Agregar Body Section"
-                        componentName={componentName}
-                        setComponentName={setComponentName}
-                        componentVariant={componentVariant}
-                        setComponentVariant={setComponentVariant}
-                        sendComponent={handleComponent}
-                        textColor="black"
-                      />
+                      {masterJSON.body.sectionComponents.length === 0 ? (
+                        <DropZone
+                          id="body-section"
+                          initialContent="Agregar Body Section"
+                          sendComponent={handleComponent}
+                          textColor="black"
+                        />
+                      ) : (
+                        <>
+                          {masterJSON.body.sectionComponents.map(
+                            (section, index)=> (
+                              <div key={index}>
+                              <RenderComponent
+                                key={section.sectionComponentsInfo.componentId + index}
+                                data={section.sectionComponentsInfo}
+                                sendComponent={handleComponent}
+                                />
+                              {section.components.map((secComponent, secComponentIndex) => (
+                                <RenderComponent
+                                key={secComponent.componentId + secComponentIndex}
+                                data={secComponent}
+                                sendComponent={handleComponent}
+                                />
+                              ))}
+                              </div>
+                            )
+                          )}
+                          <DropZone 
+                            id="body-section"
+                            initialContent="Agregar Mas Componentes"
+                            sendComponent={handleComponent}
+                            textColor="black"
+                          />
+                        </>
+                      )}
                     </td>
                   </tr>
                 </tbody>
@@ -186,18 +192,11 @@ const MasterContainer = ({
                         <DropZone
                           id="footer-section"
                           initialContent="Agregar Footer"
-                          componentName={componentName}
-                          setComponentName={setComponentName}
-                          componentVariant={componentVariant}
-                          setComponentVariant={setComponentVariant}
                           sendComponent={handleComponent}
                           textColor="black"
                         />
                       ) : (
-                        <RenderComponent
-                          componentName={masterJSON.footer[0].componentName}
-                          componentVariant={masterJSON.footer[0].variant}
-                        />
+                        <RenderComponent data={masterJSON.footer[0]} />
                       )}
                     </td>
                   </tr>

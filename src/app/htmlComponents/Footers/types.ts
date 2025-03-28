@@ -15,4 +15,9 @@ export interface FootersTranslations {
 
 export interface FootersProps {
   text: string;
+  linkText: string;
+  firstLink: string;
+  secondText: string;
+  secondLinkText: string;
+  secondLink: string;
 }

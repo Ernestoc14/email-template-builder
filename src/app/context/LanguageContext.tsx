@@ -2,8 +2,8 @@
 import { createContext, useContext, useState } from "react";
 
 interface LanguageContextProps {
-  language: string;
-  setLanguage: (language: string) => void;
+  language: "ES" | "EN" | "PT" | "FR";
+  setLanguage: (language: "ES" | "EN" | "PT" | "FR") => void;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(
@@ -15,7 +15,7 @@ export const LanguageProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [language, setLanguage] = useState("ES");
+  const [language, setLanguage] = useState<"ES" | "EN" | "PT" | "FR">("ES");
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
@@ -25,7 +25,7 @@ export const LanguageProvider = ({
 };
 
 export const useLanguage = () => {
-  const context = useContext(LanguageContext);
+  const context = useContext(LanguageContext) as LanguageContextProps;
   if (!context) {
     throw new Error("useLanguage must be used within a LanguageProvider");
   }

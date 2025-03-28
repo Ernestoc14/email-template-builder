@@ -10,14 +10,10 @@ import {
 import { PropsModalProps } from "./types";
 import { ObjectComponents } from "@/app/types/Components";
 import { useState, useEffect } from "react";
-import CallComponent from "../CallComponent/CallComponent";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { Component } from "../Canva/Canva";
+import { Component } from "@/app/context/MasterJSONContext";
 
-export const addComponent = (
-  componentName: string,
-  variant: string,
-) => {
+export const addComponent = (componentName: string, variant: string) => {
   let component: Component | null = null;
   const componentId = `${componentName}-${Math.floor(
     1000 + Math.random() * 9000
@@ -53,26 +49,129 @@ export const addComponent = (
         enProps: titleBoxData?.props.EN,
         ptProps: titleBoxData?.props.PT,
         frProps: titleBoxData?.props.FR,
-      }
+      };
       break;
-    case "Footers":
-      const footerData =
+    case "SectionContainers":
+      const sectionContainerData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: sectionContainerData?.props.ES,
+        enProps: sectionContainerData?.props.EN,
+        ptProps: sectionContainerData?.props.PT,
+        frProps: sectionContainerData?.props.FR,
+      };
+      break;
+    case "Buttons":
+      const buttonData =
+      ObjectComponents.Components[
+        componentName as keyof typeof ObjectComponents.Components
+      ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: buttonData?.props.ES,
+        enProps: buttonData?.props.EN,
+        ptProps: buttonData?.props.PT,
+        frProps: buttonData?.props.FR,
+      };
+      break;
+    case "Infobars":
+      const infobarData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: infobarData?.props.ES,
+        enProps: infobarData?.props.EN,
+        ptProps: infobarData?.props.PT,
+        frProps: infobarData?.props.FR,
+      };
+      break;
+    case "Alerts":
+      const alertData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: alertData?.props.ES,
+        enProps: alertData?.props.EN,
+        ptProps: alertData?.props.PT,
+        frProps: alertData?.props.FR,
+      };
+      break;
+    case "Banners":
+      const bannerData = ObjectComponents.Components[
+        componentName as keyof typeof ObjectComponents.Components
+      ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: bannerData?.props.ES,
+        enProps: bannerData?.props.EN,
+        ptProps: bannerData?.props.PT,
+        frProps: bannerData?.props.FR,
+      };
+      break;
+    case "ItineraryCards":
+      const itineraryCardData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: itineraryCardData?.props.ES,
+        enProps: itineraryCardData?.props.EN,
+        ptProps: itineraryCardData?.props.PT,
+        frProps: itineraryCardData?.props.FR,
+      };
+      break;
+    case "PaxCards":
+      const paxCardData =
         ObjectComponents.Components[
           componentName as keyof typeof ObjectComponents.Components
         ];
         component = {
           componentId,
           componentName,
-          variant,
-          esProps: footerData?.props.ES,
-          enProps: footerData?.props.EN,
-          ptProps: footerData?.props.PT,
-          frProps: footerData?.props.FR,
+          variant, 
+          esProps: paxCardData?.props.ES,
+          enProps: paxCardData?.props.EN,
+          ptProps: paxCardData?.props.PT,
+          frProps: paxCardData?.props.FR,
         }
+    case "Footers":
+      const footerData =
+        ObjectComponents.Components[
+          componentName as keyof typeof ObjectComponents.Components
+        ];
+      component = {
+        componentId,
+        componentName,
+        variant,
+        esProps: footerData?.props.ES,
+        enProps: footerData?.props.EN,
+        ptProps: footerData?.props.PT,
+        frProps: footerData?.props.FR,
+      };
     default:
       break;
   }
-  return (component);
+  return component;
 };
 
 const PropsModal = ({
@@ -119,7 +218,7 @@ const PropsModal = ({
 
   const handleChangeLanguage = (
     _event: React.SyntheticEvent,
-    newLanguage: string
+    newLanguage: "ES" | "EN" | "PT" | "FR"
   ) => {
     setLanguage(newLanguage);
   };
@@ -133,15 +232,11 @@ const PropsModal = ({
       if (component) {
         component.props = { ...updatedProps };
       }
-      CallComponent(componentName, componentVariant, language);
-      const updatedHTML =
-        ObjectComponents.Components[
-          componentName as keyof typeof ObjectComponents.Components
-        ]?.renderHTML;
-      sendComponent(addComponent(componentName, componentVariant))
+      sendComponent(addComponent(componentName, componentVariant));
     }
     onClose();
   };
+
 
   return (
     <Modal open={isOpen} onClose={onClose}>

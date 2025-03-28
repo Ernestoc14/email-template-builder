@@ -1,40 +1,25 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import PropsModal from "../PropsModal/PropsModal";
-import { Component } from "../Canva/Canva";
+import { Component } from "@/app/context/MasterJSONContext";
 
 interface DropZoneProps {
   id: string;
   initialContent: string;
-  componentName: string;
-  setComponentName: (name: string) => void;
-  componentVariant: string;
-  setComponentVariant: (variant: string) => void;
   textColor?: string;
-  sendComponent: (component: Component) => void;
+  sendComponent: (component: Component, sectionID?: string) => void;
 }
 
 const DropZone: React.FC<DropZoneProps> = ({
   id,
   initialContent,
-  componentName,
-  setComponentName,
-  componentVariant,
-  setComponentVariant,
   textColor,
   sendComponent,
 }) => {
-  const [content, setContent] = useState(initialContent);
   const [propsModalOpen, setPropsModalOpen] = useState(false);
-  const [pendingHTML, setPendingHTML] = useState<string | null>(null);
   const dropTargetRef = useRef<HTMLDivElement | null>(null);
-  const contentRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    // Forzar re-renderizado cuando cambia content
-    if (contentRef.current) {
-      contentRef.current.innerHTML = content;
-    }
-  }, [content]);
+  const [componentName, setComponentName] = useState("");
+  const [componentVariant, setComponentVariant] = useState("");
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -50,37 +35,38 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = "1px solid red";
+    e.currentTarget.style.border = "1px dashed #d1d1d1";
     e.currentTarget.style.backgroundColor = "transparent";
   };
 
   const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = "1px solid red";
+    e.currentTarget.style.border = "1px dashed #d1d1d1";
     e.currentTarget.style.backgroundColor = "transparent";
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
+    setComponentName(e.dataTransfer.getData("Component") ?? '');
+    setComponentVariant(e.dataTransfer.getData("Variant") ?? '');
     dropTargetRef.current = e.currentTarget;
 
-    const draggedComponent = e.dataTransfer.getData("Component");
-    const draggedVariant = e.dataTransfer.getData("Variant");
-    setComponentName(draggedComponent);
-    setComponentVariant(draggedVariant);
+    // const draggedComponent = e.dataTransfer.getData("Component");
+    // const draggedVariant = e.dataTransfer.getData("Variant");
+    // setComponentName(draggedComponent);
+    // setComponentVariant(draggedVariant);
 
-    if (
-      (draggedComponent === "Headers" &&
-        draggedVariant === "Reservation Code") ||
-      draggedComponent !== "Headers"
-    ) {
-      setPropsModalOpen(true);
-    }
+    // if (
+    //   (draggedComponent === "Headers" &&
+    //     draggedVariant === "Reservation Code") ||
+    //   draggedComponent !== "Headers"
+    // ) {
+    // }
+    setPropsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setPropsModalOpen(false);
-    setPendingHTML(null);
   };
 
   const handleComponent = (component: Component | null) => {
@@ -111,7 +97,7 @@ const DropZone: React.FC<DropZoneProps> = ({
         componentVariant={componentVariant}
         sendComponent={handleComponent}
       />
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div dangerouslySetInnerHTML={{ __html: initialContent }} />
     </div>
   );
 };

@@ -14,10 +14,8 @@ export interface BannersTranslations {
 }
 
 export interface BannersProps {
-  imageURL: string;
+  desktopImageURL: string;
+  mobileImageURL: string;
   title: string;
   description: string;
-  appStoreLink: string;
-  playStoreLink: string;
-  appGalleryLink: string;
 }
