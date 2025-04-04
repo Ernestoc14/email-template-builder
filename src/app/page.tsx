@@ -33,7 +33,7 @@ export default function Home() {
   // Tabs Functions
   const handleChangeLanguage = (
     event: React.SyntheticEvent,
-    newLanguage: string
+    newLanguage: "ES" | "EN" | "PT" | "FR"
   ) => {
     setLanguage(newLanguage);
   };
