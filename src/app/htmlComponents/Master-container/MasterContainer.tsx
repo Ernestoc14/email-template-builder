@@ -55,7 +55,7 @@ const MasterContainer = ({
                         <tbody>
                           <tr>
                             <td
-                              className="header-logo-padding"
+                              className="header-section-mobile-padding"
                               style={{ padding: "32px 32px 0" }}
                             >
                               {masterJSON.header.length === 0 ? (
