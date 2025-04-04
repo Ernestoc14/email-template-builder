@@ -1,4 +1,4 @@
-import { Component } from "@/app/components/Canva/Canva";
+import { Component } from "@/app/context/MasterJSONContext";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const Headers = ({ data }: { data: Component }) => {

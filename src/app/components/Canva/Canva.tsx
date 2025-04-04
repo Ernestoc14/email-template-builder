@@ -1,136 +1,85 @@
-import {
-  useEffect
-} from "react";
 import MasterContainer from "@/app/htmlComponents/Master-container/MasterContainer";
-import { Component, masterJSONType, useMasterJSON } from "@/app/context/MasterJSONContext";
-// export interface Component {
-//   componentId: string;
-//   componentName: string;
-//   variant: string;
-//   esProps: unknown;
-//   enProps: unknown;
-//   ptProps: unknown;
-//   frProps: unknown;
-// }
-
-// export interface CanvasConfig {
-//   name: string;
-//   date: string;
-//   autor: string;
-// }
-
-// export interface MasterContainer {
-//   isMarkupLCode: boolean;
-//   headerId: string;
-//   bodyId: string;
-//   footerId: string;
-//   boxAzulId: string;
-// }
-
-// export interface SectionComponent {
-//   // sectionComponentsId: string;
-//   // sectionComponentsName: string;
-//   // sectionComponentsVariant: string;
-//   // sectionComponentsProps: 
-//   sectionComponentsInfo: Component;
-//   components: Component[];
-// }
-
-// export interface masterJSONType {
-//   version: string;
-//   canvasConfig: CanvasConfig;
-//   masterContainer: MasterContainer;
-//   header: Component[];
-//   footer: Component[];
-//   boxAzul: {
-//     components: Component[];
-//   };
-//   body: { sectionComponents: SectionComponent[] };
-// }
+import {
+  Component,
+  masterJSONType,
+  useMasterJSON,
+} from "@/app/context/MasterJSONContext";
 
 const Canvas = () => {
-  // const [masterJSON, setMasterJSON] = useState<masterJSONType>({
-  //   version: "1.0",
-  //   canvasConfig: {
-  //     name: "File Name",
-  //     date: "2025-01-18 09:23:28",
-  //     autor: "Carlos Solis CM",
-  //   },
-  //   masterContainer: {
-  //     isMarkupLCode: true,
-  //     headerId: "header-01",
-  //     bodyId: "body-01",
-  //     footerId: "footer-01",
-  //     boxAzulId: "box-azul-01",
-  //   },
-  //   header: [],
-  //   boxAzul: {
-  //     components: [],
-  //   },
-  //   body: {
-  //     sectionComponents: [],
-  //   },
-  //   footer: [],
-  // });
   const { masterJSON, setMasterJSON } = useMasterJSON();
-  // useEffect(() =>{
-  //   console.log("masterJSON",masterJSON);
-  //   // findSectionContainer(masterJSON, masterJSON.body.sectionComponents[0]?.sectionComponentsInfo.componentId)
-  // }, [masterJSON])
+  const sectionContainerIds: string[] = [];
 
-  const addComponentToSectionContainer = (component: Component, sectionContainerId: string) => {
-    console.log("AddComponentToSectionContainer", sectionContainerId)
-    const findSectionContainer = (masterJSON: masterJSONType, sectionContainerId: string) => {
-      let findSectionContainerPosition = 0
-      if (masterJSON.body.sectionComponents.length > 0) {
-        findSectionContainerPosition = masterJSON.body.sectionComponents.findIndex(
-          (section) => section.sectionComponentsInfo.componentId === sectionContainerId
-        );
-        console.log("findSectionContainerPosition", findSectionContainerPosition)
-      return findSectionContainerPosition
+  const findSectionContainer = (
+    masterJSON: masterJSONType,
+    sectionContainerIds: string[]
+  ): string => {
+    let findSectionContainerID: string = "";
+    console.log("ID desde Func", sectionContainerIds[0])
+    if (masterJSON.body.sectionComponents.length > 0) {
+      masterJSON.body.sectionComponents.forEach((section) => {
+        console.log("Section ID", section.sectionComponentsInfo.componentId);
+        console.log("Section ID", sectionContainerIds[0]);
+        if ( section.sectionComponentsInfo.componentId === sectionContainerIds[0]) {
+          findSectionContainerID = section.sectionComponentsInfo.componentId;
+          console.log("ID de la seccionENCONTRADAAAAAA", findSectionContainerID);
+        }
+      });
     }
-  }
-    const sectionContainerPosition = findSectionContainer(masterJSON, sectionContainerId)
-    console.log("sectionContainerPosition", sectionContainerPosition)
+    console.log("Encontre el ID de la seccion", findSectionContainerID);
+    return findSectionContainerID;
+  };
 
-
-    // masterJSON.body.sectionComponents.map((section) => {
-    //   if(section.sectionComponentsInfo.componentId === sectionContainerId){
-    //     section.components.push(component)
-    //   }
-    // })
-    // setMasterJSON({...masterJSON})
-    
-    // const findSecID = masterJSON.body.sectionComponents.find(
-    //   (section) => section.sectionComponentsInfo.componentId === sectionContainerId
-    // )
-    // console.log("findSecID", findSecID)
-
-  }
+  const addComponentToSectionContainer = (
+    component: Component,
+    sectionContainerId: string
+  ) => {
+    console.log("AddComponentToSectionContainer en este ID", sectionContainerId);
+  };
 
   // Esta funcion controla la seccion en la que se agregara el componente dentro de JSON
-  const handleComponent = (component: Component, sectionContainerId?: string) => {
+  const handleComponent = (component: Component, dropZoneId?: string) => {
     if (component.componentId.includes("Headers")) {
       masterJSON.header.push(component);
       setMasterJSON({ ...masterJSON });
     } else if (component.componentId.includes("Footers")) {
       masterJSON.footer.push(component);
       setMasterJSON({ ...masterJSON });
-    } else if (component.componentId.includes("SectionContainers")){
+    } else if (component.componentId.includes("SectionContainers")) {
+      sectionContainerIds.push(component.componentId);
+      console.log("se guadro ID 1", sectionContainerIds[0]);
       masterJSON.body.sectionComponents.push({
         sectionComponentsInfo: component,
-        components: []
-      })
-      setMasterJSON({...masterJSON})
-      addComponentToSectionContainer(component, component.componentId)
-    } else if (component.componentId.includes("TitleBoxs")){
-      // addComponentToSectionContainer(component, component.componentId)
-      masterJSON.body.sectionComponents[0].components.push(component);
-      setMasterJSON({...masterJSON})
-    }
-    else
-      {
-        console.log("No se encontro seccion")
+        components: [],
+      });
+      setMasterJSON({ ...masterJSON });
+      // sectionContainerIds.push(component.componentId);
+      // addComponentToSectionContainer(component, component.componentId);
+    } else if (
+      component.componentId.includes("TitleBoxs") ||
+      component.componentId.includes("Buttons") ||
+      component.componentId.includes("Infobars") ||
+      component.componentId.includes("Alerts")
+    ) {
+      if (dropZoneId === "blue-box-section") {
+        masterJSON.boxAzul.components.push(component);
+        setMasterJSON({ ...masterJSON });
+      } else if (dropZoneId === "body-section") {
+        const sectionContainerId = findSectionContainer(
+          masterJSON,
+          sectionContainerIds
+        );
+        console.log("ENCONTRE SECCION", sectionContainerIds[0]);
+        // masterJSON.body.sectionComponents[0].components.push(component);
+        // setMasterJSON({ ...masterJSON });
+        addComponentToSectionContainer(component, sectionContainerId);
+      }
+      // Debo evaluar el DropZone ID
+      // addComponentToSectionContainer(component, component.componentId);
+      // masterJSON.body.sectionComponents[0].components.push(component);
+      // masterJSON.boxAzul.components.push(component);
+      // setMasterJSON({ ...masterJSON });
+    } else {
+      console.log("No se encontro seccion");
       // switch (component.componentName) {
       //   case "SectionContainers":
       //     if (!findSectionContainer(masterJSON, component.componentId)) {

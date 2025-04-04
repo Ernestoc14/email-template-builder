@@ -1,4 +1,4 @@
-import { Component } from "@/app/components/Canva/Canva";
+import { Component } from "@/app/context/MasterJSONContext";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const Alerts = ({ data }: { data: Component }) => {
@@ -321,7 +321,8 @@ const Alerts = ({ data }: { data: Component }) => {
               <td
                 className="remove-styles-mso"
                 style={{
-                  msoBorderAlt: "none",
+                  "mso-border-alt": "none",
+                  // msoBorderAlt: "none",
                   padding: "8px 16px",
                   backgroundColor: "#B15C37",
                   borderRadius: "4px",

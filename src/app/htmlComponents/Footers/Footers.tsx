@@ -1,4 +1,4 @@
-import { Component } from "@/app/components/Canva/Canva";
+import { Component } from "@/app/context/MasterJSONContext";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const Footers = ({ data }: { data: Component }) => {
@@ -56,7 +56,7 @@ const Footers = ({ data }: { data: Component }) => {
                           src: "https://www.copaair.com/assets/linkedin.png",
                         },
                       ].map(({ href, src }) => (
-                        <td key={href}>
+                        <td key={href} style={{paddingRight: "8px"}}>
                           <a
                             href={href}
                             style={{ display: "block", height: "32px" }}

@@ -4,7 +4,7 @@ import { Component, masterJSONType } from "@/app/context/MasterJSONContext";
 
 export interface MasterContainerProps {
   masterJSON: masterJSONType;
-  sendComponent: (component: Component, sectionID?: string) => void;
+  sendComponent: (component: Component, dropZoneId?: string) => void;
 }
 
 const MasterContainer = ({
@@ -12,11 +12,9 @@ const MasterContainer = ({
   sendComponent,
 }: MasterContainerProps) => {
 
-  const handleComponent = (component: Component, sectionID?: string) => {
-    console.log("SectionID de MC:", sectionID);
-    sendComponent(component, sectionID);
-    // console.log("SecID", sectionID);
-    // console.log("MC - ID", component.componentId);
+  const handleComponent = (component: Component, dropZoneId?: string) => {
+  console.log("DropZone ID", dropZoneId);
+    sendComponent(component, dropZoneId);
   };
 
   return (
@@ -57,14 +55,14 @@ const MasterContainer = ({
                         <tbody>
                           <tr>
                             <td
-                              className="logo-header-padding"
+                              className="header-logo-padding"
                               style={{ padding: "32px 32px 0" }}
                             >
                               {masterJSON.header.length === 0 ? (
                                 <DropZone
-                                  id="header-logo"
+                                  id="header-section"
                                   initialContent="Agregar Header"
-                                  sendComponent={(component) => handleComponent(component)}
+                                  sendComponent={handleComponent}
                                 />
                               ) : (
                                 <RenderComponent data={masterJSON.header[0]} />
@@ -83,7 +81,7 @@ const MasterContainer = ({
                         <tbody>
                           <tr>
                             <td
-                              className="mobile-padding"
+                              className="blue-box-mobile-padding"
                               style={{
                                 backgroundColor: "#0032A0",
                                 padding: "32px 72px",
@@ -91,9 +89,9 @@ const MasterContainer = ({
                             >
                               {masterJSON.boxAzul.components.length === 0 ? (
                                 <DropZone
-                                  id="header-section-bluebg"
+                                  id="blue-box-section"
                                   initialContent="Agregar Header Section"
-                                  sendComponent={handleComponent}
+                                  sendComponent={(component) => handleComponent(component, "blue-box-section")}
                                 />
                               ) : (
                                 <>
@@ -107,9 +105,9 @@ const MasterContainer = ({
                                     )
                                   )}
                                   <DropZone
-                                    id="header-section-bluebg"
+                                    id="blue-box-section"
                                     initialContent="Agregar Mas Componentes"
-                                    sendComponent={handleComponent}
+                                    sendComponent={(component) => handleComponent(component, "blue-box-section")}
                                   />
                                 </>
                               )}
@@ -130,12 +128,12 @@ const MasterContainer = ({
               >
                 <tbody>
                   <tr>
-                    <td className="mobile-padding" style={{ padding: "32px" }}>
+                    <td className="body-section-mobile-padding" style={{ padding: "48px 72px", backgroundColor: "#FFFFFF" }}>
                       {masterJSON.body.sectionComponents.length === 0 ? (
                         <DropZone
                           id="body-section"
                           initialContent="Agregar Body Section"
-                          sendComponent={handleComponent}
+                          sendComponent={(component) => handleComponent(component, "body-section")}
                           textColor="black"
                         />
                       ) : (
@@ -161,7 +159,7 @@ const MasterContainer = ({
                           <DropZone 
                             id="body-section"
                             initialContent="Agregar Mas Componentes"
-                            sendComponent={handleComponent}
+                            sendComponent={(component) => handleComponent(component, "body-section")}
                             textColor="black"
                           />
                         </>
@@ -180,7 +178,7 @@ const MasterContainer = ({
                 <tbody>
                   <tr>
                     <td
-                      className="mobile-padding"
+                      className="footer-section-mobile-padding"
                       style={{
                         padding: "32px 56px",
                         backgroundColor: "#EFEFEE",

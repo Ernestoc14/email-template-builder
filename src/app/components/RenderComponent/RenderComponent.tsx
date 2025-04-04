@@ -9,10 +9,24 @@ import SectionContainers from "@/app/htmlComponents/Section-container/SectionCon
 import ItineraryCards from "@/app/htmlComponents/Itinerary-cards/ItineraryCards";
 import { Component } from "@/app/context/MasterJSONContext";
 
-export const RenderComponent = ({ sendComponent, data }: { sendComponent?: (component: Component) => void,  data: Component }) => {
-  const handleComponent = (component: Component) => {
-    if(sendComponent) sendComponent(component);
+// const deleteComponent = (component: Component) => {
+//   console.log("Delete component", component.componentId);
+//   // Implement your delete logic here
+// }
+
+export const RenderComponent = ({ sendComponent, data }: { sendComponent?: (component: Component, dropZoneId?: string) => void,  data: Component }) => {
+  const handleComponent = (component: Component, dropZoneId?: string) => {
+    if(sendComponent) sendComponent(component, dropZoneId);
   };
+
+  // Construir un renderCmp dependiendo del tipo de Cmp a renderizar
+  //  algo como 
+  // <>
+  // button delete -- button edit 
+  //  {ComponentType}
+  // </> 
+
+  // ComponentType = returt de Switch
 
   switch (data.componentName) {
     case "Headers":
