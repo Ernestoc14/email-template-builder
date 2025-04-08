@@ -37,7 +37,7 @@ const Canvas = () => {
   };
 
   // Esta funcion controla la seccion en la que se agregara el componente dentro de JSON
-  const handleComponent = (component: Component, dropZoneId?: string) => {
+  const handleAddComponent = (component: Component, dropZoneId?: string) => {
     if (component.componentId.includes("Headers")) {
       masterJSON.header.push(component);
       setMasterJSON({ ...masterJSON });
@@ -124,11 +124,23 @@ const Canvas = () => {
     }
   };
 
+  // Esta funcion controla la eliminacion de componentes dentro de JSON
+  const handleDeleteComponent = (component: Component) => {
+    if (component.componentName === "Headers") {
+      masterJSON.header.pop();
+      setMasterJSON({ ...masterJSON });
+    } else if (component.componentName === "Footers") {
+      masterJSON.footer.pop();
+      setMasterJSON({ ...masterJSON });
+    }
+  }
+
   console.log(masterJSON);
   return (
     <div>
       <MasterContainer
-        sendComponent={handleComponent}
+        sendComponent={handleAddComponent}
+        onDelete={handleDeleteComponent}
         masterJSON={masterJSON}
       />
     </div>

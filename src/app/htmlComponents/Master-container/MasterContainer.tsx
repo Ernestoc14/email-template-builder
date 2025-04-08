@@ -1,20 +1,42 @@
 import DropZone from "@/app/components/DropZone/DropZone";
+import PropsModal from "@/app/components/PropsModal/PropsModal";
 import { RenderComponent } from "@/app/components/RenderComponent/RenderComponent";
 import { Component, masterJSONType } from "@/app/context/MasterJSONContext";
+import { useState } from "react";
 
 export interface MasterContainerProps {
   masterJSON: masterJSONType;
   sendComponent: (component: Component, dropZoneId?: string) => void;
+  onDelete: (component: Component) => void;
 }
 
 const MasterContainer = ({
   masterJSON,
   sendComponent,
+  onDelete,
 }: MasterContainerProps) => {
+  const [openPropsModal, setOpenPropsModal] = useState(false);
+  const [editingComponent, setEditingComponent] = useState<Component | null>(
+    null
+  );
 
   const handleComponent = (component: Component, dropZoneId?: string) => {
-  console.log("DropZone ID", dropZoneId);
+    console.log("DropZone ID", dropZoneId);
     sendComponent(component, dropZoneId);
+  };
+
+  const handleClosePropsModal = () => {
+    setOpenPropsModal(false);
+    setEditingComponent(null);
+  };
+
+  const handleUpdateComponent = (updatedComponent: Component) => {
+    sendComponent(updatedComponent);
+  };
+  const handleEdit = (component: Component) => {
+    setEditingComponent(component);
+    setOpenPropsModal(true);
+    console.log("Edit component:", component.componentId);
   };
 
   return (
@@ -65,7 +87,11 @@ const MasterContainer = ({
                                   sendComponent={handleComponent}
                                 />
                               ) : (
-                                <RenderComponent data={masterJSON.header[0]} />
+                                <RenderComponent
+                                  data={masterJSON.header[0]}
+                                  onEdit={handleEdit}
+                                  onDelete={onDelete}
+                                />
                               )}
                             </td>
                           </tr>
@@ -91,7 +117,12 @@ const MasterContainer = ({
                                 <DropZone
                                   id="blue-box-section"
                                   initialContent="Agregar Header Section"
-                                  sendComponent={(component) => handleComponent(component, "blue-box-section")}
+                                  sendComponent={(component) =>
+                                    handleComponent(
+                                      component,
+                                      "blue-box-section"
+                                    )
+                                  }
                                 />
                               ) : (
                                 <>
@@ -101,13 +132,20 @@ const MasterContainer = ({
                                         key={component.componentId + index}
                                         data={component}
                                         sendComponent={handleComponent}
+                                        onEdit={handleEdit}
+                                        onDelete={onDelete}
                                       />
                                     )
                                   )}
                                   <DropZone
                                     id="blue-box-section"
                                     initialContent="Agregar Mas Componentes"
-                                    sendComponent={(component) => handleComponent(component, "blue-box-section")}
+                                    sendComponent={(component) =>
+                                      handleComponent(
+                                        component,
+                                        "blue-box-section"
+                                      )
+                                    }
                                   />
                                 </>
                               )}
@@ -128,38 +166,60 @@ const MasterContainer = ({
               >
                 <tbody>
                   <tr>
-                    <td className="body-section-mobile-padding" style={{ padding: "48px 72px", backgroundColor: "#FFFFFF" }}>
+                    <td
+                      className="body-section-mobile-padding"
+                      style={{
+                        padding: "48px 72px",
+                        backgroundColor: "#FFFFFF",
+                      }}
+                    >
                       {masterJSON.body.sectionComponents.length === 0 ? (
                         <DropZone
                           id="body-section"
                           initialContent="Agregar Body Section"
-                          sendComponent={(component) => handleComponent(component, "body-section")}
+                          sendComponent={(component) =>
+                            handleComponent(component, "body-section")
+                          }
                           textColor="black"
                         />
                       ) : (
                         <>
                           {masterJSON.body.sectionComponents.map(
-                            (section, index)=> (
+                            (section, index) => (
                               <div key={index}>
-                              <RenderComponent
-                                key={section.sectionComponentsInfo.componentId + index}
-                                data={section.sectionComponentsInfo}
-                                sendComponent={handleComponent}
-                                />
-                              {section.components.map((secComponent, secComponentIndex) => (
                                 <RenderComponent
-                                key={secComponent.componentId + secComponentIndex}
-                                data={secComponent}
-                                sendComponent={handleComponent}
+                                  key={
+                                    section.sectionComponentsInfo.componentId +
+                                    index
+                                  }
+                                  data={section.sectionComponentsInfo}
+                                  sendComponent={handleComponent}
+                                  onEdit={handleEdit}
+                                  onDelete={onDelete}
                                 />
-                              ))}
+                                {section.components.map(
+                                  (secComponent, secComponentIndex) => (
+                                    <RenderComponent
+                                      key={
+                                        secComponent.componentId +
+                                        secComponentIndex
+                                      }
+                                      data={secComponent}
+                                      sendComponent={handleComponent}
+                                      onEdit={handleEdit}
+                                      onDelete={onDelete}
+                                    />
+                                  )
+                                )}
                               </div>
                             )
                           )}
-                          <DropZone 
+                          <DropZone
                             id="body-section"
                             initialContent="Agregar Mas Componentes"
-                            sendComponent={(component) => handleComponent(component, "body-section")}
+                            sendComponent={(component) =>
+                              handleComponent(component, "body-section")
+                            }
                             textColor="black"
                           />
                         </>
@@ -194,7 +254,11 @@ const MasterContainer = ({
                           textColor="black"
                         />
                       ) : (
-                        <RenderComponent data={masterJSON.footer[0]} />
+                        <RenderComponent
+                          data={masterJSON.footer[0]}
+                          onEdit={handleEdit}
+                          onDelete={onDelete}
+                        />
                       )}
                     </td>
                   </tr>
@@ -204,6 +268,15 @@ const MasterContainer = ({
           </tr>
         </tbody>
       </table>
+      {editingComponent && (
+        <PropsModal
+          isOpen={openPropsModal}
+          onClose={handleClosePropsModal}
+          componentName={editingComponent.componentName}
+          componentVariant={editingComponent.variant}
+          sendComponent={handleUpdateComponent}
+        />
+      )}
     </div>
   );
 };

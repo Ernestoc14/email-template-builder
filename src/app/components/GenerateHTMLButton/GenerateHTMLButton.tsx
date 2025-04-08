@@ -4,6 +4,8 @@ export interface GenerateHTMLButtonProps {
   newTemplateName: string
   language: string
 }
+// Emails Nuevos, AdHoc, Buy Miles, 
+// Verificacion Transfer Confirmation and Recipient - Purchase Confirmation Variants
 
 const GenerateHTMLButton = ({ newTemplateName , language}: GenerateHTMLButtonProps) => {
 
@@ -105,13 +107,23 @@ const GenerateHTMLButton = ({ newTemplateName , language}: GenerateHTMLButtonPro
     <!-- Media Queries -->
     <style type="text/css">
       @media all and (max-width:719px) {
-        .mobile-block {
-          display: block !important;
+        // Header Section Mobile Classes
+        .header-section-mobile-padding {
+          padding: 24px 16px 0 !important;
         }
-  
-        .card-logo {
-          margin-right: 0 !important;
+        // Blue Box Section Mobile Classes
+        .blue-box-mobile-padding {
+          padding: 32px 16px !important;
         }
+        // Body Section Mobile Classes
+        .body-section-mobile-padding {
+          padding: 32px 16px !important;
+        }
+        // Footer Section Mobile Classes 
+        .footer-section-mobile-padding {
+          padding: 32px 16px !important;
+        }
+          // ${MediaQueries}
       }
     </style>
     <!-- CSS General Classes -->
@@ -126,6 +138,7 @@ const GenerateHTMLButton = ({ newTemplateName , language}: GenerateHTMLButtonPro
           body, table, td, p, div, a, span {
               font-family: Arial, sans-serif !important;
           }
+          // ${MSOClasses}
           </style>
       <![endif]-->
   </head>
