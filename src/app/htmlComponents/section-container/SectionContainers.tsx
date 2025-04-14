@@ -309,8 +309,9 @@ const SectionContainers = ({sendComponent, data}: { sendComponent: (component: C
               <DropZone 
                 id="body-section"
                 initialContent="Agregar DropZone de Section Container"
-                sendComponent={(component) =>handleComponent(component, "body-section")}
+                sendComponent={(component) =>handleComponent(component)}
                 textColor="red"
+                dropZoneId="body-section"
                 />
             ) : (
               <>
@@ -323,14 +324,16 @@ const SectionContainers = ({sendComponent, data}: { sendComponent: (component: C
                     key={ index}
                     data={component}
                     sendComponent={handleComponent}
+                    
                   />
                 ))}
-                {/* <DropZone
+                <DropZone
                   id="body-section"
                   initialContent="Agregar DropZone de Section Container"
-                  sendComponent={(component) =>handleComponent(component, "body-section")}
+                  sendComponent={(component) =>handleComponent(component)}
                   textColor="red"
-                /> */}
+                  dropZoneId="body-section"
+                />
               </>
             )
             }

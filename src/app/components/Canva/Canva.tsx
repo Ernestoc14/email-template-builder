@@ -38,6 +38,7 @@ const Canvas = () => {
 
   // Esta funcion controla la seccion en la que se agregara el componente dentro de JSON
   const handleAddComponent = (component: Component, dropZoneId?: string) => {
+    console.log(" DropZone desde CANVA", dropZoneId);
     if (component.componentId.includes("Headers")) {
       masterJSON.header.push(component);
       setMasterJSON({ ...masterJSON });
@@ -64,14 +65,20 @@ const Canvas = () => {
         masterJSON.boxAzul.components.push(component);
         setMasterJSON({ ...masterJSON });
       } else if (dropZoneId === "body-section") {
-        const sectionContainerId = findSectionContainer(
-          masterJSON,
-          sectionContainerIds
+        console.log(dropZoneId)
+        // const sectionContainerId = findSectionContainer(
+        //   masterJSON,
+        //   sectionContainerIds
+        // );
+        const targetSection = masterJSON.body.sectionComponents.find(
+          (section) => section.sectionComponentsInfo.componentId === sectionContainerIds[0]
         );
-        console.log("ENCONTRE SECCION", sectionContainerIds[0]);
-        // masterJSON.body.sectionComponents[0].components.push(component);
-        // setMasterJSON({ ...masterJSON });
-        addComponentToSectionContainer(component, sectionContainerId);
+        if (targetSection) {
+          targetSection.components.push(component);
+          setMasterJSON({ ...masterJSON });
+        }
+      } else {
+        console.warn("DropZone ID no encontrado", dropZoneId);
       }
       // Debo evaluar el DropZone ID
       // addComponentToSectionContainer(component, component.componentId);
@@ -135,7 +142,7 @@ const Canvas = () => {
     }
   }
 
-  console.log(masterJSON);
+  // console.log(masterJSON);
   return (
     <div>
       <MasterContainer

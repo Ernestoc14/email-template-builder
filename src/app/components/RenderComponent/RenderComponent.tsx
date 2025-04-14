@@ -33,7 +33,6 @@ export const RenderComponent = ({
       case "TitleBoxs":
         console.log("Render CMP", data.componentId, data);
         return <TitleBoxs data={data} />;
-        break;
       case "SectionContainers":
         // console.log("Render CMP", data.componentId)
         return (

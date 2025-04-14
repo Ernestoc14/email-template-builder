@@ -22,7 +22,7 @@ const MasterContainer = ({
 
   const handleComponent = (component: Component, dropZoneId?: string) => {
     console.log("DropZone ID", dropZoneId);
-    sendComponent(component, dropZoneId);
+    sendComponent(component);
   };
 
   const handleClosePropsModal = () => {
@@ -118,11 +118,9 @@ const MasterContainer = ({
                                   id="blue-box-section"
                                   initialContent="Agregar Header Section"
                                   sendComponent={(component) =>
-                                    handleComponent(
-                                      component,
-                                      "blue-box-section"
-                                    )
+                                    handleComponent( component)
                                   }
+                                  dropZoneId="blue-box-section"
                                 />
                               ) : (
                                 <>
@@ -142,10 +140,10 @@ const MasterContainer = ({
                                     initialContent="Agregar Mas Componentes"
                                     sendComponent={(component) =>
                                       handleComponent(
-                                        component,
-                                        "blue-box-section"
+                                        component
                                       )
                                     }
+                                    dropZoneId="blue-box-section"
                                   />
                                 </>
                               )}
@@ -180,6 +178,7 @@ const MasterContainer = ({
                           sendComponent={(component) =>
                             handleComponent(component, "body-section")
                           }
+                          dropZoneId="body-section"
                           textColor="black"
                         />
                       ) : (
@@ -220,6 +219,7 @@ const MasterContainer = ({
                             sendComponent={(component) =>
                               handleComponent(component, "body-section")
                             }
+                            dropZoneId="body-section"
                             textColor="black"
                           />
                         </>

@@ -7,6 +7,7 @@ interface DropZoneProps {
   initialContent: string;
   textColor?: string;
   sendComponent: (component: Component, sectionID?: string) => void;
+  dropZoneId?: string;
 }
 
 const DropZone: React.FC<DropZoneProps> = ({
@@ -14,6 +15,7 @@ const DropZone: React.FC<DropZoneProps> = ({
   initialContent,
   textColor,
   sendComponent,
+  dropZoneId,
 }) => {
   const [propsModalOpen, setPropsModalOpen] = useState(false);
   const dropTargetRef = useRef<HTMLDivElement | null>(null);
@@ -71,7 +73,8 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleComponent = (component: Component | null) => {
     if (component) {
-      sendComponent(component);
+      console.log("Sending to Dz", dropZoneId);
+      sendComponent(component, dropZoneId);
     }
   };
 
