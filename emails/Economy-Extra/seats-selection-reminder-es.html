@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
+<head></head>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+    <![endif]-->
+
+    <style type="text/css">
+        @font-face {
+            font-family: SuisseIntl;
+            font-style: normal;
+            font-display: swap;
+            font-weight: 300;
+            src: local('SuisseIntlLight'), local('SuisseIntl-Light'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-Light-WebS.woff) format('woff'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-Light-WebS.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: SuisseIntl;
+            font-style: normal;
+            font-display: swap;
+            font-weight: 400;
+            src: local('SuisseIntlRegular'), local('SuisseIntl-Regular'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-Regular-WebS.woff) format('woff'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-Regular-WebS.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: SuisseIntl;
+            font-style: normal;
+            font-display: swap;
+            font-weight: 600;
+            src: local('SuisseIntlMedium'), local('SuisseIntl-Medium'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-Medium-WebS.woff) format('woff'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-Medium-WebS.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: SuisseIntl;
+            font-style: normal;
+            font-display: swap;
+            font-weight: 700;
+            src: local('SuisseIntlSemiBold'), local('SuisseIntl-SemiBold'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-SemiBold-WebS.woff) format('woff'), url(https://www.copaair.com/webassets/fonts/suisse/SuisseIntl-SemiBold-WebS.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: Gilroy;
+            font-style: normal;
+            font-display: swap;
+            font-weight: 400;
+            src: local('GilroyRegular'), local('Gilroy-Regular'), url(https://www.copaair.com/webassets/fonts/gilroy/gilroy-regular-webfont.woff) format('woff'), url(https://www.copaair.com/webassets/fonts/gilroy/gilroy-regular-webfont.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: Gilroy;
+            font-style: normal;
+            font-display: swap;
+            font-weight: 700;
+            src: local('GilroyBold'), local('Gilroy-Bold'), url(https://www.copaair.com/webassets/fonts/gilroy/gilroy-bold-webfont.woff) format('woff'), url(https://www.copaair.com/webassets/fonts/gilroy/gilroy-bold-webfont.woff2) format('woff2');
+        }
+
+        body {
+            background: #F5F5F5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        *[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        table,
+        td {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+    </style>
+    <!-- Media Queries -->
+    <style type="text/css">
+        @media all and (max-width:719px) {
+            .mobile-block {
+                display: block !important;
+            }
+
+            .mobile-padding{
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            .card-logo {
+                margin-right: 0 !important;
+            }
+
+            .header-banner-desktop{
+                display: none !important;
+            }
+
+            .header-banner-mobile{
+                display: block !important;
+            }
+
+            .socialsFooter-mobile-padding {
+                padding: 32px 24px !important;
+            }
+        
+            .title-titlebox-mobile {
+                font-size: 20px !important;
+                line-height: 24px !important;
+            }
+        }
+    </style>
+    <style type="text/css">
+        @media all and (max-width:360px) {
+            .xsmall-reorder {
+                display: block !important;
+                width: 241px !important;
+            }
+        
+            .date-mobile-padding {
+                padding-bottom: 24px;
+            }
+        }
+    
+        @media all and (max-width:500px) {
+            .two-first-fields {
+                display: block;
+                clear: both;
+            }
+    
+            .code-cell {
+                clear: both;
+                text-align: left;
+                padding: 32px 0 0 0 !important;
+                min-width: 100% !important;
+            }
+        }
+    
+        @media all and (max-width:719px) {
+            .date-cell {
+                width: auto !important;
+            }
+    
+            .destino-img-remove {
+                display: none;
+            }
+    
+            .infobar-divider-remove {
+                display: none;
+            }
+    
+            .reorder-mobile-table {
+                display: block !important;
+                width: 375px !important;
+            }
+        
+            .reorder-mid {
+                display: block !important;
+            }
+        
+            .destino-mobile-padding {
+                padding-bottom: 24px;
+            }
+            .mid-right-spacing {
+                padding-right: 56px;
+            }
+            .economy-extra-blocks{
+                display: block;
+            }
+            .economy-extra-banner-desktop{
+                display: none !important;
+            }
+            .economy-extra-banner-mobile{
+                display: block !important;
+            }
+
+            .economy-extra-block-bottom{
+                padding: 24px !important;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+
+            .economy-extra-block-top{
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+        }
+    </style>
+    <!-- CSS General Classes -->
+    <style type="text/css">
+        .title-info-flight {
+            font-weight: 400;
+            font-size: 14px;
+            color: #666666;
+            font-family: SuisseIntl, Helvetica, Arial, sans-serif;
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .subtitle-info-flight {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333333;
+            font-family: Gilroy, Helvetica, Arial, sans-serif;
+            margin: 0;
+        }
+    </style>
+    <!--[if mso]>
+        <style type="text/css">
+            .email-wrapper{
+                width: 800px
+            }
+            body, table, td, p, div, a, span {
+                font-family: Arial, sans-serif !important;
+            }
+        </style>
+    <![endif]-->
+</head>
+
+<body
+    style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;font-family: SuisseIntl,Helvetica, Arial, sans-serif;">
+    <div>&nbsp;</div>
+    <table class="email-wrapper" align="center" border="0" cellpadding="0" cellspacing="0" style="padding: 5px 0 0 0;max-width: 800px;">
+        <tr>
+            <td>
+            <!-- Start Header Wrapper Blue BG -->
+                <table border="0" cellpadding="0" cellspacing="0" style="background-color: #0032A0; border-top-left-radius: 8px; border-top-right-radius: 8px;width:100%;min-width:100%;">
+                    <tr>
+                        <td>
+                        <!-- Start Header Logo -->
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
+                                <tr>
+                                    <td style=" font-size: 14px; padding: 32px 32px 25px 32px" class="header-logo-padding">
+                                        <!-- Start Replace -->
+                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; ">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width: 100%; height:40px;">
+                                                            <img height="auto" src="https://www.copaair.com/webassets/images/copa-logo-white.png" style="border: 0;display: block;outline: none;text-decoration: none;width: 176px;height: auto;line-height: 100%;" alt="Copa Logo" class="copa-logo-width" width="176">
+                                                        </td>
+                                                    </tr>                                                    
+                                                </tbody>
+                                            </table>
+                                        <!-- End Replace -->
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Header Logo -->
+                            <!-- Start Header Info -->
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
+                                <tr>
+                                    <td class="header-banner-desktop">
+                                        <img height="280" src="https://www.copaair.com/webassets/images/seats-selection-reminder-desktop.png" style="border: 0;display: block;outline: none;text-decoration: none;width: 100%;height: 280px;line-height: 100%;" alt="Seats selection banner" width="860">
+                                    </td>
+                                    <td class="header-banner-mobile" style="display: none;">
+                                        <img height="280" src="https://www.copaair.com/webassets/images/seats-selection-reminder-mobile.png" style="border: 0;display: block;outline: none;text-decoration: none;width: 100%;height: 280px;line-height: 100%;" alt="Seats selection banner">
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Header Info -->
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Wrapper Header Blue BG -->
+                <!-- Start Body White BG -->
+                <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border-collapse: separate">
+                    <tr>
+                        <td class="mobile-padding" style="background-color:#ffffff;padding: 32px 64px;">
+                        <!-- Start Replace Body -->
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; color: #FFFFFF;">
+                                            <tr>
+                                                <td style="word-break: break-word; height: 60px;">
+                                                    <p class="title-titlebox-mobile" style="color:#0032A0 ;font-family: Gilroy, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 28px; line-height: 32px; margin: 0;">
+                                                        Asegura tus asientos favoritos
+                                                    </p>
+                                                    <p style="color:#666666; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; margin: 0; padding-top: 8px;">
+                                                        Elige tu asiento, viaja a tu manera.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 32px 0px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                            <tr>
+                                                <td class="reorder-mid">
+                                                    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                        <tr>
+                                                            <td class="reorder-mobile-table xsmall-reorder">
+                                                                <table border="0" cellpadding="0" cellspacing="0" class="info-mobile-padding" style="width: 100%;" width="100%">
+                                                                    <tr>
+                                                                        <td style="padding-right: 16px;" class="destino-img-remove">
+                                                                            <!--[if mso]>
+                                                                                <v:oval xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="display:inline-block;text-decoration:none;color:#333333;border-radius:50%;width:56px;height:56px" strokecolor="#ffffff" strokeweight="1pt">
+                                                                                <v:fill />
+                                                                                </v:oval>
+                                                                            <![endif]-->
+                                                                            <!--[if mso]>
+                                                                                <v:rect stroked="f" filled="false" style="position:absolute; top:-3.1px; left:-8.3px; width:100%;">
+                                                                            <![endif]-->
+                                                                            <div class="no-border" style="border: 1px solid #ffffff;width: 52px;height: 52px;border-radius: 50%;padding: 1px;margin: 0 auto;">
+                                                                            <!--Change the "JFK" below with the IAT Code of the destination in uppercase-->
+                                                                                <img src="https://www.copaair.com/webassets/images/destinos/circulados/JFK.png" width="52" height="52" border="0" alt="City IMG" style="border:0;">
+                                                                            </div>
+                                                                            <!--[if mso]>
+                                                                                </v:rect>
+                                                                            <![endif]-->
+                                                                        </td>
+                                                                        <td class="destino-mobile-padding">
+                                                                            <p style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #666666;">
+                                                                                Destino:
+                                                                            </p>
+                                                                            <p style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 20px;font-style: normal;font-weight: 700;line-height: 32px;color: #333333;">
+                                                                                New York
+                                                                            </p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td class="infobar-divider-remove" style="padding: 0 32px; width: 1px;">
+                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="width: 100%;" width="100%">
+                                                                    <tr>
+                                                                        <td style="border-right: 1px solid #CCCCCB;width: 1px;height:24px;">
+                                                                            &nbsp;
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td class="reorder-mobile-table">
+                                                    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                        <tr>
+                                                            <td class="xsmall-reorder mid-right-spacing date-mobile-padding">
+                                                                <p style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #666666;">
+                                                                    Fecha:
+                                                                </p>
+                                                                <p style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #333333;white-space:nowrap">
+                                                                    Mar&nbsp;&#8203;,18&nbsp;&#8203;Sep
+                                                                </p>
+                                                            </td>
+                                                            <td style="padding: 0 32px; width: 1px;" class="infobar-divider-remove">
+                                                                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                    <tr>
+                                                                        <td style="border-right: 1px solid #CCCCCB;width:1px; height:24px;">
+                                                                            &nbsp;
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td class="xsmall-reorder">
+                                                                <p style="margin: 0;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-size: 14px;font-style: normal;font-weight: 400;line-height: 20px;color: #666666;">
+                                                                    Código de reserva:
+                                                                </p>
+                                                                <p style="margin: 0;font-family: Gilroy, Helvetica, Arial, sans-serif;font-size: 18px;font-style: normal;font-weight: 700;line-height: 24px;color: #333333;">
+                                                                    EBXGHT
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%; color: #FFFFFF;">
+                                            <tr>
+                                                <td>
+                                                    <!--[if mso]>
+                                                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://mytrips.copaair.com" style="height:40px;v-text-anchor:middle;width:730px;" arcsize="50%" stroke="false" fillcolor="#0E68FF">
+                                                        <w:anchorlock/>
+                                                        <center style="">
+                                                    <![endif]-->
+                                                    <a class="btn-blue" href="https://mytrips.copaair.com" 
+                                                        style="border: none; display: inline-block;color: #ffffff;text-decoration: none;border-radius: 40px;margin: 0;text-align: center;padding: 15px 0;font-size: 14px;line-height: 20px;width: 100%;font-family: SuisseIntl, Helvetica, Arial, sans-serif;font-weight: 600;background-color: #0E68FF;">
+                                                        Seleccionar asientos
+                                                    </a>
+                                                    <!--[if mso]>
+                                                        </center>
+                                                        </v:roundrect>
+                                                    <![endif]-->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:35.5px 0;width:100%">
+                                        <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%;"> 
+                                            <tr>
+                                                <td style="width:100%;border-top: 1px solid #CCCCCB;">
+                                                    <!--[if mso]>
+                                                    &nbsp;
+                                                    <![endif]-->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-bottom: 24px;">
+                                        <p style="color:#0032A0 ;font-family: Gilroy, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 18px; line-height: 24px; margin: 0;">
+                                            Beneficios de elegir tus asientos por adelantado:
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="display: block;">
+                                        <table>
+                                            <tr>
+                                                <td style="padding-right: 12px;">
+                                                    <img style="width: 16px;" width="16" src="https://www.copaair.com/webassets/images/check-icon.jpg" alt="">
+                                                </td>
+                                                <td style="color:#666666; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; margin: 0;">
+                                                    Asegura tu asiento preferido: pasillo, ventana o centro.
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="display: block;">
+                                        <table>
+                                            <tr>
+                                                <td style="padding-right: 12px;">
+                                                    <img style="width: 16px;" width="16" src="https://www.copaair.com/webassets/images/check-icon.jpg" alt="">
+                                                </td>
+                                                <td style="color:#666666; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; margin: 0;">
+                                                    Accede a asientos preferenciales con mayor espacio y comodidad.
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="display: block;">
+                                        <table>
+                                            <tr>
+                                                <td style="padding-right: 12px;">
+                                                    <img style="width: 16px;" width="16" src="https://www.copaair.com/webassets/images/check-icon.jpg" alt="">
+                                                </td>
+                                                <td style="color:#666666; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; margin: 0;">
+                                                    Si viajas con familiares o amigos, garantiza sentarse juntos.
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top: 32px;">
+                                        <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;border-collapse: collapse;background:#EFF5FF;">
+                                            <tr>
+                                                <td style="background-color: #EFF5FF;border-top-left-radius: 8px;border-bottom-left-radius: 8px;padding: 0;margin: 0;border: 0" class="economy-extra-blocks economy-extra-block-top">
+                                                    <img class="economy-extra-banner-desktop" style="display:block;border: 0; margin: 0; padding:0; width: 155px;height:auto;border-top-left-radius: 8px;border-bottom-left-radius: 8px" width="155" src="https://www.copaair.com/webassets/images/economy-extra-desktop-2.png" alt="economy extra banner">
+                                                    <!--[if !mso]><!-->
+                                                    <img class="economy-extra-banner-mobile" style="width: 100%;display:none;border-top-left-radius: 8px; border-top-right-radius: 8px;" src="https://www.copaair.com/webassets/images/economy-extra-mobile.png" alt="economy extra banner">
+                                                    <!--<![endif]-->
+                                                </td>
+                                                <td class="economy-extra-blocks economy-extra-block-bottom" style="padding: 0px 24px;background-color: #EFF5FF;border-top-right-radius: 8px;border-bottom-right-radius: 8px;">
+                                                    <p style="color:#0032A0 ;font-family: Gilroy, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; margin: 0;">
+                                                        Eleva tu experiencia de vuelo con EconomyExtra
+                                                    </p>
+                                                    <p style="color:#333333; font-family: SuisseIntl, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; margin: 0; padding-top: 8px;">
+                                                        Disfruta de más espacio para tus piernas, abordaje prioritario y mayor confort para transformar tu viaje en una experiencia de vuelo más cómoda, relajada y agradable.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        <!-- End Replace Body -->
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Body White BG  -->
+                <!-- Start Footer -->
+                <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
+                    <tr>
+                        <td class="mobile-padding" style="background-color:#EFEFEE; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                            <!-- Start Replace Footer -->
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
+                                <tr>
+                                    <td style="padding: 32px 56px; background-color: #EFEFEF; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" class="socialsFooter-mobile-padding">
+                                        <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+                                            <tr>
+                                                <td style="padding-bottom: 16px;">
+                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="https://twitter.com/copaairlines" style="display: block; height: 32px;">
+                                                                    <img src="https://www.copaair.com/assets/twitter-x.png">
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="https://www.facebook.com/copaairlines" style="display: block; height: 32px;">
+                                                                    <img src="https://www.copaair.com/assets/facebook.png">
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="https://www.instagram.com/copaairlines" style="display: block; height: 32px;">
+                                                                    <img src="https://www.copaair.com/assets/instagram.png">
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="https://www.youtube.com/copaairlines" style="display: block; height: 32px;"> 
+                                                                    <img src="https://www.copaair.com/assets/youtube.png"> 
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="https://www.tiktok.com/@copaairlines" style="display: block; height: 32px;"> 
+                                                                    <img src="https://www.copaair.com/assets/tiktok.png">
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="https://linkedin.com/company/copa-airlines" style="display: block; height: 32px;">
+                                                                    <img src="https://www.copaair.com/assets/linkedin.png">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666; padding-bottom: 8px;">
+                                                    Este mensaje ha sido enviado a la dirección proporcionada a Copa Airlines para informarle sobre el estado de su solicitud.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666;">
+                                                    Por favor no responder a este correo. Revise nuestras 
+                                                    <a style="color: #666666; font-weight: 600; text-decoration: underline !important;" href="https://www.copaair.com/es-gs/legal/terminos-y-condiciones/politica-de-privacidad/" target="_blank">
+                                                        <span style=" white-space: nowrap;">Políticas de Privacidad.</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" style="padding: 24px 0px;">  
+                                                    <a href="https://www.staralliance.com/es/" target="_blank">
+                                                        <img src="https://www.copaair.com/assets/StarAlliance-Footer-Logo-01-01.png" alt="StarAlliance Logo" width="168">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666;">
+                                                    Este correo fue enviado de forma automática a <a href="mailto:address@example.com" style="text-decoration:none;color: #666666">correo@ejemplo.com</a>.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666;">
+                                                    Si desea eliminar su dirección de correo de nuestra lista de envíos,
+                                                    <a style="color: #666666; font-weight: 600; text-decoration: underline !important;" href="#" target="_blank">
+                                                        <span style=" white-space: nowrap;"> haga clic aquí.</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Replace Footer -->
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Footer -->
+            </td>
+        </tr>
+    </table>
+    <div>&nbsp;</div>
+</body>
+
+
+</html>

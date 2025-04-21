@@ -123,7 +123,6 @@ const GenerateHTMLButton = ({ newTemplateName , language}: GenerateHTMLButtonPro
         .footer-section-mobile-padding {
           padding: 32px 16px !important;
         }
-          // ${MediaQueries}
       }
     </style>
     <!-- CSS General Classes -->
@@ -138,7 +137,6 @@ const GenerateHTMLButton = ({ newTemplateName , language}: GenerateHTMLButtonPro
           body, table, td, p, div, a, span {
               font-family: Arial, sans-serif !important;
           }
-          // ${MSOClasses}
           </style>
       <![endif]-->
   </head>
