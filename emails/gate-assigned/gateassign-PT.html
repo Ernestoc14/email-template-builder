@@ -268,6 +268,9 @@
         .mso-text-spacing {
             border-top: 8px solid #0032A0 !important;
         }
+        .outlook-bold {
+            font-weight: 600 !important;
+        }
         </style>
     <![endif]-->
 </head>
@@ -437,13 +440,13 @@
                   </td>
                 </tr>
               </table>
-              <!-- Mostrar el siguiente table solo cuando se tiene como origen PTY -->
+              <!-- Mostrar el siguiente table solo cuando se tiene como origen PTY / Vuelos Directos -->
               <table border="0" cellpadding="0" cellspacing="0" style=" width:100%; border-collapse: separate;">
                 <tr>
                   <td class="remove-styles-mso" style="mso-border-alt: none;border-radius: 4px">
                     <table border="0" cellpadding="0" cellspacing="0" style=" width:100%;">
                       <tr>
-                        <td style="padding: 8px 16px 8px 0; background-color: transparent; border-radius: 4px">
+                        <td style="background-color: transparent; border-radius: 4px">
                           <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
                             <tr>
                               <td style="padding-right: 8px;vertical-align:top;width:20px;max-width:20px">
@@ -464,7 +467,7 @@
               </table>
               <table border="0" cellspacing="0" cellpadding="0" widht="100%" style="width: 100%;">
                 <tr>
-                  <td style="background-color: #ffffff;padding:16px 0 0 0;">
+                  <td style="background-color: #ffffff;padding:16px 0 24px 0;">
                     <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                       <tr>
                         <td>
@@ -556,6 +559,55 @@
                   </td>
                 </tr>
               </table>
+              <!-- Start Alert Component -->
+              <!-- Mostrar esta alerta SOLO para vuelos hacia Estados Unidos  -->
+              <table border="0" cellpadding="0" cellspacing="0" style="width:100%; border-collapse: separate;">
+                <tr>
+                  <td class="remove-styles-mso" style="mso-border-alt: none; padding: 16px; background-color:#FFF4D5; border-radius: 4px; border: 1px solid #FFC82C;">
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" 
+                    xmlns:w="urn:schemas-microsoft-com:office:word" style="width:656px;height:92px;v-text-anchor:middle;" 
+                    arcsize="4%" stroked="true" strokecolor="#FFC82C"fillcolor="#FFF4D5">
+                  <w:anchorlock/>
+	  							<v:textbox inset="0,0,0,0" style="v-text-anchor:middle;">
+		  					  <center style="mso-line-height-rule:exactly; v-text-anchor:middle;">
+                  <![endif]-->
+                  <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
+                    <tr>
+                      <!--[if mso]>
+                      <td style="padding: 16px;">
+                        <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle;" width="100%">
+                          <tr>
+                      <![endif]-->
+                    <td style="padding-right: 8px;vertical-align:top;width:20px;max-width:20px" class="mso-padding">
+                      <img src="https://www.copaair.com/webassets/images/icon-alert-yellow-rounded.png"
+                        style="width: 20px; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; vertical-align: top;"
+                        width="20" alt="information">
+                    </td>
+                    <td style="line-height: 20px;color: #333333;">
+                      <p class="outlook-bold"
+                          style="font-size: 14px;font-weight: 600;font-family: SuisseIntl, Helvetica, Arial, sans-serif;margin: 0 0 2px;display: block;line-height: 20px;">
+                          Triagem de segurança adicional para os Estados Unidos</p>
+                      <p
+                          style="font-size: 14px;font-weight: 400;font-family: SuisseIntl, Helvetica, Arial, sans-serif;margin: 0;display: block;line-height: 20px;">
+                          No portão de embarque no Panamá, é proibido entrar com líquidos com mais de 100 ml (3,4 oz), incluindo bebidas como água ou café.</p>
+                    </td>
+                      <!--[if mso]>
+                          </tr>
+                        </table>
+                      </td>
+                      <![endif]-->
+                  </tr>
+                </table>
+                <!--[if mso]>
+				  			</center>
+						  	</v:textbox>
+                </v:roundrect>
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <!-- End Alert Component -->
               <!-- End Replace Body -->
             </td>
           </tr>
