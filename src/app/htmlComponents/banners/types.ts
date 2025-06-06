@@ -1,8 +1,6 @@
 export interface Banners {
   componentName: string;
   variant: string;
-  renderHTML: string;
-  previewHTML: string;
   props: BannersTranslations;
 }
 
@@ -18,4 +16,6 @@ export interface BannersProps {
   mobileImageURL: string;
   title: string;
   description: string;
+  buttonLabel?: string;
+  buttonLink?: string;
 }

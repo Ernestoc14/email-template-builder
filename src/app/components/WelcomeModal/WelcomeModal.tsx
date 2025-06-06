@@ -1,40 +1,21 @@
 import WelcomeModalProps from "./types";
 import { Box, Modal, Typography } from "@mui/material";
 import { MultiButton } from "../MultiButton/MultiButton";
+import style from "./style";
 
 export const WelcomeModal = (props: WelcomeModalProps) => {
+  const styles = style
+
   const handleModalClick = (value: string) => {
     props.onClose();
     props.onOptionClick(value);
-    console.log("Welcome Modal Clicked: ", value);
   };
 
   return (
     <Modal open={props.open}>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "50%",
-          bgcolor: "background.paper",
-          borderRadius: 3,
-          boxShadow: 24,
-          p: 4,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            sx={{ fontSize: "28px" , textAlign: "center", padding: "20px" }}
-          >
+      <Box sx={styles.container}>
+        <Box className="sub-container">
+          <Typography className="text">
             Welcome to Notification Template Builder
           </Typography>
           <MultiButton

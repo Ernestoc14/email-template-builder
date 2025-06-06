@@ -1,8 +1,6 @@
 export interface Buttons {
   componentName: string;
   variant: string;
-  renderHTML: string;
-  previewHTML: string;
   props: ButtonsTranslations;
 }
 

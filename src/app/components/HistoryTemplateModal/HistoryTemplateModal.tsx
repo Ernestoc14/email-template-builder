@@ -1,46 +1,43 @@
+import style from "./style";
 import { Box, Button, IconButton, List, ListItem, ListItemText, Modal, Typography } from "@mui/material";
-import { HistoryTemplateModalProps } from "./types";
+import { HistoryTemplateModalProps, HistoryTemplates } from "./types";
+import { useEffect, useState } from "react";
+import { getAllTemplates } from "@/app/utils/canvasUtils";
 
 export const HistoryTemplateModal = (props: HistoryTemplateModalProps) => {
-  const historyTemplates = [
-    {id: 1, name: "Template 1", date: "2021-10-01"},
-    {id: 2, name: "Template 2", date: "2021-10-02"},
-    {id: 3, name: "Template 3", date: "2021-10-04"},
-    {id: 4, name: "Template 4", date: "2021-10-23"}
-  ]
+  const styles = style
+  const  [historyTemplates, setHistoryTemplates] = useState<HistoryTemplates[]>([])
+
+  useEffect(()=>{
+    async function fetchTemplates() {
+      let templates:HistoryTemplates[] = []
+      try {
+        templates = await getAllTemplates() ?? []
+      } catch (error) {
+        console.error(error);
+      }finally{
+        setHistoryTemplates(templates)
+      }
+    }
+    fetchTemplates();
+  
+    return () => {};
+  },[])
+
+  const handleSubmit = (templateName: string) => {
+    props.setNewTemplateName(templateName)
+    props.onClose()
+    props.sendName()
+  }
+
   return (
     <Modal open={props.open}>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "50%",
-          bgcolor: "background.paper",
-          border: "1px solid #000",
-          boxShadow: 24,
-          p: 4,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            variant="h5"
-            sx={{ textAlign: "center", padding: "20px" }}
-          >
+      <Box sx={styles.container}>
+        <Box className="sub-container">
+          <Typography variant="h5" className="title">
             History Template
           </Typography>
-          <IconButton
-            onClick={props.goBack}
-            sx={{ position: "absolute", top: "10px", right: "10px", color: "#0032a0", "&:hover": {backgroundColor: "#e0e7ff", color:"#00227b"}, }}
-          >
+          <IconButton className="back-icon" onClick={props.goBack}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -63,35 +60,16 @@ export const HistoryTemplateModal = (props: HistoryTemplateModalProps) => {
               />
             </svg>
           </IconButton>
-          <List sx={{width: "100%", padding: "0", margin: "0", border: "1px solid #e0e0e0", borderRadius: "8px" }}>
+          <List className="templates-list">
             {historyTemplates.map((template, index) => (
-              <ListItem
-                key={index}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "10px",
-                  borderBottom: index !== historyTemplates.length - 1 ? "1px solid #e0e0e0" : "none",
-                }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      width: "100%",
-                      paddingLeft: "10px",
-                    }}
-                  >
-                  <ListItemText primary={template.name} secondary={template.date} />
-                  <Button
-                    variant="contained"
-                    sx={{backgroundColor: "#0032a0", height: "20%", display: "flex", alignItems: "center", color: "white", "&:hover": {backgroundColor: "#00227b"}}}
-                    onClick={() => console.log("Load Template: ", template.name)}
-                  >
+              <ListItem className="template-item" key={index} sx={{ borderBottom: index !== historyTemplates.length - 1 ? "1px solid #e0e0e0" : "none" }}>
+                <Box className="template-box">
+                  <ListItemText primary={template.name} secondary={`Date created: ${template.dateCreated.toUTCString()} | Date Modified: ${template.dateModified.toUTCString()}`} />
+                  <Button variant="contained" className="button" onClick={() => handleSubmit(template.name)} >
                     Load
                   </Button>
-                  </Box>
-                </ListItem>
+                </Box>
+              </ListItem>
             ))}
           </List>
         </Box>

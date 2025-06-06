@@ -1,8 +1,6 @@
 export interface Alerts {
   componentName: string;
   variant: string;
-  renderHTML: string;
-  previewHTML: string;
   props: AlertsTranslations;
 }
 

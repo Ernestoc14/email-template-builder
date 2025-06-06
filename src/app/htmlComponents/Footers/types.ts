@@ -1,8 +1,6 @@
 export interface Footers {
   componentName: string;
   variant: string;
-  renderHTML: string;
-  previewHTML: string;
   props: FootersTranslations;
 }
 
@@ -20,4 +18,7 @@ export interface FootersProps {
   secondText: string;
   secondLinkText: string;
   secondLink: string;
+  unsubscribeText?: string;
+  unsubscribeLinkText?: string;
+  unsubscribeLink?: string;
 }

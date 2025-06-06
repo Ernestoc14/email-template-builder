@@ -1,5 +1,9 @@
 import { Box, Popover, Typography } from "@mui/material";
 import { PreviewComponentProps } from "./types";
+import { RenderComponent } from "../RenderComponent/RenderComponent";
+import { getComponent } from "@/app/utils/canvasUtils";
+import { Component, SectionComponent } from "@/app/context/MasterJSONContext";
+import { ComponentsTranslations } from "@/app/types/Components";
 
 const PreviewComponent: React.FC<PreviewComponentProps> = ({
   open,
@@ -7,8 +11,29 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
   component,
   variant,
   anchorEl,
-  previewHTML,
 }) => {
+  const componentDefaultProps = getComponent(component)
+
+  let data : Component | SectionComponent = {
+    componentId: variant + "_" + component,
+    componentName: component,
+    variant: variant,
+    esProps: componentDefaultProps.props.ES as unknown as ComponentsTranslations,
+    enProps: componentDefaultProps.props.EN as unknown as ComponentsTranslations,
+    ptProps: componentDefaultProps.props.PT as unknown as ComponentsTranslations,
+    frProps: componentDefaultProps.props.FR as unknown as ComponentsTranslations
+  }
+
+  if (component === "SectionContainers") {
+    data = {
+      sectionComponentId: `preview-${Math.random()}`,
+      componentName: component,
+      sectionComponentsInfo: data,
+      components: [],
+      variant: variant
+    }
+  }
+
   return (
     <Popover
       open={open}
@@ -36,7 +61,7 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
           boxShadow: 24,
           padding: 2,
           // Width del preview component
-          width: "100%",
+          width: "800px",
           height: "100%",
         }}
       >
@@ -47,10 +72,11 @@ const PreviewComponent: React.FC<PreviewComponentProps> = ({
           sx={{
             cursor: "pointer",
             padding: 1, 
-            "&:hover": { backgroundColor: "#a5a5a5"}
+            "&:hover": { backgroundColor: "#a5a5a5"},
+             backgroundColor: "#0032A0"
           }}
         >
-          <div style={{width: "600px"}} dangerouslySetInnerHTML={{ __html: previewHTML }} />
+          <RenderComponent isPreview id="preview-render-component" data={data}/>
         </Box>
       </Box>
     </Popover>

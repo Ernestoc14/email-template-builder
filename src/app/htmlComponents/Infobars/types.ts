@@ -1,8 +1,6 @@
 export interface Infobars {
   componentName: string;
   variant: string;
-  renderHTML: string;
-  previewHTML: string;
   props: InfobarsTranslations;
 }
 

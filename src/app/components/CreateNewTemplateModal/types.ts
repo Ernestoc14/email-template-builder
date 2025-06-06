@@ -4,4 +4,5 @@ export interface CreateNewTemplateModalProps {
   goBack: () => void
   newTemplateName: string
   setNewTemplateName: (newTemplateName: string) => void
+  sendName: () => void
 }

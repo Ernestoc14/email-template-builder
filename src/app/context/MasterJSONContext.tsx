@@ -1,20 +1,21 @@
 "use client"
 import { createContext, useContext, useState, ReactNode } from "react";
+import { ComponentsTranslations } from "../types/Components";
 
 interface MasterJSONContextType {
   masterJSON: masterJSONType;
   setMasterJSON: React.Dispatch<React.SetStateAction<masterJSONType>>;
 }
 
-
 export interface Component {
   componentId: string;
   componentName: string;
   variant: string;
-  esProps: unknown;
-  enProps: unknown;
-  ptProps: unknown;
-  frProps: unknown;
+  propModal?: boolean
+  esProps: ComponentsTranslations;
+  enProps: ComponentsTranslations;
+  ptProps: ComponentsTranslations;
+  frProps: ComponentsTranslations;
 }
 
 export interface CanvasConfig {
@@ -32,12 +33,11 @@ export interface MasterContainer {
 }
 
 export interface SectionComponent {
-  // sectionComponentsId: string;
-  // sectionComponentsName: string;
-  // sectionComponentsVariant: string;
-  // sectionComponentsProps: 
+  sectionComponentId: string
+  componentName: string
   sectionComponentsInfo: Component;
   components: Component[];
+  variant: string
 }
 
 export interface masterJSONType {
@@ -53,13 +53,14 @@ export interface masterJSONType {
 }
 
 const MasterJSONContext = createContext<MasterJSONContextType>(null!);
+
 export const MasterJSONProvider = ({children}: {children: ReactNode}) => {
   const [masterJSON, setMasterJSON] = useState<masterJSONType>({
     version: "1.0",
     canvasConfig: {
       name: "File Name",
-      date: "2025-01-18 09:23:28",
-      autor: "Carlos Solis CM",
+      date: new Date().toLocaleString(),
+      autor: "CM",
     },
     masterContainer: {
       isMarkupLCode: true,
@@ -84,4 +85,4 @@ export const MasterJSONProvider = ({children}: {children: ReactNode}) => {
   );
 }
 
-  export const useMasterJSON = () => useContext(MasterJSONContext);
+export const useMasterJSON = () => useContext(MasterJSONContext);

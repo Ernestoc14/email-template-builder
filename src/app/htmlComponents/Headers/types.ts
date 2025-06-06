@@ -1,8 +1,6 @@
 export interface Headers {
   componentName: string;
   variant: string;
-  renderHTML: string;
-  previewHTML: string;
   props: HeadersTranslations;
 }
 
@@ -16,7 +14,5 @@ export interface HeadersTranslations {
 export interface HeadersProps {
   labelTextReservationCode: string;
   reservationCode: string;
+  secondLogoUrl:  string;
 }
-
-// const header:Headers = object  
-// header.props[lang].labelTextReservationCode

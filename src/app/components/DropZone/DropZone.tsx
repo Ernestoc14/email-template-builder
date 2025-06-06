@@ -1,38 +1,50 @@
 import React, { useState, useRef } from "react";
 import PropsModal from "../PropsModal/PropsModal";
 import { Component } from "@/app/context/MasterJSONContext";
-
+import { Alert, Box } from "@mui/material";
+import style from "./style";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 interface DropZoneProps {
   id: string;
-  initialContent: string;
   textColor?: string;
-  sendComponent: (component: Component, sectionID?: string) => void;
-  dropZoneId?: string;
+  text: string;
+  isSectionContainer?: boolean
+  isHeader?: boolean
+  isFooter?: boolean
+  isBoxAzul?: boolean
+  isBody?: boolean
+  sendComponent: (component: Component, sectionID: string) => void;
 }
 
 const DropZone: React.FC<DropZoneProps> = ({
   id,
-  initialContent,
   textColor,
+  text,
+  isSectionContainer,
+  isHeader,
+  isFooter,
+  isBody,
+  isBoxAzul,
   sendComponent,
-  dropZoneId,
 }) => {
   const [propsModalOpen, setPropsModalOpen] = useState(false);
   const dropTargetRef = useRef<HTMLDivElement | null>(null);
 
   const [componentName, setComponentName] = useState("");
   const [componentVariant, setComponentVariant] = useState("");
+  const [showAlert, setShowAlert] = useState(false)
+  const styles = style
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.currentTarget.style.border = "2px dashed yellow";
-    e.currentTarget.style.backgroundColor = "rgba(0, 0, 255, 0.1)";
+    e.currentTarget.style.border = "2px dashed #8b8b8b";
+    e.currentTarget.style.backgroundColor = "#bdbdbd36";
   };
 
   const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.currentTarget.style.border = "2px dashed blue";
-    e.currentTarget.style.backgroundColor = "rgba(0, 0, 255, 0.1)";
+    e.currentTarget.style.backgroundColor = "#bdbdbd36";
   };
 
   const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
@@ -49,22 +61,43 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    setComponentName(e.dataTransfer.getData("Component") ?? '');
-    setComponentVariant(e.dataTransfer.getData("Variant") ?? '');
+    const component = e.dataTransfer.getData("Component") ?? '' 
+    const variant = e.dataTransfer.getData("Variant") ?? '' 
+    setComponentName(component);
+    setComponentVariant(variant);
+
     dropTargetRef.current = e.currentTarget;
+    if(component === 'SectionContainers' && isSectionContainer){
+      setShowAlert(true)
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 5000);
+    }else if(component !== "Headers" && isHeader){
+      setShowAlert(true)
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 5000);
+    }else if(component !== "Footers" && isFooter){
+      setShowAlert(true)
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 5000);
+    }else if(component !== "SectionContainers" && isBody){
+      setShowAlert(true)
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 5000);
+    }else if(component === "SectionContainers" && isBoxAzul){
+      setShowAlert(true)
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 5000);
+    }else{
+      setPropsModalOpen(true);
+    }
 
-    // const draggedComponent = e.dataTransfer.getData("Component");
-    // const draggedVariant = e.dataTransfer.getData("Variant");
-    // setComponentName(draggedComponent);
-    // setComponentVariant(draggedVariant);
-
-    // if (
-    //   (draggedComponent === "Headers" &&
-    //     draggedVariant === "Reservation Code") ||
-    //   draggedComponent !== "Headers"
-    // ) {
-    // }
-    setPropsModalOpen(true);
+    e.currentTarget.style.border = "1px dashed #d1d1d1";
+    e.currentTarget.style.backgroundColor = "transparent";
   };
 
   const handleCloseModal = () => {
@@ -73,20 +106,16 @@ const DropZone: React.FC<DropZoneProps> = ({
 
   const handleComponent = (component: Component | null) => {
     if (component) {
-      console.log("Sending to Dz", dropZoneId);
-      sendComponent(component, dropZoneId);
+      sendComponent(component, id);
+      handleCloseModal()
     }
   };
 
   return (
-    <div
+    <Box
       id={id}
-      style={{
-        border: "1px dashed #d1d1d1",
-        minHeight: "100px",
-        color: textColor || "white",
-        padding: "8px",
-      }}
+      sx={styles.container}
+      style={{color: textColor || "white"}}
       onDragOver={handleDragOver}
       onDragEnter={handleDragEnter}
       onDragLeave={handleDragLeave}
@@ -100,8 +129,16 @@ const DropZone: React.FC<DropZoneProps> = ({
         componentVariant={componentVariant}
         sendComponent={handleComponent}
       />
-      <div dangerouslySetInnerHTML={{ __html: initialContent }} />
-    </div>
+      <Box sx={styles.iconBox}>
+        <AddCircleIcon style={{color: textColor || 'white'}} />
+        {text}
+      </Box>
+      { showAlert && (
+        <Box sx={styles.alert}>
+            <Alert severity="warning">Incompatible component for this section</Alert>
+        </Box>
+      )}
+    </Box>
   );
 };
 
