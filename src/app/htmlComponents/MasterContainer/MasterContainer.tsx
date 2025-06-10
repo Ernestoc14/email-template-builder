@@ -22,13 +22,28 @@ const MasterContainer = ({
 }: MasterContainerProps) => {
   const { mode } = useCanvasModeContext();
   const [responsiveView, setResponsiveView] = useState<boolean>(false);
-  const [styles, setStyle] = useState(style(false))
+  const [isFullWidth, setIsFullWidth] = useState<boolean>(true)
 
   useEffect(() => {
-    setStyle(style(responsiveView))
-  }, [responsiveView])
+    const isImage = masterJSON.boxAzul.components.find(
+      (component) => component.componentId.includes("Images") && component.componentName === "Images"
+    );
+    if (isImage?.componentId.includes("Images")) {
+      setIsFullWidth(true);
+    }
+    else {
+      setIsFullWidth(false);
+    } 
+  }, [masterJSON.boxAzul.components]);
+
+  const [styles, setStyle] = useState(style(false, isFullWidth));
+
+  useEffect(() => {
+    setStyle(style(responsiveView, isFullWidth))
+  }, [responsiveView, isFullWidth])
 
   const handleComponent = (component: Component, sectionID: string, sectionComponentId?: string) => {
+    console.log(component)
     sendComponent(sectionID, component, sectionComponentId);
   };
 
@@ -90,7 +105,17 @@ const MasterContainer = ({
                         <tbody>
                           <tr>
                             <td className="blue-box-mobile-padding">
-                              <>
+                              {
+                                masterJSON.boxAzul.components[0]?.componentId.includes("Images") ? (
+                                  <RenderComponent
+                                    id="dropzone-bluebox"
+                                    data={masterJSON.boxAzul.components[0]}
+                                    onDelete={handleDelete}
+                                    onEdit={handleEdit}
+                                    isResponsiveView={responsiveView}
+                                    />
+                                ) : (
+                                  <>
                                 {masterJSON.boxAzul.components.map(
                                   (component, index) => (
                                     <RenderComponent
@@ -103,16 +128,18 @@ const MasterContainer = ({
                                     />
                                   )
                                 )}
-                              </>
                               {
                                 mode && (
                                   <DropZone
-                                    id="dropzone-bluebox"
-                                    sendComponent={ handleComponent } 
-                                    text="Drag a Component" 
-                                    isBoxAzul
+                                  id="dropzone-bluebox"
+                                  sendComponent={ handleComponent } 
+                                  text="Drag a Component" 
+                                  isBoxAzul
                                   />
                                 )} 
+                                </>
+                                )
+                              }
                             </td>
                           </tr>
                         </tbody>

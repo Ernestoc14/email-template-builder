@@ -1,23 +1,25 @@
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import style from "./style";
+import { Box } from "@mui/material";
+import { Component, SectionComponent } from "@/app/context/MasterJSONContext";
+import { useCanvasModeContext } from "@/app/context/CanvasModeContext";
+import { useState } from "react";
 import Headers from "@/app/htmlComponents/Headers/Headers";
 import Footers from "@/app/htmlComponents/Footers/Footers";
 import Alerts from "@/app/htmlComponents/Alerts/Alerts";
 import Banners from "@/app/htmlComponents/Banners/Banners";
 import Buttons from "@/app/htmlComponents/Buttons/Buttons";
 import Infobars from "@/app/htmlComponents/Infobars/Infobars";
-import { Component, SectionComponent } from "@/app/context/MasterJSONContext";
 import SectionContainers from "@/app/htmlComponents/SectionContainer/SectionContainers";
-import { Box } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import style from "./style";
 import TitleBoxs from "@/app/htmlComponents/TitleBoxs/TitleBoxs";
 import Markdown from "@/app/htmlComponents/Markdown/Markdown";
 import PaxCards from "@/app/htmlComponents/PaxCards/PaxCards";
 import InformativeBox from "@/app/htmlComponents/InformativeBox/InformativeBox";
-import { useCanvasModeContext } from "@/app/context/CanvasModeContext";
-import { useState } from "react";
 import TopicCards from "@/app/htmlComponents/TopicCards/TopicCards";
 import ItineraryCards from "@/app/htmlComponents/ItineraryCards/ItineraryCards";
+import Images from '@/app/htmlComponents/Images/Images';
+
 export const RenderComponent = ({
   id,
   data,
@@ -110,13 +112,15 @@ export const RenderComponent = ({
         return <InformativeBox data={data as Component}/>
       case "TopicCards":
         return <TopicCards data={data as Component} isResponsiveView={isResponsiveView}/>;
+      case "Images":
+        return <Images data={data as Component} isResponsiveView={isResponsiveView} />
       default:
         return <div>Component not found</div>;
     }
   };
 
   return (
-    <Box sx={styles.container}  onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <Box sx={{...styles.container, ...(data.componentName === "Images" && {padding: "0px !important"}),}}  onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       { isHovered && mode && !isPreview && (
         <Box className="box-icons">
           { !isSectionComponent &&  (

@@ -6,8 +6,8 @@ const getStyles = (isResponsive: boolean | undefined) => {
 	return {
         container: {
             ".stopover-table": {
-                borderTopLeftRadius: isResponsive ? '32px !important' : '0',
-                borderTopRightRadius: isResponsive ? '32px !important' : '0',
+                borderTopLeftRadius: isResponsive ? '16px !important' : '0',
+                borderTopRightRadius: isResponsive ? '16px !important' : '0',
             },
             ".stopover-img-container": {
 				display: isResponsive ? "block !important" : 'table-cell',

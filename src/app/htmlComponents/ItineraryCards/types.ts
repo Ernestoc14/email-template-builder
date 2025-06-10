@@ -30,14 +30,4 @@ export interface ItineraryCardsProps {
   destinationTerminal?: string;
   labelTextDestinationGate?: string;
   destinationGate?: string;
-  layoverText?: string;
-  dateSecondFlight?: string;
-  aircraftSecondFlight?: string;
-  departureTimeSecondFlight?: string;
-  flightDurationSecondFlight?: string;
-  arrivalTimeSecondFlight?: string;
-  originSecondFlight?: string;
-  destinationSecondFlight?: string;
-  labelTextDestinationGateSecondFlight?: string;
-  destinationGateSecondFlight?: string;
 }

@@ -37,7 +37,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: headerData?.props.PT as unknown as ComponentsTranslations,
         frProps: headerData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+    
     case "TitleBoxs":
       const titleBoxData =
         ObjectComponents.Components[
@@ -52,7 +53,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: titleBoxData?.props.PT as unknown as ComponentsTranslations,
         frProps: titleBoxData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+  
     case "SectionContainers":
       const sectionContainerData =
         ObjectComponents.Components[
@@ -67,7 +69,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: sectionContainerData?.props.PT as unknown as ComponentsTranslations,
         frProps: sectionContainerData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+
     case "Buttons":
       const buttonData =
       ObjectComponents.Components[
@@ -82,7 +85,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: buttonData?.props.PT as unknown as ComponentsTranslations,
         frProps: buttonData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+    
     case "Infobars":
       const infobarData =
         ObjectComponents.Components[
@@ -97,7 +101,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: infobarData?.props.PT as unknown as ComponentsTranslations,
         frProps: infobarData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+  
     case "Alerts":
       const alertData =
         ObjectComponents.Components[
@@ -112,7 +117,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: alertData?.props.PT as unknown as ComponentsTranslations,
         frProps: alertData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+
     case "Banners":
       const bannerData = ObjectComponents.Components[
         componentName as keyof typeof ObjectComponents.Components
@@ -126,7 +132,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: bannerData?.props.PT as unknown as ComponentsTranslations,
         frProps: bannerData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+    
     case "ItineraryCards":
       const itineraryCardData =
         ObjectComponents.Components[
@@ -141,7 +148,8 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: itineraryCardData?.props.PT as unknown as ComponentsTranslations,
         frProps: itineraryCardData?.props.FR as unknown as ComponentsTranslations,
       };
-      break;
+    break;
+    
     case "PaxCards":
       const paxCardData =
         ObjectComponents.Components[
@@ -156,6 +164,8 @@ export const addComponent = (componentName: string, variant: string) => {
           ptProps: paxCardData?.props.PT as unknown as ComponentsTranslations,
           frProps: paxCardData?.props.FR as unknown as ComponentsTranslations,
         }
+    break;
+
     case "Footers":
       const footerData =
         ObjectComponents.Components[
@@ -170,7 +180,9 @@ export const addComponent = (componentName: string, variant: string) => {
         ptProps: footerData?.props.PT as unknown as ComponentsTranslations,
         frProps: footerData?.props.FR as unknown as ComponentsTranslations,
       };
-      case "Markdown":
+    break;
+
+    case "Markdown":
         const markdownData =
           ObjectComponents.Components[
             componentName as keyof typeof ObjectComponents.Components
@@ -184,7 +196,9 @@ export const addComponent = (componentName: string, variant: string) => {
           ptProps: markdownData?.props.PT as unknown as ComponentsTranslations,
           frProps: markdownData?.props.FR as unknown as ComponentsTranslations,
         };
-        case "InformativeBox":
+    break;
+
+    case "InformativeBox":
         const informativeBoxData =
           ObjectComponents.Components[
             componentName as keyof typeof ObjectComponents.Components
@@ -198,8 +212,10 @@ export const addComponent = (componentName: string, variant: string) => {
           ptProps: informativeBoxData?.props.PT as unknown as ComponentsTranslations,
           frProps: informativeBoxData?.props.FR as unknown as ComponentsTranslations,
         };
-        case "TopicCards":
-          const topicCardData = 
+    break;
+    
+    case "TopicCards":
+        const topicCardData = 
           ObjectComponents.Components[
             componentName as keyof typeof ObjectComponents.Components
           ];
@@ -212,6 +228,24 @@ export const addComponent = (componentName: string, variant: string) => {
             ptProps: topicCardData?.props.PT as unknown as ComponentsTranslations,
             frProps: topicCardData?.props.FR as unknown as ComponentsTranslations,
           }
+    break;
+
+    case "Images":
+          const imageData = 
+            ObjectComponents.Components[
+            componentName as keyof typeof ObjectComponents.Components
+          ];
+          component = {
+            componentId,
+            componentName,
+            variant,
+            esProps: imageData?.props.ES as unknown as ComponentsTranslations,
+            enProps: imageData?.props.EN as unknown as ComponentsTranslations,
+            ptProps: imageData?.props.PT as unknown as ComponentsTranslations,
+            frProps: imageData?.props.FR as unknown as ComponentsTranslations,
+          }
+    break;
+          
     default:
       break;
   }

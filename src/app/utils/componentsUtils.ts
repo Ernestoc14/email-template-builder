@@ -2,6 +2,7 @@ import { Component } from "../context/MasterJSONContext";
 import { getAlertHTML } from "../htmlComponents/Alerts/AlertsHTML";
 import { getBannersHTML } from "../htmlComponents/Banners/BannersHTML";
 import { getButtonHTML } from "../htmlComponents/Buttons/ButtonsHTML";
+import { getImagesHTML } from "../htmlComponents/Images/ImagesHTML";
 import { getInfoBarsHTML } from "../htmlComponents/Infobars/InfoBarsHTML";
 import getInformativeBoxHTML from "../htmlComponents/InformativeBox/InformativeBoxHTML";
 import { getItineraryCardsHTML } from "../htmlComponents/ItineraryCards/ItineraryCardsHTML";
@@ -74,6 +75,12 @@ const getComponentHTML = (component: Component, lang: string, isFirst: boolean, 
       case 'ItineraryCards':
         tmpHtml = getItineraryCardsHTML(component, lang)
           tmpHtml.html = startString + tmpHtml.html + endString
+          html = tmpHtml
+      break
+
+      case 'Images':
+        tmpHtml = getImagesHTML(component, lang)
+          tmpHtml.html =  tmpHtml.html 
           html = tmpHtml
       break
     

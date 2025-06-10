@@ -62,6 +62,14 @@ import { MasterContainerHTMLProps } from "./types"
 //     </script>`
 // }
 
+const padding = (isFullWidth: boolean) => {
+    return isFullWidth ? "padding: 0 !important;" : "padding: 32px 72px !important;"
+}
+
+const mobilePadding = (isFullWidth: boolean) => {
+    return isFullWidth ? "padding: 0 !important;" : "padding: 32px 16px !important;"
+}
+
 const masterContainerHTML = (props: MasterContainerHTMLProps) => {
     return `<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
@@ -172,7 +180,7 @@ const masterContainerHTML = (props: MasterContainerHTMLProps) => {
             }
 
             .mobile-padding {
-                padding: 32px 16px !important;
+                ${mobilePadding(props.isFullWidth)}
             }
         }
     </style>
@@ -213,7 +221,7 @@ const masterContainerHTML = (props: MasterContainerHTMLProps) => {
                                 <!-- Start Header Info -->
                                 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
                                     <tr>
-                                        <td class="mobile-padding" style="background-color: #0032A0; padding: 32px 72px">
+                                        <td class="mobile-padding" style="background-color: #0032A0; ${padding(props.isFullWidth)}">
                                             <!-- Start Replace Header Info Component -->
                                             <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
                                                 ${props.boxAzul}

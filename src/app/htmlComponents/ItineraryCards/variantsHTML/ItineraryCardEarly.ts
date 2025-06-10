@@ -86,13 +86,13 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                   <tr>
                                     <td style="white-space: nowrap;">
                                       <a>
-                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
+                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif; color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
                                           ${props?.departureCrossedOutTime}
                                         </s>
                                       </a>
                                     </td>
                                     <td class="right-padding-mobile"  style="white-space: nowrap;">
-                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important !important; font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
+                                        <span class="remove-padding-mobile" style="font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
                                           ${props.departureTime}
                                         </span>
                                     </td>
@@ -110,13 +110,13 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                       </p>
                                     </td>
                                     <td align="right" class="left-padding-mobile" style="text-align: right;white-space: nowrap;">
-                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
+                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif;font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
                                           ${props?.arrivalTime}
                                         </span>
                                     </td>
                                     <td style="white-space: nowrap;">
                                       <a>
-                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important;color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
+                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif;color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
                                           ${props?.arrivalCrossedOutTime}
                                         </s>
                                       </a>
@@ -125,14 +125,14 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                   <tr>
                                     <td colspan="3" style="width: 50%;" class="mso-noshow">
                                       <a>
-                                        <s class="show-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
+                                        <s class="show-text-mobile" style="line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
                                           ${props?.departureCrossedOutTime}
                                         </s>
                                       </a>
                                     </td>
                                     <td colspan="3" style="text-align: right;width: 50%;" class="mso-noshow">
                                       <a>
-                                        <s class="show-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
+                                        <s class="show-text-mobile" style="line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
                                           ${props?.arrivalCrossedOutTime}
                                         </s>
                                       </a>

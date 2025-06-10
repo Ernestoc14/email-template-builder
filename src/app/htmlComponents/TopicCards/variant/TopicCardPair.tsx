@@ -20,11 +20,6 @@ const getStyles =(isResponsive: boolean | undefined) => {
                 ...(isResponsive && {
                     padding: "0 0 24px 0 !important",
                 })
-            },
-            ".topic-full-width": {
-                ...(isResponsive && {
-                    width: "100% !important",
-                }) 
             }
         }
     }
@@ -47,7 +42,7 @@ const TopicCardPair = ({ data, langProp, isResponsiveView } : { data: Component,
                                 <tbody>
                                     <tr>
                                         <td className="reorder-mid img-mb-padding" style={{ paddingRight: '24px' }}>
-                                            <table className="topic-full-width" style={{ border: '1px solid #CCCCCB', borderRadius: '16px', borderCollapse: 'separate', borderSpacing: 0,display: 'inline-block',height: '100%', width: '324px'}} >
+                                            <table style={{ border: '1px solid #CCCCCB', borderRadius: '16px', borderCollapse: 'separate', borderSpacing: 0,display: 'inline-block',height: '100%', width: '324px'}} >
                                                 <tbody>
                                                     <tr>
                                                         <td style={{ lineHeight: 0, padding: 0 }}>
@@ -107,7 +102,7 @@ const TopicCardPair = ({ data, langProp, isResponsiveView } : { data: Component,
                                             </table>
                                         </td>
                                         <td className="reorder-mid">
-                                            <table className="topic-full-width" style={{ border: '1px solid #CCCCCB', borderRadius: '16px', borderCollapse: 'separate', borderSpacing: 0, display: 'inline-block', height: '100%', width: '324px'}} >
+                                            <table style={{ border: '1px solid #CCCCCB', borderRadius: '16px', borderCollapse: 'separate', borderSpacing: 0, display: 'inline-block', height: '100%', width: '324px'}} >
                                                 <tbody>
                                                     <tr>
                                                         <td style={{ lineHeight: 0, padding: 0 }}>

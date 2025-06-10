@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 const getStyles = (isResponsive: boolean | undefined) => {
     return {
         container: {
+            backgroundColor: "#fff",
             ".pax-card-pair": {
                 textAlign: 'left',
                 ...(isResponsive &&{
@@ -50,7 +51,7 @@ const PaxCardPair = ({ data, langProp, isResponsiveView} : { data: Component, la
     
     return (
         <Box sx={styles.container}>
-            <table border={0} cellSpacing={0} cellPadding={0} width="100%" style={{backgroundColor: '#FFFFFF', borderRadius: "12px" }}>
+            <table border={0} cellSpacing={0} cellPadding={0} width="100%">
                 <tbody>
                     <tr>
                         <td className="pax-card-pair">

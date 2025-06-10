@@ -61,8 +61,17 @@ const Canvas = ( { template } : { template: string } ) => {
         break;
 
       case 'dropzone-bluebox':
-        masterJSON.boxAzul.components.push(component);
-        setMasterJSON({ ...masterJSON });
+        setMasterJSON(prev => ({
+          ...prev,
+          boxAzul: {
+            ...prev.boxAzul,
+            components: [...prev.boxAzul.components, component]
+          }
+        }));
+        
+
+        // masterJSON.boxAzul.components.push(component);
+        // setMasterJSON({ ...masterJSON });
         break;
 
       case 'dropzone-body':

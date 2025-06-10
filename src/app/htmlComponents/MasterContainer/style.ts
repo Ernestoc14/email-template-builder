@@ -1,4 +1,4 @@
-const style = (isResponsive: boolean) => {
+const style = (isResponsive: boolean, isFullWidth: boolean) => {
     return {
         container: {
             ".email-wrapper" : {
@@ -26,7 +26,7 @@ const style = (isResponsive: boolean) => {
             },
             ".blue-box-mobile-padding":{
                 backgroundColor: "#0032A0",
-                padding: isResponsive ? "32px 16px": "32px 72px",
+                padding: isFullWidth ? "0" : (isResponsive ? "32px 16px": "32px 72px"),
             },
             ".body-table":{
                 width: "100%",

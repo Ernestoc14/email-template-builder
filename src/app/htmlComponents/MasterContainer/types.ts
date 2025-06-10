@@ -4,4 +4,5 @@ export interface MasterContainerHTMLProps {
     boxAzul: string
     body: string
     css: string
+    isFullWidth: boolean
 }

@@ -20,8 +20,8 @@ const bannerWidePromotionalCSS = () => {
   }
 
   .stopover-table {
-    border-top-left-radius: 32px !important;
-    border-top-right-radius: 32px !important;
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
 }
       .stopoverDesc {
 				display: inline-block;
@@ -63,7 +63,7 @@ const bannerWidePromotionalHTML = (props: BannersProps) => {
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%;">
                   <tbody>
                     <tr>
-                      <th class="stopoverImg" style="border-top-left-radius: 8px;border-bottom-left-radius: 8px;width: 308; line-height: 0;">
+                      <th class="stopoverImg" style="border-top-left-radius: 8px;border-bottom-left-radius: 8px;width: 308px; line-height: 0;">
                         <img class="imgStopoverDesktop" src="https://www.copaair.com/webassets/images/stopover-panama-la-vieja.jpeg" alt="Stopover" height="159.5" style="height: 159.5;border-radius: 8px 0 0 8px">
                         <!--[if mso | IE]>
                           <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="287" style="width:287;display:none;">

@@ -25,7 +25,8 @@ const makeHTML = ( template: masterJSONType, lang: string, ) => {
       header: makeHeader.html,
       boxAzul: makeBoxAxul.html,
       body: makeBody.html,
-      css: css
+      css: css,
+      isFullWidth: template.boxAzul.components[0]?.componentId.includes("Images")
     }
 
     const makeMasterContainer = masterContainerHTML(finalTemplate)
