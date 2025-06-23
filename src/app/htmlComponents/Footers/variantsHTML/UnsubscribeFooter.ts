@@ -76,11 +76,11 @@ const unsubscribeHTML = (props: FootersProps) => {
                     <tr>
                         <td align="center"
                             style="font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; color: #666666;">
-                            
-                                <a href="https://www.copaair.com/es-gs/legal/terminos-y-condiciones/politica-de-privacidad/"
+                                ${props.unsubscribeText}
+                                <a href="${props.unsubscribeLink}"
                                     target="_blank" style="color: #666666; font-weight: 600; text-decoration: underline;">
                                         <span style="white-space: nowrap;">
-                                            haga clic aquí.
+                                            ${props.unsubscribeLinkText}
                                         </span>
                                 </a>
                         </td>

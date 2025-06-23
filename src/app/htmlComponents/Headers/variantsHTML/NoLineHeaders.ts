@@ -22,7 +22,7 @@ const noLineHeadersHTML  = () => {
                       </td>
                   </tr>
                   <tr>
-                      <td class="divider-mobile-spacing" style="padding-top: 22px; width: 100%; max-height: 1px; height: 1px;line-height: 0;">
+                      <td class="divider-mobile-spacing" style="padding-top: 22px; width: 100%; line-height: 0;">
                           &nbsp;
                       </td>
                   </tr>

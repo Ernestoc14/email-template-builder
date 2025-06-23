@@ -23,4 +23,5 @@ export interface PaxCardsProps {
   labelTextDocument?: string;
   documentStatus?: string;
   iconURL?: string;
+  checkInStatus?: string;
 }

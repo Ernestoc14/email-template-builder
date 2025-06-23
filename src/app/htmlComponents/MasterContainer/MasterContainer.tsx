@@ -43,7 +43,6 @@ const MasterContainer = ({
   }, [responsiveView, isFullWidth])
 
   const handleComponent = (component: Component, sectionID: string, sectionComponentId?: string) => {
-    console.log(component)
     sendComponent(sectionID, component, sectionComponentId);
   };
 

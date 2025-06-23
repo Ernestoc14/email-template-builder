@@ -25,6 +25,7 @@ const getFooterHTML = (data: Component, lang: string) => {
             // @ts-expect-error doesnt exist footer props
             html = unsubscribeHTML(data[lang])
             css = unsubscribeCSS()
+            break;
         default:
             html = ''
             css = ''

@@ -2,7 +2,7 @@ import { ImagesProps } from "../types"
 
 const ImageFullWidthCSS = () => {
     return `<style type="text/css">
-                @media all and (max-width:360px) {
+                @media all and (max-width:719px) {
                     .header-banner-desktop{
                         display: none !important;
                     }
@@ -16,7 +16,7 @@ const ImageFullWidthCSS = () => {
 const ImageFullWidthHTML = (props: ImagesProps) => {
     return `<tr>
                 <td class="header-banner-desktop">
-                    <img height="auto" src="${props.desktopURL}" style="border: 0;display: block;outline: none;text-decoration: none;width: 100%;height: auto;line-height: 100%;" alt="${props.altText}" width="800">
+                    <img height="auto" src="${props.desktopURL}" style="border: 0;display: block;outline: none;text-decoration: none;width: 100%;height: auto;line-height: 100%;" alt="${props.altText}" width="822">
                 </td>
                 <td class="header-banner-mobile" style="display: none;">
                     <img height="auto" src="${props.mobileURL}" style="border: 0;display: block;outline: none;text-decoration: none;width: 100%;height: auto;line-height: 100%;" alt="${props.altText}">

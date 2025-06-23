@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 const getStyles = (isResponsive: boolean | undefined) => {
 	return {
 		container: {
-			backgroundColor: "#FFFFFF",
 			".remove-text-mobile": {
 				display: isResponsive ? "none !important" : "block",
 			},
@@ -44,7 +43,7 @@ const ItineraryCardEarly = ({data, langProp, isResponsiveView} : {data: Componen
 				<tbody>
 					<tr>
 						<td>
-							<table cellPadding="0" cellSpacing="0" style={{ width: '100%', minWidth: '100%', border: '1px solid #DBDAD8', borderRadius: '12px', borderCollapse: 'separate' }}>
+							<table cellPadding="0" cellSpacing="0" style={{ width: '100%', minWidth: '100%', border: '1px solid #DBDAD8', borderRadius: '12px', borderCollapse: 'separate', backgroundColor: "#FFFFFF" }}>
 								<tbody>
 									<tr>
 										<td className="itinerary-mobile-padding" style={{ padding: '24px', borderCollapse: 'collapse' }}>

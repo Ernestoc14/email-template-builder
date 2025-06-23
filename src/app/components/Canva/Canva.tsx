@@ -43,7 +43,6 @@ const Canvas = ( { template } : { template: string } ) => {
   },[template])
 
   useEffect(()=>{
-    console.log("masterJSON",masterJSON)
     saveTemplate(masterJSON)
   },[masterJSON])
 
@@ -61,6 +60,8 @@ const Canvas = ( { template } : { template: string } ) => {
         break;
 
       case 'dropzone-bluebox':
+        // Esto se trabajo de esta manera para controlar el estado de JSON en BoxAzul
+        // Cada vez que se agrega una Image Full Width
         setMasterJSON(prev => ({
           ...prev,
           boxAzul: {
@@ -68,10 +69,6 @@ const Canvas = ( { template } : { template: string } ) => {
             components: [...prev.boxAzul.components, component]
           }
         }));
-        
-
-        // masterJSON.boxAzul.components.push(component);
-        // setMasterJSON({ ...masterJSON });
         break;
 
       case 'dropzone-body':

@@ -1,5 +1,5 @@
 import { ItineraryCardsProps } from "../types";
-const itineraryCardEarlyCSS = () => {
+const itineraryCardDelayedCSS = () => {
     return `<style type="text/css">
     @media all and (max-width:719px) {
       .remove-text-mobile {
@@ -46,12 +46,15 @@ const itineraryCardEarlyCSS = () => {
   body, table, td, p, div, a, span {
     font-family: Arial, sans-serif !important;
   }
+    .outlook-font {
+      font-family: Gilroy, Helvetica, Arial, sans-serif !important;
+    }
   </style>
   <![endif]-->
     `
 }
 
-const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
+const itineraryCardDelayedHTML = (props: ItineraryCardsProps) => {
     return `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                 <tr>
                   <td>
@@ -65,12 +68,12 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                               </td>
                               <td align="right" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; vertical-align:top">
                                 <!--[if mso]>
-                                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:20px;v-text-anchor:middle;width:90px;line-height: 1;" arcsize="50%" stroke="false" fillcolor="#0E68FF">
+                                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:20px;v-text-anchor:middle;width:90px;line-height: 1;" arcsize="50%" stroke="false" fillcolor="#D52525">
                                     <w:anchorlock/>
                                     <v:textbox inset="0,0,0,0">
                                     <center style="mso-line-height-rule:exactly;">
                                 <![endif]-->
-                                <span style="white-space:nowrap;font-family: SuisseIntl, Helvetica, sans-serif;font-size: 12px;font-weight: 600;padding: 2px 12px;background-color: #0E68FF;border-radius: 12px;color:#ffffff">
+                                <span style="white-space:nowrap;font-family: SuisseIntl, Helvetica, sans-serif;font-size: 12px;font-weight: 600;padding: 2px 12px;background-color: #D52525;border-radius: 12px;color:#ffffff">
                                   ${props?.pillsFlightStatus}
                                 </span>
                                 <!--[if mso]>
@@ -86,13 +89,13 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                   <tr>
                                     <td style="white-space: nowrap;">
                                       <a>
-                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
+                                        <s class="remove-text-mobile outlook-font" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
                                           ${props?.departureCrossedOutTime}
                                         </s>
                                       </a>
                                     </td>
                                     <td class="mso-right-padding-mobile right-padding-mobile"  style="white-space: nowrap;">
-                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
+                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#D52525">
                                           ${props.departureTime}
                                         </span>
                                     </td>
@@ -110,13 +113,13 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                       </p>
                                     </td>
                                     <td align="right" class="mso-left-padding-mobile left-padding-mobile" style="text-align: right;white-space: nowrap;">
-                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
+                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important;font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#D52525">
                                           ${props?.arrivalTime}
                                         </span>
                                     </td>
                                     <td style="white-space: nowrap;">
                                       <a>
-                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important;color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
+                                        <s class="remove-text-mobile outlook-font" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important;color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
                                           ${props?.arrivalCrossedOutTime}
                                         </s>
                                       </a>
@@ -125,14 +128,14 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                   <tr>
                                     <td colspan="3" style="width: 50%;" class="mso-noshow">
                                       <a>
-                                        <s class="show-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
+                                        <s class="show-text-mobile outlook-font" style="line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
                                           ${props?.departureCrossedOutTime}
                                         </s>
                                       </a>
                                     </td>
                                     <td colspan="3" style="text-align: right;width: 50%;" class="mso-noshow">
                                       <a>
-                                        <s class="show-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
+                                        <s class="show-text-mobile outlook-font" style="line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
                                           ${props?.arrivalCrossedOutTime}
                                         </s>
                                       </a>
@@ -181,7 +184,7 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                       <span class="reorder-terminal-gate-mobile">
                                         ${props?.labelTextDestinationTerminal}: ${" "}
                                         <span style="color: #333333;">
-                                          ${props?.destinationTerminal} ${" "}
+                                          ${props?.destinationTerminal}
                                         </span>
                                       </span>
                                       <span class="reorder-terminal-gate-mobile">
@@ -205,4 +208,4 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
     `
 }
 
-export { itineraryCardEarlyCSS, itineraryCardEarlyHTML };
+export { itineraryCardDelayedCSS, itineraryCardDelayedHTML };

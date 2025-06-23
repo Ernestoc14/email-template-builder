@@ -1,5 +1,5 @@
 import { ItineraryCardsProps } from "../types";
-const itineraryCardEarlyCSS = () => {
+const itineraryCardNoPillCSS = () => {
     return `<style type="text/css">
     @media all and (max-width:719px) {
       .remove-text-mobile {
@@ -33,11 +33,11 @@ const itineraryCardEarlyCSS = () => {
   </style>
   <!--[if mso]>
   <style type="text/css">
-    .mso-right-padding-mobile {
-      padding: 0 8px !important;
+    .right-padding-mobile {
+      padding: 0 8px 0 0 !important;
     }
-  .mso-left-padding-mobile {
-    padding: 0 8px !important;
+  .left-padding-mobile {
+    padding: 0 0 0 8px !important;
   }
   .mso-noshow {
     display: none !important;
@@ -51,11 +51,11 @@ const itineraryCardEarlyCSS = () => {
     `
 }
 
-const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
+const itineraryCardNoPillHTML = (props: ItineraryCardsProps) => {
     return `<table cellspacing="0" cellpadding="0" width="100%" style="width:100%;min-width:100%;">
                 <tr>
                   <td>
-                    <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border: 1px solid #DBDAD8; border-radius: 12px;border-collapse:separate; background-color: #FFFFFF;">
+                    <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;border: 1px solid #DBDAD8; border-radius: 12px;border-collapse:separate;background-color: #FFFFFF;">
                       <tr>
                         <td class="itinerary-mobile-padding" style="padding: 24px; border-collapse: collapse;">
                           <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
@@ -63,36 +63,13 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                               <td style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-size: 12px;line-height: 16px;font-weight:600; color: #333333;">
                                 ${props.date} · ${props?.aircraft}
                               </td>
-                              <td align="right" style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: #666666; vertical-align:top">
-                                <!--[if mso]>
-                                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:20px;v-text-anchor:middle;width:90px;line-height: 1;" arcsize="50%" stroke="false" fillcolor="#0E68FF">
-                                    <w:anchorlock/>
-                                    <v:textbox inset="0,0,0,0">
-                                    <center style="mso-line-height-rule:exactly;">
-                                <![endif]-->
-                                <span style="white-space:nowrap;font-family: SuisseIntl, Helvetica, sans-serif;font-size: 12px;font-weight: 600;padding: 2px 12px;background-color: #0E68FF;border-radius: 12px;color:#ffffff">
-                                  ${props?.pillsFlightStatus}
-                                </span>
-                                <!--[if mso]>
-                                    </center>
-                                    </v:textbox>
-                                    </v:roundrect>
-                                <![endif]-->
-                              </td>
                             </tr>
                             <tr>
                               <td colspan="2" style="padding-top: 16px;">
                                 <table cellpadding="0" cellspacing="0" style="width:100%;min-width:100%;">
                                   <tr>
-                                    <td style="white-space: nowrap;">
-                                      <a>
-                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
-                                          ${props?.departureCrossedOutTime}
-                                        </s>
-                                      </a>
-                                    </td>
-                                    <td class="mso-right-padding-mobile right-padding-mobile"  style="white-space: nowrap;">
-                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
+                                    <td class="right-padding-mobile"  style="white-space: nowrap;">
+                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 8px 0 0; font-weight: 700; color:#333333">
                                           ${props.departureTime}
                                         </span>
                                     </td>
@@ -109,33 +86,10 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                         &nbsp;
                                       </p>
                                     </td>
-                                    <td align="right" class="mso-left-padding-mobile left-padding-mobile" style="text-align: right;white-space: nowrap;">
-                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 8px; font-weight: 700; color:#0E68FF">
+                                    <td align="right" class="left-padding-mobile" style="text-align: right;white-space: nowrap;">
+                                        <span class="remove-padding-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; font-size: 20px; line-height: 32px; padding: 0 0 0 8px; font-weight: 700; color:#333333">
                                           ${props?.arrivalTime}
                                         </span>
-                                    </td>
-                                    <td style="white-space: nowrap;">
-                                      <a>
-                                        <s class="remove-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important;color: #333333; font-size: 18px; line-height: 24px; font-weight: 400;">
-                                          ${props?.arrivalCrossedOutTime}
-                                        </s>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3" style="width: 50%;" class="mso-noshow">
-                                      <a>
-                                        <s class="show-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
-                                          ${props?.departureCrossedOutTime}
-                                        </s>
-                                      </a>
-                                    </td>
-                                    <td colspan="3" style="text-align: right;width: 50%;" class="mso-noshow">
-                                      <a>
-                                        <s class="show-text-mobile" style="font-family:Gilroy, Helvetica, Arial, sans-serif !important; line-height: 24px;font-size: 18px;font-weight: 400;display: none; color: #333333;">
-                                          ${props?.arrivalCrossedOutTime}
-                                        </s>
-                                      </a>
                                     </td>
                                   </tr>
                                 </table>
@@ -176,21 +130,6 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
                                         </span>
                                       </span>
                                     </td>
-                                    <td align="right"
-                                      style="font-family: SuisseIntl,Helvetica, Arial, sans-serif; font-size: 12px;padding-left: 12px; text-align: right; color: #666666;width: 50%;line-height: 16px;vertical-align: top;font-weight: 600;">
-                                      <span class="reorder-terminal-gate-mobile">
-                                        ${props?.labelTextDestinationTerminal}: ${" "}
-                                        <span style="color: #333333;">
-                                          ${props?.destinationTerminal} ${" "}
-                                        </span>
-                                      </span>
-                                      <span class="reorder-terminal-gate-mobile">
-                                        ${props?.labelTextDestinationGate}: ${" "}
-                                        <span style="color: #333333;">
-                                          ${props?.destinationGate}
-                                        </span>
-                                      </span>
-                                    </td>
                                   </tr>
                                 </table>
                               </td>
@@ -205,4 +144,4 @@ const itineraryCardEarlyHTML = (props: ItineraryCardsProps) => {
     `
 }
 
-export { itineraryCardEarlyCSS, itineraryCardEarlyHTML };
+export { itineraryCardNoPillCSS, itineraryCardNoPillHTML };

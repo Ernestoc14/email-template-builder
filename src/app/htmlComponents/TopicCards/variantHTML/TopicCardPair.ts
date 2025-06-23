@@ -16,6 +16,9 @@ const topicCardPairCSS = () => {
             .img-mb-padding {
               padding: 0 0 24px 0 !important;
             }
+            .topic-full-width {
+              width: 100% !important;
+            }
           }
           </style>`
 }

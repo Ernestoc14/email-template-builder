@@ -30,7 +30,7 @@ const getStyles = (isResponsive: boolean | undefined) => {
     }
 }
 
-const ItineraryCardOnTime = ({data, langProp, isResponsiveView} : {data: Component, langProp: string, isResponsiveView?: boolean}) => {
+const ItineraryCardProgrammed = ({data, langProp, isResponsiveView} : {data: Component, langProp: string, isResponsiveView?: boolean}) => {
   const [styles, setStyle] = useState(getStyles(isResponsiveView))
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const ItineraryCardOnTime = ({data, langProp, isResponsiveView} : {data: Compone
                               }
                             </td>
                             <td align="right" style={{ fontFamily: 'SuisseIntl,Helvetica, Arial, sans-serif', fontWeight: 400, fontSize: '12px', lineHeight: '16px', color: '#666666', verticalAlign: 'top' }}>
-                              <span style={{ whiteSpace: 'nowrap', fontFamily: 'SuisseIntl, Helvetica, sans-serif', fontSize: '12px', fontWeight: 600, padding: '2px 12px', backgroundColor: '#0C7E3E', borderRadius: '12px', color: '#ffffff' }}>
+                              <span style={{ whiteSpace: 'nowrap', fontFamily: 'SuisseIntl, Helvetica, sans-serif', fontSize: '12px', fontWeight: 600, padding: '2px 12px', backgroundColor: '#0032A0', borderRadius: '12px', color: '#ffffff' }}>
                                 {
                                   // @ts-expect-error doesn't exist itineraryCard props
                                   data[langProp].pillsFlightStatus
@@ -208,4 +208,4 @@ const ItineraryCardOnTime = ({data, langProp, isResponsiveView} : {data: Compone
     </Box>
   )
 }
-export default ItineraryCardOnTime;
+export default ItineraryCardProgrammed;

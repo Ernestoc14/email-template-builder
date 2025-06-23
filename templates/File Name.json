@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "canvasConfig": {
+    "name": "File Name",
+    "date": "12/06/2025, 15:38:45",
+    "autor": "CM"
+  },
+  "masterContainer": {
+    "isMarkupLCode": true,
+    "headerId": "header-01",
+    "bodyId": "body-01",
+    "footerId": "footer-01",
+    "boxAzulId": "box-azul-01"
+  },
+  "header": [],
+  "boxAzul": {
+    "components": []
+  },
+  "body": {
+    "sectionComponents": []
+  },
+  "footer": []
+}
