@@ -30,7 +30,7 @@ const reservationCodeHeadersHTML = (props: HeadersProps) => {
                                 </tr>
                                 <tr>
                                     <td align="right" style="font-size: 16px; line-height: 20px; font-style: normal; font-weight: 600; font-family: Gilroy, Arial, Helvetica, sans-serif; ">
-                                        ABC123
+                                        ${props.reservationCode}
                                     </td>
                                 </tr>
                             </table>
